@@ -1,16 +1,15 @@
 import React from "react";
-import Slider from "../slider/slider";
-import Header from "../mainPage/Header/Header";
-import { ProductTemplate } from "../ProductTemplate";
+import Slider from "../../slider/slider";
+import Header from "../../Header/Header";
+import { ProductTemplate } from "../../ProductTemplate";
 
-
-import GreenNike from "../images/shoes/greenNike.jpg";
-import BlackAdidas from "../images/shoes/blackAdidas.jpg";
-import AirForce1White from "../images/shoes/airForce1White.jpg";
-import JordanGrey from "../images/shoes/jordanGrey.jpg";
-import DunkYellow from "../images/shoes/dunkYellow.jpg";
-import NikeBones from "../images/shoes/nikeBones.jpg";
-import greenNike2 from "../images/shoes/greenNike2.webp";
+import GreenNike from "../../images/shoes/greenNike.jpg";
+import BlackAdidas from "../../images/shoes/blackAdidas.jpg";
+import AirForce1White from "../../images/shoes/airForce1White.jpg";
+import JordanGrey from "../../images/shoes/jordanGrey.jpg";
+import DunkYellow from "../../images/shoes/dunkYellow.jpg";
+import NikeBones from "../../images/shoes/nikeBones.jpg";
+import greenNike2 from "../../images/shoes/greenNike2.webp";
 
 const productPage = () => {
   return (
@@ -111,88 +110,89 @@ const productPage = () => {
             <img class="prodPhotoOwnPage" src={greenNike2} alt="nikeGreen2" />
           </div>
         </div>
-       <div className="underInfo"><div className="">
-        </div><h2> Other products</h2> </div>
-          <div >
-            <div class="flexBoxProducts">
-              <div class="flexBox1" id="">
-                <ProductTemplate
-                  ProdPage="productPage"
-                  ProductName="Nike green"
-                  ImgLink={GreenNike}
-                  Price="1500"
-                />
-                <ProductTemplate
-                  ProdPage="productPage"
-                  ProductName="Nike bones"
-                  ImgLink={NikeBones}
-                  Price="300"
-                />
-                <ProductTemplate
-                  ProdPage="productPage"
-                  ProductName="dunk yellow"
-                  ImgLink={DunkYellow}
-                  Price="400"
-                />
-                <ProductTemplate
-                  ProdPage="productPage"
-                  ProductName="Air force 1 white"
-                  ImgLink={AirForce1White}
-                  Price="200"
-                />
-                <ProductTemplate
-                  ProdPage="productPage"
-                  ProductName="jordan grey"
-                  ImgLink={JordanGrey}
-                  Price="300"
-                />
-                <ProductTemplate
-                  ProdPage="productPage"
-                  ProductName="Nike green"
-                  ImgLink={GreenNike}
-                  Price="1500"
-                />
-                <ProductTemplate
-                  ProdPage="productPage"
-                  ProductName="black adidas"
-                  ImgLink={BlackAdidas}
-                  Price="500"
-                />
-                <ProductTemplate
-                  ProdPage="productPage"
-                  ProductName="dunk yellow"
-                  ImgLink={DunkYellow}
-                  Price="300"
-                />
-                <ProductTemplate
-                  ProdPage="productPage"
-                  ProductName="Air force 1 white"
-                  ImgLink={AirForce1White}
-                  Price="200"
-                />
-                <ProductTemplate
-                  ProdPage="productPage"
-                  ProductName="Nike green"
-                  ImgLink={GreenNike}
-                  Price="1500"
-                />
-                <ProductTemplate
-                  ProdPage="productPage"
-                  ProductName="black adidas"
-                  ImgLink={BlackAdidas}
-                  Price="500"
-                />
-                <ProductTemplate
-                  ProdPage="productPage"
-                  ProductName="dunk yellow"
-                  ImgLink={DunkYellow}
-                  Price="300"
-                />
-              </div>
+        <div className="underInfo">
+          <div className=""></div>
+          <h2> Other products</h2>{" "}
+        </div>
+        <div>
+          <div class="flexBoxProducts">
+            <div class="flexBox1" id="">
+              <ProductTemplate
+                ProdPage="productPage"
+                ProductName="Nike green"
+                ImgLink={GreenNike}
+                Price="1500"
+              />
+              <ProductTemplate
+                ProdPage="productPage"
+                ProductName="Nike bones"
+                ImgLink={NikeBones}
+                Price="300"
+              />
+              <ProductTemplate
+                ProdPage="productPage"
+                ProductName="dunk yellow"
+                ImgLink={DunkYellow}
+                Price="400"
+              />
+              <ProductTemplate
+                ProdPage="productPage"
+                ProductName="Air force 1 white"
+                ImgLink={AirForce1White}
+                Price="200"
+              />
+              <ProductTemplate
+                ProdPage="productPage"
+                ProductName="jordan grey"
+                ImgLink={JordanGrey}
+                Price="300"
+              />
+              <ProductTemplate
+                ProdPage="productPage"
+                ProductName="Nike green"
+                ImgLink={GreenNike}
+                Price="1500"
+              />
+              <ProductTemplate
+                ProdPage="productPage"
+                ProductName="black adidas"
+                ImgLink={BlackAdidas}
+                Price="500"
+              />
+              <ProductTemplate
+                ProdPage="productPage"
+                ProductName="dunk yellow"
+                ImgLink={DunkYellow}
+                Price="300"
+              />
+              <ProductTemplate
+                ProdPage="productPage"
+                ProductName="Air force 1 white"
+                ImgLink={AirForce1White}
+                Price="200"
+              />
+              <ProductTemplate
+                ProdPage="productPage"
+                ProductName="Nike green"
+                ImgLink={GreenNike}
+                Price="1500"
+              />
+              <ProductTemplate
+                ProdPage="productPage"
+                ProductName="black adidas"
+                ImgLink={BlackAdidas}
+                Price="500"
+              />
+              <ProductTemplate
+                ProdPage="productPage"
+                ProductName="dunk yellow"
+                ImgLink={DunkYellow}
+                Price="300"
+              />
             </div>
           </div>
         </div>
-    
+      </div>
     </>
   );
 };

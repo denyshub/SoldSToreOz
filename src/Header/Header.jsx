@@ -13,22 +13,22 @@ const Header = (props) => {
         <nav>
           <ul className={styles.nav__links}>
             <li>
-              <NavLink to={addPath} className={styles.navStyle} >
+              <NavLink to={addPath} className={styles.navStyle}>
                 {props.AddPage}
               </NavLink>
             </li>
             <li>
-              <NavLink to={path} className={styles.navStyle} >
+              <NavLink to={path} className={styles.navStyle}>
                 {props.Page}
               </NavLink>
             </li>
             <li>
-            <NavLink to="/women" className={styles.navStyle} >
+              <NavLink to="/women" className={styles.navStyle}>
                 WOMEN
-                </NavLink>
+              </NavLink>
             </li>
             <li>
-            <NavLink to="/children" className={styles.navStyle} >
+              <NavLink to="/children" className={styles.navStyle}>
                 KIDS
               </NavLink>
             </li>
@@ -44,22 +44,21 @@ const Header = (props) => {
               placeholder="  Search..."
             ></input>
             <NavLink
-            to = ''
-              className={`${styles.search_btn} ${styles.iconMen} ${styles.search}`}
-
+              to=""
+              className={`${styles.search_btn} ${styles.iconMen} ${styles.search} ${styles.hoverIcons}`}
             >
               <ion-icon name="search-outline"></ion-icon>
             </NavLink>
           </div>
 
-          <NavLink className={styles.cartIcon} to="/cart">
+          <NavLink className={styles.cartIcon + ' ' + styles.hoverIcons} to="/cart">
             <ion-icon name="cart-outline"></ion-icon>
           </NavLink>
           <NavLink
             to="/liked"
             id={styles.person}
-            className={`${styles.iconMen} ${styles.heartIcon}`}
-            activeStyle={{ color: 'grey'}}
+            className={`${styles.iconMen} ${styles.heartIcon} ${styles.hoverIcons}`}
+            activeStyle={{ color: "grey" }}
           >
             <ion-icon name="heart-outline"></ion-icon>
           </NavLink>
@@ -67,11 +66,10 @@ const Header = (props) => {
           <NavLink
             to="/profile"
             id={styles.person}
-            className={`${styles.iconMen} ${styles.person}`}
-            activeStyle={{ color: 'grey'}}
-
+            className={`${styles.iconMen} ${styles.person}  ${styles.hoverIcons}`}
+            activeStyle={{ color: "grey" }}
           >
-            <ion-icon  name="person-outline"></ion-icon>
+            <ion-icon name="person-outline"></ion-icon>
           </NavLink>
 
           <div className={styles.sunPosition}>

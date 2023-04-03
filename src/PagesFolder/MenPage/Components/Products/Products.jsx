@@ -1,10 +1,7 @@
 import React from "react";
-import { ProductTemplate } from "../ProductTemplate";
-
+import { ProductTemplate } from "../../../../ProductTemplate";
 
 const Products = (props) => {
- 
-
   let productElements = props.productData.map((p) => (
     <ProductTemplate
       Id={p.id}
@@ -17,9 +14,7 @@ const Products = (props) => {
   return (
     <div className="pushFooter">
       <div class="flexBoxProductsMen">
-        <div class="item flexBox1">
-          {productElements}
-          </div>
+        <div class="item flexBox1">{productElements}</div>
       </div>
     </div>
   );

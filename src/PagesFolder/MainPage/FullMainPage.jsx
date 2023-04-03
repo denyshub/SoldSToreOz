@@ -1,9 +1,9 @@
 import React from "react";
 
-import Header from "./Header/Header";
-import PeopleImgs from "./Content/PeopleImgs";
-import AboutUs from "./Content/AboutUs";
-import Footer from "./Footer/Footer";
+import Header from "../../Header/Header";
+import PeopleImgs from "./Components/PeopleImgs";
+import AboutUs from "./Components/AboutUs";
+
 
 const FullMainPage = () => {
   return (
@@ -11,8 +11,6 @@ const FullMainPage = () => {
       <Header Page="MEN" Link="men" />
       <PeopleImgs />
       <AboutUs />
-   
-  
     </>
   );
 };

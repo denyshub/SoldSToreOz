@@ -1,7 +1,7 @@
 import React from "react";
-import kid from "../../images/People/kid.png";
-import women from "../../images/People/women.png";
-import men from "../../images/People/men.png";
+import kid from "../../../images/People/kid.png";
+import women from "../../../images/People/women.png";
+import men from "../../../images/People/men.png";
 import styles from './Content.module.css'
 import { NavLink } from "react-router-dom";
 const PeopleImgs = () => {

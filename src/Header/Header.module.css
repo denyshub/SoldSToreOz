@@ -74,7 +74,7 @@ button:hover {
 
 .person {
   font-size: 27px;
-  margin-top: 7px;
+  margin-top: 5px;
 }
 .iconsFlexBox {
   display: flex;
@@ -148,15 +148,11 @@ button:hover {
   margin-top: 8px;
 }
 
-#call:hover {
+.hoverIcons:hover{
+  color: grey;
   transition: 0.8s;
-  color: gray;
 }
 
-.person :hover {
-  transition: 0.8s;
-  color: gray;
-}
 
 .cartIcon {
   font-size: 2rem;
@@ -166,10 +162,7 @@ button:hover {
   align-items: center;
 }
 
-.cartIcon:hover {
-  transition: 0.8s;
-  color: gray;
-}
+
 
 .heartIcon {
   font-size: 2rem;

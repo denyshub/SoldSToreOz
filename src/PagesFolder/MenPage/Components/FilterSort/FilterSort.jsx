@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const DropLine = (props) => {
   return (
@@ -22,7 +22,7 @@ const FilterSort = () => {
   const [open, setOpen] = useState(false);
   const [open1, setOpen1] = useState(false);
 
-  const [buttonText, setButtonText] = useState("Next"); //same as creating your state variable where "Next" is the default value for buttonText and setButtonText is the setter function for your state variable instead of setState
+
 
   return (
     <div>
