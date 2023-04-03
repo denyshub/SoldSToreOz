@@ -1,0 +1,484 @@
+.filterRow {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+input {
+  width: 70%;
+
+  height: 20px;
+  background-color: #fff;
+  border: none;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  outline: none;
+  margin-bottom: 20px;
+  padding: 20px 10px;
+  border-radius: 5px;
+}
+
+.dropdown::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 2px solid #333;
+  right: 20px;
+  top: 25px;
+  z-index: 10000;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transform: rotate(-45deg);
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.dropdown.active::before {
+  transform: rotate(-225deg);
+  top: 22px;
+}
+
+.dropdown input {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background: #fff;
+  outline: none;
+  border: none;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  padding: 12px 20px;
+  border-radius: 10px;
+}
+
+/*/////////////////////////////////////*/
+
+.dropdown1 {
+  position: relative;
+  margin-top: 100px;
+  width: 25%;
+  height: 60px;
+  background: #fafafa;
+}
+
+.dropdown1::before {
+  content: "";
+
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 2px solid #333;
+  right: 20px;
+  top: 25px;
+  z-index: 10000;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transform: rotate(-45deg);
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.dropdown1.active::before {
+  transform: rotate(-225deg);
+  top: 22px;
+}
+
+.dropdown1 input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background: #fff;
+  outline: none;
+  border: none;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  padding: 12px 20px;
+  border-radius: 10px;
+}
+
+.flexBox1 {
+  display: flex;
+  flex-direction: row;
+
+  gap: 3em;
+  width: 95%;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
+  padding-bottom: 50px;
+}
+
+.dropdown1 .option1 {
+  position: relative;
+  top: 70px;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 50px;
+  overflow: auto;
+  z-index: 10000;
+
+  display: none;
+}
+
+.dropdown1.active .option1 {
+  display: block;
+  display: flex;
+
+  flex-direction: column;
+  background-color: rgba(5, 4, 4, 0);
+}
+
+.dropdown1 .option1 div {
+  padding: 12px 20px;
+  cursor: poiner;
+  transition: 0.8s;
+  background: rgba(0, 0, 0, 0.137);
+}
+
+.dropdown1 .option1 div:hover {
+  color: #fff;
+}
+
+.dropdown1 .option1 div ion-icon {
+  position: relative;
+  top: 4px;
+  font-size: 1.2em;
+}
+
+#liked {
+  font-size: 3em;
+}
+
+#liked:hover {
+  color: gray;
+}
+
+.popularText {
+  padding-top: 50px;
+  text-align: center;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 40px;
+}
+
+#iconsMen:hover {
+  color: grey;
+  transition: 0.5s;
+}
+
+.person1 {
+  font-size: 25px;
+  padding-top: 10px;
+}
+
+.imageFrame {
+  border-radius: 10px;
+
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.142);
+  border: 2.3px solid rgba(0, 0, 0, 0.236);
+}
+.dropdown .option {
+  position: relative;
+
+  top: 70px;
+  overflow-y: hidden;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.137);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0);
+  border-radius: 50px;
+  overflow: auto;
+  z-index: 10000;
+
+  opacity: 0.85;
+}
+
+.dropdown.active .option {
+  display: block;
+  overflow-y: hidden;
+}
+
+.dropdown .option div {
+  padding: 12px 20px;
+  cursor: poiner;
+  transition: 0.8s;
+}
+
+.dropdown .option div:hover {
+  color: #fff;
+}
+
+.dropdown .option div ion-icon {
+  position: relative;
+  top: 4px;
+
+  font-size: 1.2em;
+}
+
+#iconsColor {
+  color: black;
+}
+
+.container1 {
+  display: flex;
+
+  margin: 0;
+  padding-top: 10rem;
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.likeProduct {
+  color: black;
+  position: relative;
+  float: right;
+}
+a {
+  z-index: 1;
+}
+
+.dropdown {
+  position: relative;
+  margin-top: 100px;
+  width: 25%;
+  height: 60px;
+  background: white;
+  /* border: 4px solid black; */
+}
+
+.buttonsInDrop1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-left: 10px;
+  align-items: center;
+  border-radius: 50px;
+  background-color: black;
+  border: none;
+  width: 35vh;
+  height: 40px;
+  transition: 0.5s;
+  color: #fff;
+}
+
+.iconsInDrop {
+  height: 40px;
+  padding-left: -10px;
+}
+
+.searches {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  border: 4px solid black;
+  width: 20%;
+  height: 80px;
+  border-radius: 50px;
+  margin-top: 100px;
+  text-align: center;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 20px;
+}
+
+.clothes {
+  height: 35ch;
+
+  border-radius: 10px;
+  margin-bottom: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.caption {
+  padding-left: 30px;
+  text-transform: uppercase;
+}
+.NamePrice {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.price {
+  margin-right: 35px;
+  font-size: 25px;
+  color: #111;
+}
+.img {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.imgdiv {
+  display: flex;
+  justify-content: end;
+  height: 20px;
+  width: 20px;
+  padding-left: 10px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-inline: auto;
+  background-color: #ffffff;
+}
+/* TEST DROPDOWN*/
+
+.filter {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  border: 4px solid black;
+  width: 501%;
+  border-radius: 50px;
+  height: 4.8rem;
+  padding: 20px 10px;
+  margin-top: 50px;
+  transition: 0.8s;
+}
+
+.filter:hover {
+  background-color: #d8d8d8;
+}
+
+.menu-container {
+  width: 20%;
+  height: 60px;
+  padding-top: 50px;
+}
+
+.dropdown-menu.active {
+  opacity: 1;
+  visibility: 1;
+  transform: translateY(0);
+  transition: 0.8s ease;
+}
+
+.dropdown-menu.inactive {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.8s ease;
+}
+
+.dropBox {
+  height: auto;
+  margin-top: 10px;
+  width: 100%;
+  opacity: 0.8;
+  justify-content: start;
+
+  background-color: gray;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-trigger {
+  width: 20%;
+}
+.menu-trigger1 {
+  width: 20%;
+}
+.buttonsInDrop {
+  font-family: "Ubuntu", sans-serif;
+
+  display: flex;
+  transition: 1.2s;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+
+  background-color: black;
+  border: none;
+  width: 35vh;
+  height: 40px;
+  overflow: hidden;
+  color: #fff;
+}
+
+.buttonLine {
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: row;
+  overflow-x: hidden;
+  height: 50px;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+.buttonLine1 {
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: row;
+  overflow-x: hidden;
+  height: 50px;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+.buttonLine:hover > .buttonsInDrop {
+  opacity: 0;
+  cursor: pointer;
+}
+
+.hiddenOptions {
+  opacity: 0;
+  visibility: 0;
+  position: absolute;
+  cursor: pointer;
+  z-index: 100;
+  font-size: 20px;
+  transition: 0.7s ease;
+}
+
+.buttonLine:hover > .hiddenOptions {
+  opacity: 1;
+  visibility: 1;
+  cursor: pointer;
+}
+
+.TESTICON {
+  color: #fafafa;
+}
+
+.dropdown-menu1.active {
+  opacity: 1;
+  visibility: 1;
+  transform: translateY(0);
+  transition: 0.8s ease;
+}
+
+.dropdown-menu1.inactive {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.8s ease;
+}
+
+.hiddenOptions:hover > .buttonLine {
+  opacity: 0;
+}
+
+.pushFooter {
+  min-height: 100vh;
+  margin-bottom: 100px;
+}
+
+.flexBoxProductsMen {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
