@@ -4,7 +4,6 @@ import HeaderProfile from "../../Header/Header";
 const ProfilePage = () => {
   return (
     <>
-      <HeaderProfile AddPage="HOME" AddLink="" Page="MEN" Link="men" />
       <div className={s.pushFooter}>
         <div className={s.container1}>
           <div className={s.containerProfile}>

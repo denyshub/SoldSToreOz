@@ -161,8 +161,8 @@ const Header = (props) => {
       </header>
       <div className={`dropNavbar ${drop ? "active" : "inactive"}`} >
         <div className="mobileNavRow"><NavLink className="linksMobile" to = '/men'>MEN</NavLink></div>
-        <div><NavLink className="linksMobile" to = '/women'>WOMEN</NavLink></div>
-        <div><NavLink className="linksMobile" to = '/kids'>KIDS</NavLink></div>
+        <div className="mobileNavRow"> <NavLink className="linksMobile" to = '/women'>WOMEN</NavLink></div>
+        <div className="mobileNavRow"><NavLink className="linksMobile" to = '/kids'>KIDS</NavLink></div>
         {/* <div><NavLink>MEN</NavLink></div> */}
       </div>
     </>

@@ -7,9 +7,12 @@
 }
 
 .dropNavbar {
+  position: absolute;
   width: 100%;
- 
-  height: 350px;
+ display: flex;
+ flex-direction: column;
+ gap: 2em;
+  height: auto;
   opacity: 0.8;
   margin-top: 69px;
   background-color: #111;
@@ -33,7 +36,14 @@
 .linksMobile{
   color: white;
 }
-
+.linksMobile:checked{
+transform: scale(0.8);
+}
 .mobileNavRow{
-  
+  font-family: 'Ubuntu';
+  font-size:30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ padding-bottom: 10px;
 }

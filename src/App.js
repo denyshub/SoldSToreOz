@@ -16,11 +16,15 @@ import ProfilePage from "./PagesFolder/ProfilePage/Profile";
 import Footer from "./Footer/Footer";
 import Cart from "../src/cart/cart";
 import { ShopContextProvider } from "./context/shop-context";
+import Header from "./Header/Header";
 
 function App(props) {
   return (
     <BrowserRouter>
       <ShopContextProvider>
+        <Route exact path="/" render={() => <Header  Page="MEN" Link="men"/>} />
+        <Route exact path="/men" render={() => <Header Page="HOME" Link="" />} />
+        <Route exact path="/profile" render={() => <Header Page="MEN" AddPage = 'HOME' Link="men" AddLink = '' />} />
         <Route exact path="/" component={FullMainPage} />
         <Route
           path="/men"
