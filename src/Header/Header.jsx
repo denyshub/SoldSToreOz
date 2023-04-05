@@ -1,13 +1,13 @@
 import React from "react";
 import LogoHeader from "./logoHeader";
 import styles from "./Header.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useState } from "react";
 import "../syles/MOBILENAVTEMP.css";
 const Header = (props) => {
   let firstPath = "/" + props.FirstPage;
-  if (props.FirstPage.toLowerCase()=='home'){
-    firstPath = ''
+  if (props.FirstPage=='home'){
+    firstPath = '/'
   }
   const secondPath = "/" + props.SecondPage;
   const thirdPath = "/" + props.ThirdPage;
@@ -27,24 +27,24 @@ const Header = (props) => {
           <nav>
             <ul className={styles.nav__links}>
               <li>
-                <NavLink to={firstPath} className={styles.navStyle}>
+                <Link to={firstPath} className={styles.navStyle}>
                  {firstPage}
-                </NavLink>
+                </Link>
               </li>
               <li>
-                <NavLink to={secondPath} className={styles.navStyle}>
+                <Link to={secondPath} className={styles.navStyle}>
                   {secondPage}
-                </NavLink>
+                </Link>
               </li>
               <li>
-                <NavLink to={thirdPath} className={styles.navStyle}>
+                <Link to={thirdPath} className={styles.navStyle}>
                   {thirdPage}
-                </NavLink>
+                </Link>
               </li>
               <li>
-                <NavLink to={forthPath} className={styles.navStyle}>
+                <Link to={forthPath} className={styles.navStyle}>
                   {fortPage}
-                </NavLink>
+                </Link>
               </li>
             </ul>
           </nav>
@@ -65,29 +65,29 @@ const Header = (props) => {
               </a>
             </div>
 
-            <NavLink
+            <Link
               className={styles.cartIcon + " " + styles.hoverIcons}
               to="/cart"
             >
               <ion-icon name="cart-outline"></ion-icon>
-            </NavLink>
-            <NavLink
+            </Link>
+            <Link
               to="/liked"
               id={styles.person}
               className={`${styles.iconMen} ${styles.heartIcon} ${styles.hoverIcons}`}
               activeStyle={{ color: "grey" }}
             >
               <ion-icon name="heart-outline"></ion-icon>
-            </NavLink>
+            </Link>
 
-            <NavLink
+            <Link
               to="/profile"
               id={styles.person}
               className={`${styles.iconMen} ${styles.person}  ${styles.hoverIcons}`}
               activeStyle={{ color: "grey" }}
             >
               <ion-icon name="person-outline"></ion-icon>
-            </NavLink>
+            </Link>
             <div className={styles.mobileNavButtonDiv}>
               {" "}
               <button
@@ -171,23 +171,23 @@ const Header = (props) => {
       </header>
       <div className={`dropNavbar ${drop ? "active" : "inactive"}`}>
         <div className="mobileNavRow">
-          <NavLink className="linksMobile" to = {firstPath} >{firstPage}</NavLink>
+          <Link className="linksMobile" to = {firstPath} >{firstPage}</Link>
         </div>
         <div className="mobileNavRow">
-          <NavLink className="linksMobile" to={secondPath}>
+          <Link className="linksMobile" to={secondPath}>
             {secondPage}
-          </NavLink>
+          </Link>
         </div>
         <div className="mobileNavRow">
           {" "}
-          <NavLink className="linksMobile" to={thirdPath}>
+          <Link className="linksMobile" to={thirdPath}>
             {thirdPage}
-          </NavLink>
+          </Link>
         </div>
         <div className="mobileNavRow">
-          <NavLink className="linksMobile" to={forthPath}>
+          <Link className="linksMobile" to={forthPath}>
             {fortPage}
-          </NavLink>
+          </Link>
         </div>
       </div>
     </>
