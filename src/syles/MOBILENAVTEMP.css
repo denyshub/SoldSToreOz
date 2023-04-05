@@ -1,0 +1,39 @@
+.active{
+  display: block;
+}
+
+.inactive{
+  display: none;
+}
+
+.dropNavbar {
+  width: 100%;
+ 
+  height: 350px;
+  opacity: 0.8;
+  margin-top: 69px;
+  background-color: #111;
+  border-radius: 0 0  50px 50px;
+  transition: 0.8s ease;
+}
+
+.dropNavbar.active{
+  opacity: 1;
+
+  transition: 0.8s ease;
+  visibility: 1;
+}
+
+.dropNavbar.inactive {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.8s ease;
+}
+
+.linksMobile{
+  color: white;
+}
+
+.mobileNavRow{
+  
+}

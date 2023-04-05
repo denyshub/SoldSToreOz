@@ -135,3 +135,10 @@ align-items: start;
 .footerPoints:hover{
   color: gray;
 }
+
+@media screen and (max-width: 1300px) {
+  .flexBoxPeople{
+    display: none;
+  }
+  
+}
