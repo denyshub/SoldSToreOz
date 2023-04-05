@@ -7,34 +7,50 @@
 }
 
 .dropNavbar {
-  position: absolute;
+  position: relative;
+  z-index: 10000;
   width: 100%;
  display: flex;
  flex-direction: column;
  gap: 2em;
   height: auto;
-  opacity: 0.8;
+
   margin-top: 69px;
   background-color: #111;
   border-radius: 0 0  50px 50px;
-  transition: 0.8s ease;
+  transition: 0.5s ease;
+}
+
+.menuMobileIcon {
+  font-size: 2rem;
+  color: white;
+  margin-top: 5px;
+}
+
+.dropNavbar.active > .menuButton{
+  color: gray;
+}
+.dropNavbar.inactive > .menuButton{
+  color: white;
 }
 
 .dropNavbar.active{
   opacity: 1;
 
-  transition: 0.8s ease;
+
   visibility: 1;
 }
 
 .dropNavbar.inactive {
   opacity: 0;
   visibility: hidden;
-  transition: 0.8s ease;
+
 }
 
 .linksMobile{
   color: white;
+  text-transform: uppercase;
+  transition: 0.5s;
 }
 .linksMobile:checked{
 transform: scale(0.8);
@@ -47,3 +63,34 @@ transform: scale(0.8);
   justify-content: center;
  padding-bottom: 10px;
 }
+
+@media screen and (min-width: 880px) {
+  .dropNavbar{
+    display: none;
+  }
+}
+
+.linksMobile:hover{
+  color: gray;
+
+  transform: scale(0.9);
+}
+
+.menuButton {
+  height: 100%;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50px;
+}
+
+.mobileNavButtonDiv {
+  width: 100px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

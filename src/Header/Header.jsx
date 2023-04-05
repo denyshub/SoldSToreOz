@@ -3,12 +3,22 @@ import LogoHeader from "./logoHeader";
 import styles from "./Header.module.css";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import '../syles/MOBILENAVTEMP.css'
+import "../syles/MOBILENAVTEMP.css";
 const Header = (props) => {
-  const path = "/" + props.Link;
-  const addPath = "/" + props.AddLink;
+  let firstPath = "/" + props.FirstPage;
+  if (props.FirstPage.toLowerCase()=='home'){
+    firstPath = ''
+  }
+  const secondPath = "/" + props.SecondPage;
+  const thirdPath = "/" + props.ThirdPage;
+  const forthPath = "/" + props.ForthPage;
+  const firstPage = props.FirstPage;
+
+  const secondPage = props.SecondPage;
+  const thirdPage = props.ThirdPage;
+  const fortPage = props.ForthPage;
   const [drop, setDrop] = useState(false);
- 
+
   return (
     <>
       <header>
@@ -17,23 +27,23 @@ const Header = (props) => {
           <nav>
             <ul className={styles.nav__links}>
               <li>
-                <NavLink to={addPath} className={styles.navStyle}>
-                  {props.AddPage}
+                <NavLink to={firstPath} className={styles.navStyle}>
+                 {firstPage}
                 </NavLink>
               </li>
               <li>
-                <NavLink to={path} className={styles.navStyle}>
-                  {props.Page}
+                <NavLink to={secondPath} className={styles.navStyle}>
+                  {secondPage}
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/women" className={styles.navStyle}>
-                  WOMEN
+                <NavLink to={thirdPath} className={styles.navStyle}>
+                  {thirdPage}
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/children" className={styles.navStyle}>
-                  KIDS
+                <NavLink to={forthPath} className={styles.navStyle}>
+                  {fortPage}
                 </NavLink>
               </li>
             </ul>
@@ -47,12 +57,12 @@ const Header = (props) => {
                 name=""
                 placeholder="  Search..."
               ></input>
-              <NavLink
-                to=""
+              <a
+
                 className={`${styles.search_btn} ${styles.iconMen} ${styles.search} ${styles.hoverIcons}`}
               >
                 <ion-icon name="search-outline"></ion-icon>
-              </NavLink>
+              </a>
             </div>
 
             <NavLink
@@ -81,10 +91,10 @@ const Header = (props) => {
             <div className={styles.mobileNavButtonDiv}>
               {" "}
               <button
-               onClick={() => {
-                setDrop(!drop);
-              }}
-                className={styles.menuButton + " " + styles.menuMobileIcon}
+                onClick={() => {
+                  setDrop(!drop);
+                }}
+                className={styles.menuButton + " " + 'menuMobileIcon' }
               >
                 {" "}
                 <ion-icon name="menu-outline"></ion-icon>
@@ -159,11 +169,26 @@ const Header = (props) => {
           </div>
         </div>
       </header>
-      <div className={`dropNavbar ${drop ? "active" : "inactive"}`} >
-        <div className="mobileNavRow"><NavLink className="linksMobile" to = '/men'>MEN</NavLink></div>
-        <div className="mobileNavRow"> <NavLink className="linksMobile" to = '/women'>WOMEN</NavLink></div>
-        <div className="mobileNavRow"><NavLink className="linksMobile" to = '/kids'>KIDS</NavLink></div>
-        {/* <div><NavLink>MEN</NavLink></div> */}
+      <div className={`dropNavbar ${drop ? "active" : "inactive"}`}>
+        <div className="mobileNavRow">
+          <NavLink className="linksMobile" to = {firstPath} >{firstPage}</NavLink>
+        </div>
+        <div className="mobileNavRow">
+          <NavLink className="linksMobile" to={secondPath}>
+            {secondPage}
+          </NavLink>
+        </div>
+        <div className="mobileNavRow">
+          {" "}
+          <NavLink className="linksMobile" to={thirdPath}>
+            {thirdPage}
+          </NavLink>
+        </div>
+        <div className="mobileNavRow">
+          <NavLink className="linksMobile" to={forthPath}>
+            {fortPage}
+          </NavLink>
+        </div>
       </div>
     </>
   );

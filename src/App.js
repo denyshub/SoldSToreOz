@@ -22,9 +22,9 @@ function App(props) {
   return (
     <BrowserRouter>
       <ShopContextProvider>
-        <Route exact path="/" render={() => <Header  Page="MEN" Link="men"/>} />
-        <Route exact path="/men" render={() => <Header Page="HOME" Link="" />} />
-        <Route exact path="/profile" render={() => <Header Page="MEN" AddPage = 'HOME' Link="men" AddLink = '' />} />
+        <Route exact path="/" render={() => <Header  FirstPage="men" FirstPath = 'men' SecondPage = 'women' ThirdPage = 'kids'/>} />
+        <Route exact path="/men" render={() => <Header FirstPage="home" FirstPath = '' SecondPage = 'women' ThirdPage = 'kids' />} />
+        <Route exact path="/profile" render={() => <Header FirstPage="home" SecondPage ='men' ThirdPage = 'women' ForthPage = 'kids'/>} />
         <Route exact path="/" component={FullMainPage} />
         <Route
           path="/men"
