@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import './FilterSort'
 const DropLine = (props) => {
   return (
@@ -12,9 +12,9 @@ const DropLine = (props) => {
 
 const SortButton = (props) => {
   return (
-    <NavLink style={{ textDecoration: "none" }} to={"/" + props.Link}>
+    <Link style={{ textDecoration: "none" }} to={"/" + props.Link}>
       <button className="buttonsInDrop1">{props.ButtonText}</button>
-    </NavLink>
+    </Link>
   );
 };
 

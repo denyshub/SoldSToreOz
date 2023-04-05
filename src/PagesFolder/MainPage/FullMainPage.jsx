@@ -8,7 +8,6 @@ import AboutUs from "./Components/AboutUs";
 const FullMainPage = () => {
   return (
     <>
-      <Header Page="MEN" Link="men" />
       <PeopleImgs />
       <AboutUs />
     </>

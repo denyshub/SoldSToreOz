@@ -53,42 +53,6 @@ input {
 }
 
 
-.dropdown .option {
-  position: relative;
-
-  top: 70px;
-  overflow-y: hidden;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.137);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0);
-  border-radius: 50px;
-  overflow: auto;
-  z-index: 10000;
-
-  opacity: 0.85;
-}
-
-.dropdown.active .option {
-  display: block;
-  overflow-y: hidden;
-}
-
-.dropdown .option div {
-  padding: 12px 20px;
-  cursor: poiner;
-  transition: 0.8s;
-}
-
-.dropdown .option div:hover {
-  color: #fff;
-}
-
-.dropdown .option div ion-icon {
-  position: relative;
-  top: 4px;
-
-  font-size: 1.2em;
-}
 
 #iconsColor {
   color: black;
@@ -116,6 +80,7 @@ a {
   width: 25%;
   height: 60px;
   background: white;
+
   /* border: 4px solid black; */
 }
 

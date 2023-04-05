@@ -1,14 +1,24 @@
 import React from "react";
 import LogoHeader from "./logoHeader";
 import styles from "./Header.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useState } from "react";
-import '../syles/MOBILENAVTEMP.css'
+import "../syles/MOBILENAVTEMP.css";
 const Header = (props) => {
-  const path = "/" + props.Link;
-  const addPath = "/" + props.AddLink;
+  let firstPath = "/" + props.FirstPage;
+  if (props.FirstPage=='home'){
+    firstPath = '/'
+  }
+  const secondPath = "/" + props.SecondPage;
+  const thirdPath = "/" + props.ThirdPage;
+  const forthPath = "/" + props.ForthPage;
+  const firstPage = props.FirstPage;
+
+  const secondPage = props.SecondPage;
+  const thirdPage = props.ThirdPage;
+  const fortPage = props.ForthPage;
   const [drop, setDrop] = useState(false);
- 
+
   return (
     <>
       <header>
@@ -17,24 +27,24 @@ const Header = (props) => {
           <nav>
             <ul className={styles.nav__links}>
               <li>
-                <NavLink to={addPath} className={styles.navStyle}>
-                  {props.AddPage}
-                </NavLink>
+                <Link to={firstPath} className={styles.navStyle}>
+                 {firstPage}
+                </Link>
               </li>
               <li>
-                <NavLink to={path} className={styles.navStyle}>
-                  {props.Page}
-                </NavLink>
+                <Link to={secondPath} className={styles.navStyle}>
+                  {secondPage}
+                </Link>
               </li>
               <li>
-                <NavLink to="/women" className={styles.navStyle}>
-                  WOMEN
-                </NavLink>
+                <Link to={thirdPath} className={styles.navStyle}>
+                  {thirdPage}
+                </Link>
               </li>
               <li>
-                <NavLink to="/children" className={styles.navStyle}>
-                  KIDS
-                </NavLink>
+                <Link to={forthPath} className={styles.navStyle}>
+                  {fortPage}
+                </Link>
               </li>
             </ul>
           </nav>
@@ -47,44 +57,44 @@ const Header = (props) => {
                 name=""
                 placeholder="  Search..."
               ></input>
-              <NavLink
-                to=""
+              <a
+
                 className={`${styles.search_btn} ${styles.iconMen} ${styles.search} ${styles.hoverIcons}`}
               >
                 <ion-icon name="search-outline"></ion-icon>
-              </NavLink>
+              </a>
             </div>
 
-            <NavLink
+            <Link
               className={styles.cartIcon + " " + styles.hoverIcons}
               to="/cart"
             >
               <ion-icon name="cart-outline"></ion-icon>
-            </NavLink>
-            <NavLink
+            </Link>
+            <Link
               to="/liked"
               id={styles.person}
               className={`${styles.iconMen} ${styles.heartIcon} ${styles.hoverIcons}`}
               activeStyle={{ color: "grey" }}
             >
               <ion-icon name="heart-outline"></ion-icon>
-            </NavLink>
+            </Link>
 
-            <NavLink
+            <Link
               to="/profile"
               id={styles.person}
               className={`${styles.iconMen} ${styles.person}  ${styles.hoverIcons}`}
               activeStyle={{ color: "grey" }}
             >
               <ion-icon name="person-outline"></ion-icon>
-            </NavLink>
+            </Link>
             <div className={styles.mobileNavButtonDiv}>
               {" "}
               <button
-               onClick={() => {
-                setDrop(!drop);
-              }}
-                className={styles.menuButton + " " + styles.menuMobileIcon}
+                onClick={() => {
+                  setDrop(!drop);
+                }}
+                className={styles.menuButton + " " + 'menuMobileIcon' }
               >
                 {" "}
                 <ion-icon name="menu-outline"></ion-icon>
@@ -159,11 +169,26 @@ const Header = (props) => {
           </div>
         </div>
       </header>
-      <div className={`dropNavbar ${drop ? "active" : "inactive"}`} >
-        <div className="mobileNavRow"><NavLink className="linksMobile" to = '/men'>MEN</NavLink></div>
-        <div><NavLink className="linksMobile" to = '/women'>WOMEN</NavLink></div>
-        <div><NavLink className="linksMobile" to = '/kids'>KIDS</NavLink></div>
-        {/* <div><NavLink>MEN</NavLink></div> */}
+      <div className={`dropNavbar ${drop ? "active" : "inactive"}`}>
+        <div className="mobileNavRow">
+          <Link className="linksMobile" to = {firstPath} >{firstPage}</Link>
+        </div>
+        <div className="mobileNavRow">
+          <Link className="linksMobile" to={secondPath}>
+            {secondPage}
+          </Link>
+        </div>
+        <div className="mobileNavRow">
+          {" "}
+          <Link className="linksMobile" to={thirdPath}>
+            {thirdPage}
+          </Link>
+        </div>
+        <div className="mobileNavRow">
+          <Link className="linksMobile" to={forthPath}>
+            {fortPage}
+          </Link>
+        </div>
       </div>
     </>
   );

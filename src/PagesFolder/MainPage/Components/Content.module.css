@@ -16,8 +16,8 @@ width: 100%;
 }
 
 .photo_size {
-  width: 55vh;
-height: 70vh;
+  width: 100%;
+height: 100%;
 }
 
 p {
@@ -136,7 +136,7 @@ align-items: start;
   color: gray;
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 881px) {
   .flexBoxPeople{
     display: none;
   }
