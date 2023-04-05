@@ -1,27 +1,27 @@
 import React from "react";
-import "./profile.css";
+import s from "./profile.module.css";
 import HeaderProfile from "../../Header/Header";
 const ProfilePage = () => {
   return (
     <>
       <HeaderProfile AddPage="HOME" AddLink="" Page="MEN" Link="men" />
-      <div className="pushFooter">
-        <div class="container1">
-          <div class="containerProfile">
-            <input type="checkbox" id="hidden-btn" />
-            <div class="signup">
-              <label for="hidden-btn">Sign up</label>
+      <div className={s.pushFooter}>
+        <div className={s.container1}>
+          <div className={s.containerProfile}>
+            <input type="checkbox" id={s.hidden_btn} />
+            <div className={s.signup}>
+              <label for={s.hidden_btn}>Sign up</label>
               <input type="text" placeholder="User name" />
               <input type="email" placeholder="Email" />
               <input type="password" placeholder="Password" />
-              <button class="buttonSignUp">Sign up</button>
+              <button className={s.buttonSignUp}>Sign up</button>
             </div>
 
-            <div class="login">
-              <label for="hidden-btn">Login</label>
+            <div className={s.login}>
+              <label for={s.hidden_btn}>Login</label>
               <input type="email" placeholder="Email" />
               <input type="password" placeholder="Password" />
-              <button class="buttonLogin">Login</button>
+              <button className={s.buttonLogin}>Login</button>
             </div>
           </div>
         </div>

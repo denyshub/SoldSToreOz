@@ -18,142 +18,14 @@ input {
   border-radius: 5px;
 }
 
-.dropdown::before {
-  content: "";
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border: 2px solid #333;
-  right: 20px;
-  top: 25px;
-  z-index: 10000;
-  width: 8px;
-  height: 8px;
-  border-top: 2px solid #fff;
-  border-right: 2px solid #fff;
-  transform: rotate(-45deg);
-  transition: 0.5s;
-  pointer-events: none;
-}
 
-.dropdown.active::before {
-  transform: rotate(-225deg);
-  top: 22px;
-}
-
-.dropdown input {
-  position: absolute;
-
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  background: #fff;
-  outline: none;
-  border: none;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-  padding: 12px 20px;
-  border-radius: 10px;
-}
 
 /*/////////////////////////////////////*/
 
-.dropdown1 {
-  position: relative;
-  margin-top: 100px;
-  width: 25%;
-  height: 60px;
-  background: #fafafa;
-}
 
-.dropdown1::before {
-  content: "";
 
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border: 2px solid #333;
-  right: 20px;
-  top: 25px;
-  z-index: 10000;
-  width: 8px;
-  height: 8px;
-  border-top: 2px solid #fff;
-  border-right: 2px solid #fff;
-  transform: rotate(-45deg);
-  transition: 0.5s;
-  pointer-events: none;
-}
 
-.dropdown1.active::before {
-  transform: rotate(-225deg);
-  top: 22px;
-}
 
-.dropdown1 input {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  background: #fff;
-  outline: none;
-  border: none;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-  padding: 12px 20px;
-  border-radius: 10px;
-}
-
-.flexBox1 {
-  display: flex;
-  flex-direction: row;
-
-  gap: 3em;
-  width: 95%;
-  justify-content: space-evenly;
-  flex-flow: row wrap;
-  padding-bottom: 50px;
-}
-
-.dropdown1 .option1 {
-  position: relative;
-  top: 70px;
-  width: 100%;
-  background: #fff;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-  border-radius: 50px;
-  overflow: auto;
-  z-index: 10000;
-
-  display: none;
-}
-
-.dropdown1.active .option1 {
-  display: block;
-  display: flex;
-
-  flex-direction: column;
-  background-color: rgba(5, 4, 4, 0);
-}
-
-.dropdown1 .option1 div {
-  padding: 12px 20px;
-  cursor: poiner;
-  transition: 0.8s;
-  background: rgba(0, 0, 0, 0.137);
-}
-
-.dropdown1 .option1 div:hover {
-  color: #fff;
-}
-
-.dropdown1 .option1 div ion-icon {
-  position: relative;
-  top: 4px;
-  font-size: 1.2em;
-}
 
 #liked {
   font-size: 3em;
@@ -180,12 +52,7 @@ input {
   padding-top: 10px;
 }
 
-.imageFrame {
-  border-radius: 10px;
 
-  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.142);
-  border: 2.3px solid rgba(0, 0, 0, 0.236);
-}
 .dropdown .option {
   position: relative;
 
@@ -238,11 +105,7 @@ input {
   justify-content: space-between;
 }
 
-.likeProduct {
-  color: black;
-  position: relative;
-  float: right;
-}
+
 a {
   z-index: 1;
 }
@@ -297,21 +160,7 @@ a {
   padding-left: 50px;
   padding-right: 50px;
 }
-.caption {
-  padding-left: 30px;
-  text-transform: uppercase;
-}
-.NamePrice {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-.price {
-  margin-right: 35px;
-  font-size: 25px;
-  color: #111;
-}
+
 .img {
   padding: 10px;
   cursor: pointer;
@@ -472,13 +321,5 @@ a {
   opacity: 0;
 }
 
-.pushFooter {
-  min-height: 100vh;
-  margin-bottom: 100px;
-}
 
-.flexBoxProductsMen {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
+

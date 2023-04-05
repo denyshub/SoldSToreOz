@@ -20,7 +20,7 @@
   position: relative;
 }
 
-#hidden-btn {
+#hidden_btn {
   display: none;
 }
 .signup {
@@ -111,39 +111,37 @@ button:active {
   transform: scale(0.6);
 }
 
-#hidden-btn:checked ~ .login {
+#hidden_btn:checked ~ .login {
   transform: translateY(-400px);
   height: 460px;
   transition: 0.8s;
 }
 
-#hidden-btn:checked ~ .button1{
-  display: block;
-}
 
-#hidden-btn:checked ~ .login label {
+#hidden_btn:checked ~ .login label {
   transform: scale(1);
   color: black;
 }
 .login button {
 display: none;
+transition: 0.5s;
 }
 .login input {
   background-color: white;
   box-shadow: none;
   display: none;
 }
-#hidden-btn:checked ~ .login input {
+#hidden_btn:checked ~ .login input {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   display: block;
 }
 
-#hidden-btn:checked ~ .login button {
+#hidden_btn:checked ~ .login button {
   transform: scale(1);
   display: block;
 }
 
-#hidden-btn:checked ~ .signup label {
+#hidden_btn:checked ~ .signup label {
   transform: scale(0.6);
   color: gray;
 }
@@ -158,3 +156,13 @@ display: none;
 
   justify-content: space-between;
 }
+
+.flexBoxProductsMen {
+  width: 100%;
+  display: flex;
+
+  flex-direction: row;
+
+}
+
+

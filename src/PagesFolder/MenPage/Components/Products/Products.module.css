@@ -1,0 +1,50 @@
+.pushFooter {
+  min-height: 100vh;
+  margin-bottom: 100px;
+}
+
+.flexBoxProductsMen {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.flexBox1 {
+  display: flex;
+  flex-direction: row;
+  gap: 3em;
+  width: 95%;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
+  padding-bottom: 50px;
+}
+
+.imageFrame {
+  border-radius: 10px;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.142);
+  border: 2.3px solid rgba(0, 0, 0, 0.236);
+}
+
+.likeProduct {
+  color: black;
+  position: relative;
+  float: right;
+}
+
+.NamePrice {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.caption {
+  padding-left: 30px;
+  text-transform: uppercase;
+}
+
+.price {
+  margin-right: 35px;
+  font-size: 25px;
+  color: #111;
+}

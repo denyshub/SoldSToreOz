@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "../../slider/slider";
 import Header from "../../Header/Header";
 import { ProductTemplate } from "../../ProductTemplate";
+import '../ProductPage/productPage.css'
 
 import GreenNike from "../../images/shoes/greenNike.jpg";
 import BlackAdidas from "../../images/shoes/blackAdidas.jpg";
@@ -111,12 +112,11 @@ const productPage = () => {
           </div>
         </div>
         <div className="underInfo">
-          <div className=""></div>
           <h2> Other products</h2>{" "}
         </div>
         <div>
-          <div class="flexBoxProducts">
-            <div class="flexBox1" id="">
+          <div className="flexBoxProducts">
+            <div className="flexBox1">
               <ProductTemplate
                 ProdPage="productPage"
                 ProductName="Nike green"

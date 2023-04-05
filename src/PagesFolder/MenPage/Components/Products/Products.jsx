@@ -1,6 +1,6 @@
 import React from "react";
 import { ProductTemplate } from "../../../../ProductTemplate";
-
+import s from './Products.module.css'
 const Products = (props) => {
   let productElements = props.productData.map((p) => (
     <ProductTemplate
@@ -12,9 +12,9 @@ const Products = (props) => {
   ));
 
   return (
-    <div className="pushFooter">
-      <div class="flexBoxProductsMen">
-        <div class="item flexBox1">{productElements}</div>
+    <div className={s.pushFooter}>
+      <div class={s.flexBoxProductsMen}>
+        <div class={s.flexBox1}>{productElements}</div>
       </div>
     </div>
   );
