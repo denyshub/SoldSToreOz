@@ -7,7 +7,7 @@
 }
 
 .dropNavbar {
-  position: relative;
+  position: fixed;
   z-index: 10000;
   width: 100%;
  display: flex;

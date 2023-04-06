@@ -19,3 +19,5 @@ export const ProductTemplate = (props) => {
     </div>
   );
 };
+
+export default ProductTemplate;

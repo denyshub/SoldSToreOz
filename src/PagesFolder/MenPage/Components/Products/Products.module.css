@@ -3,9 +3,16 @@
   margin-bottom: 100px;
 }
 
+.colorDiv{
+
+}
+.clothes{
+  height: 60vw;
+}
 .flexBoxProductsMen {
   width: 100%;
   display: flex;
+
   justify-content: center;
 }
 
@@ -16,14 +23,16 @@
   width: 95%;
   justify-content: space-evenly;
   flex-flow: row wrap;
-  padding-bottom: 50px;
+
 }
 
 .imageFrame {
   border-radius: 10px;
+  background-color: white;
   box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.142);
   border: 2.3px solid rgba(0, 0, 0, 0.236);
 }
+
 
 .likeProduct {
   color: black;
@@ -47,4 +56,11 @@
   margin-right: 35px;
   font-size: 25px;
   color: #111;
+}
+
+.imageFrameMobile{
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.142);
+  border: 2.3px solid rgba(0, 0, 0, 0.236);
 }
