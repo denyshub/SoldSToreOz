@@ -77,7 +77,7 @@ const FilterSort = () => {
                 <div className="buttonLine1">
                   <SortButton
                     ButtonText="By price(LOWER - HIGHER)"
-                    Link="/low-high"
+                    Link="men/low-high"
                   />
                 </div>
                 <div className="buttonLine1">
