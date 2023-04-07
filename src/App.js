@@ -16,38 +16,24 @@ function App(props) {
   return (
     <BrowserRouter>
       <Routes>
-      <Route
+        <Route
           exact
           path=""
           element={
-            <Header
-     
-              FirstPage="men"
-              SecondPage="women"
-              ThirdPage="kids"
-            />
+            <Header FirstPage="men" SecondPage="women" ThirdPage="kids" />
           }
         />
         <Route
           exact
           path="/women"
           element={
-            <Header
-     
-              FirstPage="home"
-              SecondPage="men"
-              ThirdPage="kids"
-            />
+            <Header FirstPage="home" SecondPage="men" ThirdPage="kids" />
           }
         />
         <Route
           path="/kids"
           element={
-            <Header
-              FirstPage="home"
-             SecondPage="men"
-              ThirdPage="women"
-            />
+            <Header FirstPage="home" SecondPage="men" ThirdPage="women" />
           }
         />
         <Route
@@ -70,20 +56,86 @@ function App(props) {
         >
           <Route
             exact
+            path="/men"
+            element={<Products productData={props.productData} />}
+          ></Route>
+          <Route
+            exact
             path="/men/low-high"
+            Sort = 'LOW_HIGH'
             element={
               <Products Sort="LOW_HIGH" productData={props.productData} />
             }
           ></Route>
           <Route
             path="/men"
-            element={<Products productData={props.productData} />}
+            element={
+              <Products Filter="clothes" productData={props.productData} />
+            }
           ></Route>
-            <Route
+          <Route
             exact
             path="/men/high-low"
             element={
               <Products Sort="HIGH_LOW" productData={props.productData} />
+            }
+          ></Route>
+          <Route
+            exact
+            path="/men/shoes"
+            element={
+              <Products Filter="shoes" productData={props.productData} />
+            }
+          ></Route>
+          <Route
+            exact
+            path="/men/shoes/low-high"
+            element={
+              <Products
+                Filter="shoes"
+                Sort = 'LOW_HIGH'
+                productData={props.productData}
+              />
+            }
+          ></Route>
+           <Route
+            exact
+            path="/men/shoes/high-low"
+            element={
+              <Products
+                Filter="shoes"
+                Sort = 'HIGH_LOW'
+                productData={props.productData}
+              />
+            }
+          ></Route>
+          <Route
+            exact
+            path="/men/clothes"
+            element={
+              <Products Filter="clothes" productData={props.productData} />
+            }
+          ></Route>
+                     <Route
+            exact
+            path="/men/shoes/low-high"
+            element={
+              <Products
+                Filter="shoes"
+ 
+                productData={props.productData}
+              />
+            }
+          ></Route>
+                     <Route
+            exact
+            path="/men/shoes/high-low"
+            element={
+              <Products
+                Filter="shoes"
+ 
+                productData={props.productData}
+              />
             }
           ></Route>
         </Route>

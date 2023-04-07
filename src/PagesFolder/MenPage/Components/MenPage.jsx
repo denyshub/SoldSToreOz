@@ -12,7 +12,7 @@ const MenPage = (props) => {
               SecondPage="women"
               ThirdPage="kids"
             />
-      <FilterSort />
+      <FilterSort Page = 'shoes'/>
 <Outlet/>
     </>
   );

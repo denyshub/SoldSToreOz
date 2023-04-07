@@ -3,7 +3,7 @@
   flex-direction: row;
   width: 100%;
   justify-content: space-evenly;
-  background-color: rgb(248, 246, 246);;
+
 }
 
 input {
@@ -36,14 +36,14 @@ input {
   color: gray;
 }
 .colorDiv{
-  background-color: rgb(248, 246, 246)
+
 }
 .popularText {
   padding-top: 50px;
   text-align: center;
   font-family: "Ubuntu", sans-serif;
   font-size: 40px;
-  background-color: rgb(248, 246, 246);
+
 }
 
 #iconsMen:hover {

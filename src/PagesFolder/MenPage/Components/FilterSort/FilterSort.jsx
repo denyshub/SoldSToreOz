@@ -42,13 +42,18 @@ const FilterSort = () => {
                 <div className="buttonLine">
                   <button className="buttonsInDrop ">Shoes</button>
                   <div className="hiddenOptions">
-                    <a className=" TESTICON" href="">
+                    <Link className=" TESTICON" to="/men/shoes">
                       <ion-icon name="game-controller-outline"></ion-icon>
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className="buttonLine">
-                  <button className="buttonsInDrop">Pants</button>
+                  <button className="buttonsInDrop">Clothes</button>
+                  <div className="hiddenOptions">
+                    <Link className=" TESTICON" to="/men/clothes">
+                      <ion-icon name="game-controller-outline"></ion-icon>
+                    </Link>
+                  </div>
                 </div>
                 <div className="buttonLine">
                   <button className="buttonsInDrop">Hats</button>
@@ -72,7 +77,7 @@ const FilterSort = () => {
                 <div className="buttonLine1">
                   <SortButton
                     ButtonText="By price(LOWER - HIGHER)"
-                    Link="men/low-high"
+                    Link="/low-high"
                   />
                 </div>
                 <div className="buttonLine1">
