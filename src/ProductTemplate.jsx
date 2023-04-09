@@ -10,7 +10,7 @@ export const ProductTemplate = (props) => {
         <ion-icon name="heart-outline"></ion-icon>
       </a>
       <NavLink to={productPath}>
-        <img src={props.ImgLink} alt="nike" class="clothes" />
+        <img src={props.ImgLink} alt="nike" className = {s.clothes} />
       </NavLink>
       <div className={s.NamePrice}>
         <p className={s.caption}>{props.ProductName}</p>
@@ -20,4 +20,4 @@ export const ProductTemplate = (props) => {
   );
 };
 
-export default ProductTemplate;
+

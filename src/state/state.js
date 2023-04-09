@@ -10,7 +10,7 @@ import BlazerWhite from "../images/shoes/blazerWhite.jpg";
 import BlackNikeHoodie from "../images/Clothes/blackNikeHoodie.jpg";
 
 let state = {
-  productData: [
+  productData:[
     {
       id: 1,
       name: "Nike Green",
@@ -102,12 +102,14 @@ let state = {
     {
       id: 12,
       name: "Black Nike Hoodie2",
-      price: 74,
+      price: 73,
       imgMain: BlackNikeHoodie,
       type: "clothes",
       liked: false,
     },
-  ],
+  
+  ]
+
 };
 
 export default state;

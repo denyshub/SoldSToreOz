@@ -88,21 +88,30 @@ a {
   /* border: 4px solid black; */
 }
 
+.linkButton{
+  width: 100%;
+display: flex;
+justify-content: center;
+}
 .buttonsInDrop1 {
+  font-family: "Ubuntu", sans-serif;
+
   display: flex;
-  flex-direction: row;
+  transition: 1.2s;
   justify-content: center;
-  padding-left: 10px;
   align-items: center;
   border-radius: 50px;
+
   background-color: black;
   border: none;
-  width: 35vh;
+  min-width: 75%;
   height: 40px;
-  transition: 0.5s;
+  overflow: hidden;
   color: #fff;
 }
-
+.buttonsInDrop1:hover{
+  background-color: rgb(51, 51, 51);
+}
 .iconsInDrop {
   height: 40px;
   padding-left: -10px;
@@ -121,14 +130,7 @@ a {
   font-size: 20px;
 }
 
-.clothes {
-  height: 35ch;
 
-  border-radius: 10px;
-  margin-bottom: 50px;
-  padding-left: 50px;
-  padding-right: 50px;
-}
 
 .img {
   padding: 10px;
@@ -220,7 +222,7 @@ a {
 
   background-color: black;
   border: none;
-  width: 35vh;
+  width: 80%;
   height: 40px;
   overflow: hidden;
   color: #fff;
@@ -242,6 +244,7 @@ a {
   display: flex;
   flex-direction: row;
   overflow-x: hidden;
+  width: 100%;
   height: 50px;
   align-items: center;
   justify-content: space-around;

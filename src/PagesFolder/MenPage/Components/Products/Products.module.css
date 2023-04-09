@@ -3,11 +3,14 @@
   margin-bottom: 100px;
 }
 
-.colorDiv{
 
-}
-.clothes{
-  height: 60vw;
+.clothes {
+  
+
+  margin-bottom: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+width: 700px;
 }
 .flexBoxProductsMen {
   width: 100%;
@@ -19,11 +22,11 @@
 .flexBox1 {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   gap: 3em;
-  width: 95%;
-  justify-content: space-evenly;
-  flex-flow: row wrap;
+  width: 1600px;
 
+  flex-flow: row wrap;
 }
 
 .imageFrame {
@@ -31,8 +34,8 @@
   background-color: white;
   box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.142);
   border: 2.3px solid rgba(0, 0, 0, 0.236);
+  width: 20%;
 }
-
 
 .likeProduct {
   color: black;
@@ -58,9 +61,48 @@
   color: #111;
 }
 
-.imageFrameMobile{
+.imageFrameMobile {
   background-color: white;
   border-radius: 20px;
   box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.142);
   border: 2.3px solid rgba(0, 0, 0, 0.236);
 }
+
+
+.newProductsDiv{
+  width: 100%;
+  height: auto;
+
+padding-left: 6px;
+display: flex;
+gap: 0.8em;
+justify-content: start;
+margin-bottom: 10px;
+flex-wrap: wrap;
+
+}
+
+@media screen and (min-width: 881px) {
+.newProductsDiv{
+  display: none;
+  position: absolute;
+}
+
+.mobileProductsDiv{
+  display: none;
+  position: absolute;
+}
+}
+
+
+
+@media screen and (max-width: 881px) {
+
+.flexBoxProductsMen{
+  display: none;
+}
+    .productsMobile{
+      width: 48%;
+    }
+
+  }

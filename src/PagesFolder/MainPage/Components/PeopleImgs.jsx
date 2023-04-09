@@ -6,13 +6,10 @@ import styles from "./Content.module.css";
 import { NavLink } from "react-router-dom";
 
 import NewNikeCollection from "../../../images/shoes/newNikeCollection.jpg";
-import MobileProducts from "../../../MobileProductTemplate";
-import Nike from '../../../images/shoes/dunkBlack.jpg'
-
+import { MobileProducts } from "../../../MobileProductTemplate";
+import Nike from "../../../images/shoes/dunkBlack.jpg";
 
 const PeopleImgs = () => {
-
-  
   return (
     <div className={styles.mainContainer}>
       <div>
@@ -43,16 +40,19 @@ const PeopleImgs = () => {
             </h3>
           </div>
         </div>
-        <div className={styles.newProductsDiv + ' ' + styles.pushFooter}>
+        <div className={styles.newProductsDiv + " " + styles.pushFooter}>
           {" "}
-          <div className={styles.productsMobile}> < MobileProducts Price = '100' ProductName = 'nike' ImgLink = {Nike}/></div>
-          <div className={styles.productsMobile}> < MobileProducts Price = '100' ProductName = 'nike'  ImgLink = {Nike}/> </div>
-          <div className={styles.productsMobile}> < MobileProducts Price = '100' ProductName = 'nike'  ImgLink = {Nike}/> </div>
-          <div className={styles.productsMobile}> < MobileProducts Price = '100' ProductName = 'nike'  ImgLink = {Nike}/></div>
-          <div className={styles.productsMobile}> < MobileProducts Price = '100' ProductName = 'nike'  ImgLink = {Nike}/></div>
-          <div className={styles.productsMobile}> < MobileProducts Price = '100' ProductName = 'nike'  ImgLink = {Nike}/></div>
+          <MobileProducts Price="100" ProductName="nike" ImgLink={Nike} />
+          <MobileProducts Price="100" ProductName="nike" ImgLink={Nike} />
+          <MobileProducts Price="100" ProductName="nike" ImgLink={Nike} />
+          <MobileProducts Price="100" ProductName="nike" ImgLink={Nike} />
+          <MobileProducts Price="100" ProductName="nike" ImgLink={Nike} />
+          <MobileProducts Price="100" ProductName="nike" ImgLink={Nike} />
         </div>
-        <div className={styles.seeMoreDiv}> <button className={styles.seeAllBtn}>See all products</button></div>
+        <div className={styles.seeMoreDiv}>
+          {" "}
+          <button className={styles.seeAllBtn}>See all products</button>
+        </div>
         <div className={styles.flexBoxPeople}>
           <div>
             <NavLink to="/men">

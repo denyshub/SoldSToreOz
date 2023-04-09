@@ -50,28 +50,19 @@ function App(props) {
       </Routes>
       <Routes>
         <Route path="/" element={<FullMainPage />} />
-        <Route
-          path="/men"
-          element={<MenPage productData={props.productData} />}
-        >
-          <Route
-            exact
-            path="/men"
-            element={<Products productData={props.productData} />}
-          ></Route>
+
+        <Route path="/men" element={<MenPage />}>
           <Route
             exact
             path="/men/low-high"
-            Sort = 'LOW_HIGH'
             element={
               <Products Sort="LOW_HIGH" productData={props.productData} />
             }
           ></Route>
           <Route
+            exact
             path="/men"
-            element={
-              <Products Filter="clothes" productData={props.productData} />
-            }
+            element={<Products productData={props.productData} />}
           ></Route>
           <Route
             exact
@@ -82,9 +73,36 @@ function App(props) {
           ></Route>
           <Route
             exact
+            path="/men/clothes"
+            element={
+              <Products
+                Filter="clothes"
+                Sort="none"
+                productData={props.productData}
+              />
+            }
+          ></Route>
+
+          <Route
+            exact
             path="/men/shoes"
             element={
-              <Products Filter="shoes" productData={props.productData} />
+              <Products
+                Filter="shoes"
+                Sort="none"
+                productData={props.productData}
+              />
+            }
+          ></Route>
+          <Route
+            exact
+            path="/men/shoes/high-low"
+            element={
+              <Products
+                Sort="HIGH_LOW"
+                Filter="shoes"
+                productData={props.productData}
+              />
             }
           ></Route>
           <Route
@@ -92,54 +110,25 @@ function App(props) {
             path="/men/shoes/low-high"
             element={
               <Products
+                Sort="LOW_HIGH"
                 Filter="shoes"
-                Sort = 'LOW_HIGH'
                 productData={props.productData}
               />
             }
           ></Route>
-           <Route
-            exact
-            path="/men/shoes/high-low"
-            element={
-              <Products
-                Filter="shoes"
-                Sort = 'HIGH_LOW'
-                productData={props.productData}
-              />
-            }
-          ></Route>
+
           <Route
             exact
             path="/men/clothes"
             element={
-              <Products Filter="clothes" productData={props.productData} />
-            }
-          ></Route>
-                     <Route
-            exact
-            path="/men/shoes/low-high"
-            element={
               <Products
-                Filter="shoes"
- 
-                productData={props.productData}
-              />
-            }
-          ></Route>
-                     <Route
-            exact
-            path="/men/shoes/high-low"
-            element={
-              <Products
-                Filter="shoes"
- 
+                Filter="clothes"
+                Sort="none"
                 productData={props.productData}
               />
             }
           ></Route>
         </Route>
-
         <Route exact path="/1" element={<ProductPage1 />} />
         <Route path="/cart" component={Cart} />
         <Route exact path="/profile" element={<ProfilePage />} />
