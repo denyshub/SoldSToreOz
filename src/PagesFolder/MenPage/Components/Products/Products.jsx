@@ -21,14 +21,13 @@ const SortButton = (props) => {
 };
 
 const Products = (props) => {
-
   let sortedByPrice;
   let sortedByPriceMobile;
   if (props.Sort == "LOW_HIGH") {
     sortedByPrice = sortedByPriceMobile = [...props.productData].sort(
       (a, b) => a.price - b.price
     );
-  } else if (props.Sort == 'HIGH_LOW' && props.Filter =='shoes') {
+  } else if (props.Sort == "HIGH_LOW" && props.Filter == "shoes") {
     let s = props.productData.sort((a, b) => b.price - a.price);
 
     sortedByPrice = s
@@ -41,8 +40,7 @@ const Products = (props) => {
           Price={p.price}
         />
       ));
-  } 
-  else if (props.Sort == 'LOW_HIGH' && props.Filter =='shoes') {
+  } else if (props.Sort == "LOW_HIGH" && props.Filter == "shoes") {
     let s = props.productData.sort((a, b) => a.price - b.price);
 
     sortedByPrice = s
@@ -55,8 +53,7 @@ const Products = (props) => {
           Price={p.price}
         />
       ));
-  } 
-  else if (props.Sort == "HIGH_LOW") {
+  } else if (props.Sort == "HIGH_LOW") {
     sortedByPrice = sortedByPriceMobile = [...props.productData].sort(
       (a, b) => b.price - a.price
     );
@@ -81,7 +78,7 @@ const Products = (props) => {
           Price={p.price}
         />
       ));
-  } else if (props.Filter == "shoes" && props.Sort == 'none') {
+  } else if (props.Filter == "shoes" && props.Sort == "none") {
     sortedByPrice = props.productData
       .filter((product) => product.type == "shoes")
       .map((p) => (
@@ -168,7 +165,7 @@ const Products = (props) => {
                   setOpen(!open);
                 }}
               >
-                <button className="filter dropdown-btn">All products</button>
+                <button className="filter dropdown-btn">Filters</button>
               </div>
               <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
                 <div className="dropBox">
