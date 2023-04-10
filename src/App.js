@@ -54,79 +54,8 @@ function App(props) {
         <Route path="/men" element={<MenPage />}>
           <Route
             exact
-            path="/men/low-high"
-            element={
-              <Products Sort="LOW_HIGH" productData={props.productData} />
-            }
-          ></Route>
-          <Route
-            exact
             path="/men"
             element={<Products productData={props.productData} />}
-          ></Route>
-          <Route
-            exact
-            path="/men/high-low"
-            element={
-              <Products Sort="HIGH_LOW" productData={props.productData} />
-            }
-          ></Route>
-          <Route
-            exact
-            path="/men/clothes"
-            element={
-              <Products
-                Filter="clothes"
-                Sort="none"
-                productData={props.productData}
-              />
-            }
-          ></Route>
-
-          <Route
-            exact
-            path="/men/shoes"
-            element={
-              <Products
-                Filter="shoes"
-                Sort="none"
-                productData={props.productData}
-              />
-            }
-          ></Route>
-          <Route
-            exact
-            path="/men/shoes/high-low"
-            element={
-              <Products
-                Sort="HIGH_LOW"
-                Filter="shoes"
-                productData={props.productData}
-              />
-            }
-          ></Route>
-          <Route
-            exact
-            path="/men/shoes/low-high"
-            element={
-              <Products
-                Sort="LOW_HIGH"
-                Filter="shoes"
-                productData={props.productData}
-              />
-            }
-          ></Route>
-
-          <Route
-            exact
-            path="/men/clothes"
-            element={
-              <Products
-                Filter="clothes"
-                Sort="none"
-                productData={props.productData}
-              />
-            }
           ></Route>
         </Route>
         <Route exact path="/1" element={<ProductPage1 />} />

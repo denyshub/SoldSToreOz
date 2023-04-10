@@ -21,138 +21,150 @@ const SortButton = (props) => {
 };
 
 const Products = (props) => {
-  let sortedByPrice;
-  let sortedByPriceMobile;
-  if (props.Sort == "LOW_HIGH") {
-    sortedByPrice = sortedByPriceMobile = [...props.productData].sort(
-      (a, b) => a.price - b.price
-    );
-  } else if (props.Sort == "HIGH_LOW" && props.Filter == "shoes") {
-    let s = props.productData.sort((a, b) => b.price - a.price);
+  //props.productData.sort((a, b) => a.price - b.price);
 
-    sortedByPrice = s
-      .filter((product) => product.type == "shoes")
-      .map((p) => (
-        <ProductTemplate
-          Id={p.id}
-          ProductName={p.name}
-          ImgLink={p.imgMain}
-          Price={p.price}
-        />
-      ));
-  } else if (props.Sort == "LOW_HIGH" && props.Filter == "shoes") {
-    let s = props.productData.sort((a, b) => a.price - b.price);
+  //   sortedByPrice = s
+  //     .filter((product) => product.type == "shoes")
+  //     .map((p) => (
+  //       <ProductTemplate
+  //         Id={p.id}
+  //         ProductName={p.name}
+  //         ImgLink={p.imgMain}
+  //         Price={p.price}
+  //       />
+  //     ));
 
-    sortedByPrice = s
-      .filter((product) => product.type == "shoes")
-      .map((p) => (
-        <ProductTemplate
-          Id={p.id}
-          ProductName={p.name}
-          ImgLink={p.imgMain}
-          Price={p.price}
-        />
-      ));
-  } else if (props.Sort == "HIGH_LOW") {
-    sortedByPrice = sortedByPriceMobile = [...props.productData].sort(
-      (a, b) => b.price - a.price
-    );
-  } else if (props.Filter == "clothes") {
-    sortedByPrice = props.productData
-      .filter((product) => product.type == "clothes")
-      .map((p) => (
-        <ProductTemplate
-          Id={p.id}
-          ProductName={p.name}
-          ImgLink={p.imgMain}
-          Price={p.price}
-        />
-      ));
-    sortedByPriceMobile = props.productData
-      .filter((product) => product.type == "clothes")
-      .map((p) => (
-        <MobileProducts
-          Id={p.id}
-          ProductName={p.name}
-          ImgLink={p.imgMain}
-          Price={p.price}
-        />
-      ));
-  } else if (props.Filter == "shoes" && props.Sort == "none") {
-    sortedByPrice = props.productData
-      .filter((product) => product.type == "shoes")
-      .map((p) => (
-        <ProductTemplate
-          Id={p.id}
-          ProductName={p.name}
-          ImgLink={p.imgMain}
-          Price={p.price}
-        />
-      ));
-    sortedByPriceMobile = props.productData
-      .filter((product) => product.type == "shoes")
-      .map((p) => (
-        <MobileProducts
-          Id={p.id}
-          ProductName={p.name}
-          ImgLink={p.imgMain}
-          Price={p.price}
-        />
-      ));
-  } else if (props.Filter == "shoes") {
-    sortedByPrice = props.productData
-      .filter((product) => product.type == "shoes")
-      .map((p) => (
-        <ProductTemplate
-          Id={p.id}
-          ProductName={p.name}
-          ImgLink={p.imgMain}
-          Price={p.price}
-        />
-      ));
-    sortedByPriceMobile = props.productData
-      .filter((product) => product.type == "shoes")
-      .map((p) => (
-        <MobileProducts
-          Id={p.id}
-          ProductName={p.name}
-          ImgLink={p.imgMain}
-          Price={p.price}
-        />
-      ));
-  } else {
-    sortedByPrice = props.productData;
-    sortedByPriceMobile = props.productData;
-  }
-
-  let productElements = sortedByPrice.map((p) => (
-    <ProductTemplate
-      Id={p.id}
-      ProductName={p.name}
-      ImgLink={p.imgMain}
-      Price={p.price}
-    />
-  ));
-  let productElementsMobile = sortedByPrice.map((p) => (
-    <MobileProducts
-      Id={p.id}
-      ProductName={p.name}
-      ImgLink={p.imgMain}
-      Price={p.price}
-    />
-  ));
+  // let productElementsMobile = sortedByPrice.map((p) => (
+  //   <MobileProducts
+  //     Id={p.id}
+  //     ProductName={p.name}
+  //     ImgLink={p.imgMain}
+  //     Price={p.price}
+  //   />
+  // ));
   //////////
+  let ClothesData = props.productData.filter(
+    (product) => product.type == "clothes"
+  );
+  let ShoesData = props.productData.filter(
+    (product) => product.type == "shoes"
+  );
+  const [data, setData] = useState(props.productData);
+  const [sort, setSort] = useState(0);
+  const [clothes, setClothes] = useState(ClothesData);
+  const [shoes, setShoes] = useState(ShoesData);
+
   const [open, setOpen] = useState(false);
   const [open1, setOpen1] = useState(false);
 
-  let pathLow_High;
-  let pathHigh_Low;
-  props.Filter
-    ? (pathLow_High = "/men" + "/" + props.Filter + "/low-high")
-    : (pathLow_High = "/men/low-high");
-  props.Filter
-    ? (pathHigh_Low = "/men" + "/" + props.Filter + "/high-low")
-    : (pathHigh_Low = "/men/high-low");
+  function TestFunc() {
+    let s = data;
+    return s.map((p) => (
+      <ProductTemplate
+        Id={p.id}
+        ProductName={p.name}
+        ImgLink={p.imgMain}
+        Price={p.price}
+      />
+    ));
+  }
+
+  function SortLow_High() {
+    let s = data.sort((a, b) => a.price - b.price);
+    return s.map((p) => (
+      <ProductTemplate
+        Id={p.id}
+        ProductName={p.name}
+        ImgLink={p.imgMain}
+        Price={p.price}
+      />
+    ));
+  }
+
+  function SortHigh_Low() {
+    let s = data.sort((a, b) => b.price - a.price);
+    return s.map((p) => (
+      <ProductTemplate
+        Id={p.id}
+        ProductName={p.name}
+        ImgLink={p.imgMain}
+        Price={p.price}
+      />
+    ));
+  }
+
+  function FilterShoes() {
+    return shoes.map((p) => (
+      <ProductTemplate
+        Id={p.id}
+        ProductName={p.name}
+        ImgLink={p.imgMain}
+        Price={p.price}
+      />
+    ));
+  }
+  function FilterClothes() {
+    return clothes.map((p) => (
+      <ProductTemplate
+        Id={p.id}
+        ProductName={p.name}
+        ImgLink={p.imgMain}
+        Price={p.price}
+      />
+    ));
+  }
+
+  function ClothesLow() {
+    let a = ClothesData; //??????????????????????????????????????????? doesnt work with 'clothes'
+    a.sort((a, b) => a.price - b.price);
+     return a.map((p) => (
+      <ProductTemplate
+        Id={p.id}
+        ProductName={p.name}
+        ImgLink={p.imgMain}
+        Price={p.price}
+      />
+    ));
+  }
+  // function ClothesHigh() {
+  //   data.sort((a, b) => b.price - a.price);
+  //   return data
+  //     .filter((product) => product.type == "clothes")
+  //     .map((p) => (
+  //       <ProductTemplate
+  //         Id={p.id}
+  //         ProductName={p.name}
+  //         ImgLink={p.imgMain}
+  //         Price={p.price}
+  //       />
+  //     ));
+  // }
+  // function ShoesLow() {
+  //   data.sort((a, b) => a.price - b.price);
+  //   return data
+  //     .filter((product) => product.type == "shoes")
+  //     .map((p) => (
+  //       <ProductTemplate
+  //         Id={p.id}
+  //         ProductName={p.name}
+  //         ImgLink={p.imgMain}
+  //         Price={p.price}
+  //       />
+  //     ));
+  // }
+  // function ShoesHigh() {
+  //   data.sort((a, b) => b.price - a.price);
+  //   return data
+  //     .filter((product) => product.type == "shoes")
+  //     .map((p) => (
+  //       <ProductTemplate
+  //         Id={p.id}
+  //         ProductName={p.name}
+  //         ImgLink={p.imgMain}
+  //         Price={p.price}
+  //       />
+  //     ));
+  // }
   return (
     <>
       <div>
@@ -170,23 +182,38 @@ const Products = (props) => {
               <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
                 <div className="dropBox">
                   <div className="buttonLine">
-                    <button className="buttonsInDrop ">Shoes</button>
+                    <button
+                      className="buttonsInDrop "
+                      onClick={() => setSort(3)}
+                    >
+                      Shoes
+                    </button>
                     <div className="hiddenOptions">
-                      <Link className=" TESTICON" to="/men/shoes">
+                      <div className=" TESTICON" to="/men/shoes">
                         <ion-icon name="game-controller-outline"></ion-icon>
-                      </Link>
+                      </div>
                     </div>
                   </div>
                   <div className="buttonLine">
-                    <button className="buttonsInDrop">Clothes</button>
+                    <button
+                      onClick={() => setSort(4)}
+                      className="buttonsInDrop"
+                    >
+                      Clothes
+                    </button>
                     <div className="hiddenOptions">
-                      <Link className=" TESTICON" to="/men/clothes">
+                      <div className=" TESTICON" to="/men/clothes">
                         <ion-icon name="game-controller-outline"></ion-icon>
-                      </Link>
+                      </div>
                     </div>
                   </div>
                   <div className="buttonLine">
-                    <button className="buttonsInDrop">Hats</button>
+                    <button
+                      onClick={() => setSort(5)}
+                      className="buttonsInDrop"
+                    >
+                      Hats
+                    </button>
                   </div>
                 </div>
               </div>
@@ -207,22 +234,26 @@ const Products = (props) => {
               >
                 <div className="dropBox">
                   <div className="buttonLine1">
-                    <Link className="linkButton" to={pathLow_High}>
-                      <button className="buttonsInDrop1">
-                        By price
-                        <br />
-                        (LOWER_HIGHER)
-                      </button>
-                    </Link>
+                    <button
+                      onClick={() => {
+                        setSort(1);
+                      }}
+                      className="buttonsInDrop1"
+                    >
+                      By price
+                      <br />
+                      (LOWER_HIGHER)
+                    </button>
                   </div>
                   <div className="buttonLine1">
-                    <Link className="linkButton" to={pathHigh_Low}>
-                      <button className="buttonsInDrop1">
-                        By price
-                        <br />
-                        (HIGHER-LOWER)
-                      </button>
-                    </Link>
+                    <button
+                      onClick={() => setSort(2)}
+                      className="buttonsInDrop1"
+                    >
+                      By price
+                      <br />
+                      (HIGHER-LOWER)
+                    </button>
                   </div>
                   <div className="buttonLine1">
                     <SortButton ButtonText="Popular" Link="men/popular" />
@@ -240,16 +271,23 @@ const Products = (props) => {
       <div className={s.colorDiv}>
         <div className={s.pushFooter}>
           <div className={s.mobileProductsDiv}>
-            <div className={s.newProductsDiv}>
-              {" "}
-              {props.Filter != null
-                ? sortedByPriceMobile
-                : productElementsMobile}
-            </div>
+            <div className={s.newProductsDiv}></div>
           </div>
           <div class={s.flexBoxProductsMen}>
             <div class={s.flexBox1}>
-              {props.Filter != null ? sortedByPrice : productElements}
+              {sort == 0
+                ? TestFunc()
+                : sort == 1
+                ? SortLow_High()
+                : sort == 2
+                ? SortHigh_Low()
+                : sort == 3
+                ? FilterShoes()
+                : sort == 4
+                ? FilterClothes()
+                : sort == 5
+                ? ClothesLow()
+                : TestFunc()}
             </div>
           </div>
         </div>
