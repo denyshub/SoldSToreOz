@@ -26,11 +26,7 @@ const PeopleImgs = () => {
         <div className={styles.someContentMobile}>
           <div className={styles.imageTitle}>
             {" "}
-            <img
-              className={styles.photo_size}
-              src={NewNikeCollection}
-              alt="women"
-            ></img>
+            <img src={NewNikeCollection} alt="women"></img>
           </div>
           <div className={styles.textTitle}>
             {" "}
@@ -55,33 +51,40 @@ const PeopleImgs = () => {
         </div>
         <div className={styles.flexBoxPeople}>
           <div>
-            <NavLink to="/men">
-              <img className={styles.photo_size} src={men} alt="men"></img>
-            </NavLink>
-            <div>
-              <p className={styles.captions}>For men</p>
+            <div className={styles.hoverImgMain}>
+              <NavLink to="/men">
+                <img className={styles.photo_size} src={men} alt="men"></img>
+              </NavLink>
             </div>
           </div>
           <div>
-            <NavLink to="/women">
-              <img className={styles.photo_size} src={women} alt="women"></img>
-            </NavLink>
-            <div>
-              <p className={styles.captions}>For women</p>
+            <div className={styles.hoverImgMain}>
+              <NavLink to="/women">
+                <img
+                  className={styles.photo_size}
+                  src={women}
+                  alt="women"
+                ></img>
+              </NavLink>
             </div>
           </div>
           <div>
-            <NavLink to="/children">
-              <img className={styles.photo_size} src={kid} alt="kid"></img>
-            </NavLink>
-            <div>
-              <p className={styles.captions}>For children</p>
+            <div className={styles.hoverImgMain}>
+              <NavLink to="/children">
+                <img className={styles.photo_size} src={kid} alt="kid"></img>
+              </NavLink>
             </div>
           </div>
+          
         </div>
+        <div className={styles.captionsDiv}>
+            <div>For men</div>
+            <div>For women</div>
+            <div>For kids</div>
+          </div>
       </div>
     </div>
   );
 };
-
+//  <p id={styles.caption3}>For children</p>
 export default PeopleImgs;

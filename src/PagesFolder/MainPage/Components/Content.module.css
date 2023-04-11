@@ -1,6 +1,9 @@
 
 .flexBoxPeople {
   display: flex;
+
+  height: 45.8vw;
+  overflow: hidden;
   padding-top: 70px;
   flex-direction: row;
   align-items: center;
@@ -11,10 +14,12 @@ width: 100%;
 }
 
 
-.captions {
+.captionsDiv {
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
-
 
 
 p {
@@ -46,6 +51,16 @@ padding: 100px;
   background-color: white;
 }
 
+.hoverImgMain{
+  transition: 0.4s;
+}
+.hoverImgMain:hover {
+  transform: scale(1.05);
+}
+.hoverImgMain:hover + #capton{
+ opacity: 0;
+ visibility: hidden;
+}
 footer,
 .push {
   display: grid;
