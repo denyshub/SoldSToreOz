@@ -8,7 +8,8 @@ import JordanBlack from "../images/shoes/dunkBlack.jpg";
 import DunkGreenGlow from "../images/shoes/dunkGreenGlow.jpg";
 import BlazerWhite from "../images/shoes/blazerWhite.jpg";
 import BlackNikeHoodie from "../images/Clothes/blackNikeHoodie.jpg";
-
+import BlackAdidasHoodie from "../images/Clothes/blackAdidasHoodie.jpeg"
+import BlackNikeHoodie2 from "../images/Clothes/blackNukeHoodie2.jpg";
 let state = {
   productData:[
     {
@@ -86,24 +87,24 @@ let state = {
     {
       id: 10,
       name: "Black Nike Hoodie",
-      price: 74.5,
-      imgMain: BlackNikeHoodie,
-      type: "clothes",
-      liked: false,
-    },
-    {
-      id: 11,
-      name: "Black Nike Hoodie1",
       price: 75,
       imgMain: BlackNikeHoodie,
       type: "clothes",
       liked: false,
     },
     {
+      id: 11,
+      name: "Black Adidas Hoodie",
+      price: 50,
+      imgMain: BlackAdidasHoodie,
+      type: "clothes",
+      liked: false,
+    },
+    {
       id: 12,
       name: "Black Nike Hoodie2",
-      price: 73,
-      imgMain: BlackNikeHoodie,
+      price: 55,
+      imgMain: BlackNikeHoodie2,
       type: "clothes",
       liked: false,
     },
