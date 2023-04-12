@@ -8,9 +8,9 @@ export const MobileProducts = (props) => {
   return (
     <div className={s.productsMobile}>
     <div class={s.imageFrameMobile}>
-      <a href="liked.html" id="liked" className={s.likeProduct}>
+      <div className={s.likeProduct +" " + 'liked'}>
         <ion-icon name="heart-outline"></ion-icon>
-      </a>
+      </div>
       <NavLink to={productPath}>
         <img src={props.ImgLink} alt="nike" className={s.clothes} />
       </NavLink>

@@ -4,14 +4,6 @@ import { ProductTemplate } from "../../../../ProductTemplate";
 import s from "./Products.module.css";
 import { MobileProducts } from "../../../../MobileProductTemplate";
 
-const DropLine = (props) => {
-  return (
-    <div className="buttonLine">
-      <button className="buttonsInDrop">{props.text}</button>
-    </div>
-  );
-};
-
 const SortButton = (props) => {
   return (
     <Link className="linkButton" to={"/" + props.Link}>
@@ -21,51 +13,59 @@ const SortButton = (props) => {
 };
 
 const Products = (props) => {
-  let ClothesData = props.productData.filter(
-    (product) => product.type == "clothes"
-  );
-  let ShoesData = props.productData.filter(
-    (product) => product.type == "shoes"
-  );
   const [data, setData] = useState(props.productData);
   const [sort, setSort] = useState(0);
-  const [clothes, setClothes] = useState(ClothesData);
-  const [shoes, setShoes] = useState(ShoesData);
+  const [clothes, setClothes] = useState(
+    props.productData.filter((product) => product.type == "clothes")
+  );
+  const [shoes, setShoes] = useState(
+    props.productData.filter((product) => product.type == "shoes")
+  );
 
   const [open, setOpen] = useState(false);
   const [open1, setOpen1] = useState(false);
 
-  function TestFunc() {
-    let s = [...data];
-    return MappingFunc(s);
+  function Sort(prodData, sortDirection, mode) {
+    if (sortDirection.toLowerCase() == "low" && mode == "desktop")
+      return MappingFunc(
+        [...prodData].sort((a, b) => a.price - b.price),
+        "desktop"
+      );
+    else if (sortDirection.toLowerCase() == "high" && mode == "desktop")
+      return MappingFunc(
+        [...prodData].sort((a, b) => b.price - a.price),
+        "desktop"
+      );
+    else if (sortDirection.toLowerCase() == "low" && mode == "mobile")
+      return MappingFunc(
+        [...prodData].sort((a, b) => a.price - b.price),
+        "mobile"
+      );
+    else if (sortDirection.toLowerCase() == "high" && mode == "mobile")
+      return MappingFunc(
+        [...prodData].sort((a, b) => b.price - a.price),
+        "mobile"
+      );
   }
-
-  function SortLow_High() {
-    let s = [...data].sort((a, b) => a.price - b.price);
-    return MappingFunc(s);
-  }
-
-  function SortHigh_Low() {
-    let s = [...data].sort((a, b) => b.price - a.price);
-    return MappingFunc(s);
-  }
-
-  function MappingFunc(a) {
-    return a.map((p) => (
-      <ProductTemplate
-        Id={p.id}
-        ProductName={p.name}
-        ImgLink={p.imgMain}
-        Price={p.price}
-      />
-    ));
-  }
-
-  function FilterLow(x) {
-    return MappingFunc([...x].sort((a, b) => a.price - b.price));
-  }
-  function FilterHigh(x) {
-    return MappingFunc([...x].sort((a, b) => b.price - a.price));
+  function MappingFunc(a, mode) {
+    if (mode == "desktop")
+      return a.map((p) => (
+        <ProductTemplate
+          Id={p.id}
+          ProductName={p.name}
+          ImgLink={p.imgMain}
+          Price={p.price}
+        />
+      ));
+    else if (mode == "mobile")
+      return a.map((p) => (
+        <MobileProducts
+          Id={p.id}
+          ProductName={p.name}
+          ImgLink={p.imgMain}
+          Price={p.price}
+        />
+      ));
   }
   return (
     <>
@@ -83,12 +83,12 @@ const Products = (props) => {
               </div>
               <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
                 <div className="dropBox">
-                <div className="buttonLine">
+                  <div className="removeFiltersDiv">
                     <button
-                      className="buttonsInDrop "
+                      className="removeFiltersButton"
                       onClick={() => setSort(0)}
                     >
-                      All products
+                      Remove filters
                     </button>
                     <div className="hiddenOptions">
                       <div className=" TESTICON" to="/men/shoes">
@@ -123,12 +123,7 @@ const Products = (props) => {
                     </div>
                   </div>
                   <div className="buttonLine">
-                    <button
-                      onClick={() => setSort(5)}
-                      className="buttonsInDrop"
-                    >
-                      Hats
-                    </button>
+                    <button className="buttonsInDrop">Hats</button>
                   </div>
                 </div>
               </div>
@@ -152,9 +147,9 @@ const Products = (props) => {
                     <button
                       onClick={() => {
                         setSort(
-                          sort == "clothes" || sort == 'ClothesHigh-Low'
+                          sort == "clothes" || sort == "ClothesHigh-Low"
                             ? "ClothesLow-High"
-                            : sort == "shoes" || sort ==  'ShoesHigh-Low'
+                            : sort == "shoes" || sort == "ShoesHigh-Low"
                             ? "ShoesLow-High"
                             : "low-high"
                         );
@@ -170,9 +165,9 @@ const Products = (props) => {
                     <button
                       onClick={() =>
                         setSort(
-                          sort == "clothes" || sort == 'ClothesLow-High'
+                          sort == "clothes" || sort == "ClothesLow-High"
                             ? "ClothesHigh-Low"
-                            : sort == "shoes" || sort == 'ShoesLow-High'
+                            : sort == "shoes" || sort == "ShoesLow-High"
                             ? "ShoesHigh-Low"
                             : "high-low"
                         )
@@ -200,29 +195,45 @@ const Products = (props) => {
       <div className={s.colorDiv}>
         <div className={s.pushFooter}>
           <div className={s.mobileProductsDiv}>
-            <div className={s.newProductsDiv}></div>
+            <div className={s.newProductsDiv}>
+            {sort == "low-high"
+                ? Sort(data, "low", "mobile")
+                : sort == "high-low"
+                ? Sort(data, "high", "mobile")
+                : sort == "shoes"
+                ? MappingFunc(shoes, "mobile")
+                : sort == "clothes"
+                ? MappingFunc(clothes, "mobile")
+                : sort == "ClothesLow-High"
+                ? Sort(clothes, "low", "mobile")
+                : sort == "ShoesLow-High"
+                ? Sort(shoes, "low", "mobile")
+                : sort == "ClothesHigh-Low"
+                ? Sort(clothes, "high", "mobile")
+                : sort == "ShoesHigh-Low"
+                ? Sort(shoes, "high", "mobile")
+                : MappingFunc(data, "mobile")}
+            </div>
           </div>
           <div class={s.flexBoxProductsMen}>
             <div class={s.flexBox1}>
-              {sort == 0
-                ? TestFunc()
-                : sort == "low-high"
-                ? SortLow_High()
+              {sort == "low-high"
+                ? Sort(data, "low", "desktop")
                 : sort == "high-low"
-                ? SortHigh_Low()
+                ? Sort(data, "high", "desktop")
                 : sort == "shoes"
-                ? MappingFunc(shoes)
+                ? MappingFunc(shoes, "desktop")
                 : sort == "clothes"
-                ? MappingFunc(clothes)
+                ? MappingFunc(clothes, "desktop")
                 : sort == "ClothesLow-High"
-                ? FilterLow(clothes)
+                ? Sort(clothes, "low", "desktop")
                 : sort == "ShoesLow-High"
-                ? FilterLow(shoes)
+                ? Sort(shoes, "low", "desktop")
                 : sort == "ClothesHigh-Low"
-                ? FilterHigh(clothes)
+                ? Sort(clothes, "high", "desktop")
                 : sort == "ShoesHigh-Low"
-                ? FilterHigh(shoes)
-                : TestFunc()}
+                ? Sort(shoes, "high", "desktop")
+                : MappingFunc(data, "desktop")}
             </div>
           </div>
         </div>

@@ -155,6 +155,9 @@ align-items: start;
   .flexBoxPeople{
     display: none;
   }
+  .captionsDiv{
+    display: none;
+  }
   .searchMobileDiv{
     display: block;
   }

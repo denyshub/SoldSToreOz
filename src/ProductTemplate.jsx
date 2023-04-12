@@ -6,9 +6,9 @@ export const ProductTemplate = (props) => {
   let price = props.Price + "$"
   return (
     <div class={s.imageFrame}>
-      <a href="liked.html" id="liked" className={s.likeProduct}>
+      <div className={s.likeProduct + " " + "liked"}>
         <ion-icon name="heart-outline"></ion-icon>
-      </a>
+      </div>
       <NavLink to={productPath}>
         <img src={props.ImgLink} alt="nike" className = {s.clothes} />
       </NavLink>

@@ -27,9 +27,13 @@ input {
 
 
 
-
-#liked {
+.liked {
   font-size: 3em;
+  z-index: 0;
+}
+
+.likedWhileDropsActive{
+  pointer-events: none;
 }
 
 #liked:hover {
@@ -198,7 +202,7 @@ justify-content: center;
   width: 100%;
   opacity: 0.8;
   justify-content: start;
-
+z-index: 500;
   background-color: gray;
   border-radius: 50px;
   display: flex;
@@ -215,7 +219,7 @@ justify-content: center;
   font-family: "Ubuntu", sans-serif;
 
   display: flex;
-  transition: 1.2s;
+  transition: 0.5s;
   justify-content: center;
   align-items: center;
   border-radius: 50px;
@@ -226,6 +230,28 @@ justify-content: center;
   height: 40px;
   overflow: hidden;
   color: #fff;
+}
+
+.removeFiltersDiv{
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
+}
+.removeFiltersButton{
+  display: flex;
+  transition: 1.2s;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  background-color: black;
+  border: none;
+  width: 80%;
+  height: 40px;
+  overflow: hidden;
+  color: #fff;
+}
+.removeFiltersButton:hover{
+background-color: rgba(255, 0, 0, 0.626);
 }
 
 .buttonLine {

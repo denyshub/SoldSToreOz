@@ -45,28 +45,37 @@ width: 700px;
 
 .NamePrice {
   display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
+  flex-direction: row;
+  flex-wrap: wrap;
   padding-bottom: 60px;
+  justify-content: space-between;
 max-height: 75px;
 }
 
 .caption {
   display: flex;
-  width: 100%;
-  justify-content: start;
+  width: 70%;
+
   padding-left: 10px;
   font-size: 17px;
   text-transform: uppercase; 
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap-reverse;
-}
 
-.price {
-  width: 100%;
+}
+.removeFilters{
   display: flex;
   flex-direction: row;
+  justify-content: center;
+}
+
+
+.price {
+
+margin-top: 29px;
+  width: 20%;
+  height: 60px;
+  display: flex;
   justify-content: end;
   padding-right: 20px;
   font-size: 25px;
@@ -84,6 +93,7 @@ max-height: 75px;
 .newProductsDiv{
   width: 100%;
   height: auto;
+
 
 padding-left: 6px;
 display: flex;
