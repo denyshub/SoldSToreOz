@@ -1,8 +1,8 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import Slider from "../../slider/slider";
 import Header from "../../Header/Header";
 import { ProductTemplate } from "../../ProductTemplate";
-import '../ProductPage/productPage.css'
+import "../ProductPage/productPage.css";
 
 import GreenNike from "../../images/shoes/greenNike.jpg";
 import BlackAdidas from "../../images/shoes/blackAdidas.jpg";
@@ -12,7 +12,11 @@ import DunkYellow from "../../images/shoes/dunkYellow.jpg";
 import NikeBones from "../../images/shoes/nikeBones.jpg";
 import greenNike2 from "../../images/shoes/greenNike2.webp";
 
-const productPage = () => {
+const productPage = (props) => {
+  function addToCart(id) {
+    props.addCartItem(id);
+  }
+
   return (
     <>
       <Header AddPage="HOME" Page="MEN" Link="men" AddLink="" />
@@ -67,7 +71,10 @@ const productPage = () => {
             </div>
             <div class="flexboxButtons">
               <div class="cartButton">
-                <h3 className="generalFont"> Add to your cart </h3>
+                <h3 onClick={addToCart(5)} className="generalFont">
+                  {" "}
+                  Add to your cart{" "}
+                </h3>
               </div>
               <div class="cartButton">
                 <h3 className="generalFont">Like</h3>

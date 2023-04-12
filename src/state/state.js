@@ -8,10 +8,10 @@ import JordanBlack from "../images/shoes/dunkBlack.jpg";
 import DunkGreenGlow from "../images/shoes/dunkGreenGlow.jpg";
 import BlazerWhite from "../images/shoes/blazerWhite.jpg";
 import BlackNikeHoodie from "../images/Clothes/blackNikeHoodie.jpg";
-import BlackAdidasHoodie from "../images/Clothes/blackAdidasHoodie.jpeg"
+import BlackAdidasHoodie from "../images/Clothes/blackAdidasHoodie.jpeg";
 import BlackNikeHoodie2 from "../images/Clothes/blackNukeHoodie2.jpg";
-let state = {
-  productData:[
+export let state = {
+  productData: [
     {
       id: 1,
       name: "Nike Green",
@@ -108,9 +108,25 @@ let state = {
       type: "clothes",
       liked: false,
     },
-  
-  ]
+  ],
 
+  cart: [],
 };
 
-export default state;
+export let addCartItem = (id) => {
+  let index = id - 1;
+  let newCartItem1 = {
+    id: id,
+    name: state.productData[index].name,
+    price: state.productData[index].price,
+    imgMain: state.productData[index].imgMain,
+    type: state.productData[index].type,
+    liked: state.productData[index].liked,
+  };
+  let newCartItem = JSON.parse(localStorage.getItem("newCartItem"));
+  if (!Array.isArray(newCartItem)) {
+    newCartItem = [];
+  }
+  newCartItem.push(newCartItem1);
+  localStorage.setItem("newCartItem", JSON.stringify(newCartItem));
+};

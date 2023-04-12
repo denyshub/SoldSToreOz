@@ -1,47 +1,20 @@
-// import React, { useContext } from "react";
-// import { ShopContext } from "../context/shop-context";
-// import Products from "../PagesFolder/MenPage/Components/Products/Products";
-// import { CartItem } from "./cart-item";
-// // import { useHistory } from "react-router-dom";
+import { React, useState, useEffect } from "react";
+import { ProductTemplate } from "../ProductTemplate";
 
-// import "./cart.css";
-// export const Cart = () => {
-//   const { cartItems, getTotalCartAmount, checkout } = useContext(ShopContext);
-//   const totalAmount = getTotalCartAmount();
+export const Cart = (props) => {
+  function showCartItems() {
+    let cartItems = JSON.parse(localStorage.getItem("newCartItem")) || [];
+    return cartItems.map((p) => (
+      <ProductTemplate
+        Id={p.id}
+        ProductName={p.name}
+        ImgLink={p.imgMain}
+        Price={p.price}
+      />
+    ));
+  }
 
-//   const navigate = useHistory();
+  return <div>{showCartItems()}</div>;
+};
 
-//   return (
-//     <div className="cart">
-//       <div>
-//         <h1>Your Cart Items</h1>
-//       </div>
-//       <div className="cart">
-//         {Products.map((product) => {
-//           if (cartItems[product.id] !== 0) {
-//             return <CartItem data={product} />;
-//           }
-//         })}
-//       </div>
-
-//       {totalAmount > 0 ? (
-//         <div className="checkout">
-//           <p> Subtotal: ${totalAmount} </p>
-//           <button onClick={() => navigate("/")}> Continue Shopping </button>
-//           <button
-//             onClick={() => {
-//               checkout();
-//               navigate("/checkout");
-//             }}
-//           >
-//             {" "}
-//             Checkout{" "}
-//           </button>
-//         </div>
-//       ) : (
-//         <h1> Your Shopping Cart is Empty</h1>
-//       )}
-//     </div>
-//   );
-// };
-// export default Cart;
+export default Cart;

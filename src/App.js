@@ -55,11 +55,11 @@ function App(props) {
           <Route
             exact
             path="/men"
-            element={<Products productData={props.productData} />}
+            element={<Products productData={props.Data.productData} />}
           ></Route>
         </Route>
-        <Route exact path="/1" element={<ProductPage1 />} />
-        <Route path="/cart" component={Cart} />
+        <Route exact path="/1" element={<ProductPage1 addCartItem = {props.addCartItem}/>} />
+        <Route exact path="/cart" element={<Cart cartProducts = {props.Data.cart}/>} />
         <Route exact path="/profile" element={<ProfilePage />} />
       </Routes>
 
