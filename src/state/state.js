@@ -1,3 +1,5 @@
+import { rerenderFunction } from "../render";
+
 import GreenNike from "../images/shoes/greenNike.jpg";
 import BlackAdidas from "../images/shoes/blackAdidas.jpg";
 import AirForce1White from "../images/shoes/airForce1White.jpg";
@@ -13,6 +15,7 @@ import BlackNikeHoodie2 from "../images/Clothes/blackNukeHoodie2.jpg";
 export let state = {
   productData: [
     {
+      key: 1,
       id: 1,
       name: "Nike Green",
       price: 1500,
@@ -21,6 +24,7 @@ export let state = {
       liked: false,
     },
     {
+      key: 2,
       id: 2,
       name: "Adidas Black",
       price: 500,
@@ -29,6 +33,7 @@ export let state = {
       liked: false,
     },
     {
+      key: 3,
       id: 3,
       name: "Air Force 1 White",
       price: 200,
@@ -37,6 +42,7 @@ export let state = {
       liked: false,
     },
     {
+      key: 4,
       id: 4,
       name: "Jordan Grey",
       price: 300,
@@ -45,6 +51,7 @@ export let state = {
       liked: false,
     },
     {
+      key: 5,
       id: 5,
       name: "Dunk Yellow",
       price: 300,
@@ -53,6 +60,7 @@ export let state = {
       liked: false,
     },
     {
+      key: 6,
       id: 6,
       name: "Nike Bones",
       price: 400,
@@ -61,6 +69,7 @@ export let state = {
       liked: false,
     },
     {
+      key: 7,
       id: 7,
       name: "Dunk Black",
       price: 300,
@@ -69,6 +78,7 @@ export let state = {
       liked: false,
     },
     {
+      key: 8,
       id: 8,
       name: "Dunk Green Glow",
       price: 1,
@@ -77,6 +87,7 @@ export let state = {
       liked: false,
     },
     {
+      key: 9,
       id: 9,
       name: "Blazer White",
       price: 250,
@@ -85,6 +96,7 @@ export let state = {
       liked: false,
     },
     {
+      key: 10,
       id: 10,
       name: "Black Nike Hoodie",
       price: 75,
@@ -93,6 +105,7 @@ export let state = {
       liked: false,
     },
     {
+      key: 11,
       id: 11,
       name: "Black Adidas Hoodie",
       price: 50,
@@ -101,6 +114,7 @@ export let state = {
       liked: false,
     },
     {
+      key: 12,
       id: 12,
       name: "Black Nike Hoodie2",
       price: 55,
@@ -109,13 +123,12 @@ export let state = {
       liked: false,
     },
   ],
-
-  cart: [],
 };
 
 export let addCartItem = (id) => {
   let index = id - 1;
-  let newCartItem1 = {
+  let newCartItemInfo = {
+    key: `${id}-${new Date().getTime()}`,
     id: id,
     name: state.productData[index].name,
     price: state.productData[index].price,
@@ -123,10 +136,15 @@ export let addCartItem = (id) => {
     type: state.productData[index].type,
     liked: state.productData[index].liked,
   };
-  let newCartItem = JSON.parse(localStorage.getItem("newCartItem"));
-  if (!Array.isArray(newCartItem)) {
-    newCartItem = [];
+  let newCartItems = JSON.parse(localStorage.getItem("newCartItems"));
+  if (!Array.isArray(newCartItems)) {
+    newCartItems = [];
   }
-  newCartItem.push(newCartItem1);
-  localStorage.setItem("newCartItem", JSON.stringify(newCartItem));
+  newCartItems.push(newCartItemInfo);
+  localStorage.setItem("newCartItems", JSON.stringify(newCartItems));
+};
+
+export const clearCart = (rerenderFunction) => {
+  localStorage.removeItem("newCartItems");
+  rerenderFunction(state);
 };

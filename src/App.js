@@ -5,7 +5,7 @@ import "./PagesFolder/ProductPage/productPage.css";
 import "./PagesFolder/MenPage/Components/FilterSort/FilterSort.css";
 import FullMainPage from "./PagesFolder/MainPage/FullMainPage";
 import MenPage from "./PagesFolder/MenPage/Components/MenPage";
-import ProductPage1 from "./PagesFolder/ProductPage/productPage";
+import ProductPage from "./PagesFolder/ProductPage/productPage";
 import ProfilePage from "./PagesFolder/ProfilePage/Profile";
 import Footer from "./Footer/Footer";
 import Cart from "../src/cart/cart";
@@ -58,8 +58,19 @@ function App(props) {
             element={<Products productData={props.Data.productData} />}
           ></Route>
         </Route>
-        <Route exact path="/1" element={<ProductPage1 addCartItem = {props.addCartItem}/>} />
-        <Route exact path="/cart" element={<Cart cartProducts = {props.Data.cart}/>} />
+        {props.Data.productData.map((productItem) => (
+          <Route
+            exact
+            path={`/${productItem.id}`}
+            element={<ProductPage idProduct = {productItem.id} addCartItem={props.addCartItem} nameProduct = {productItem.name} priceProduct = {productItem.price} />}
+          />
+        ))}
+
+        <Route
+          exact
+          path="/cart"
+          element={<Cart clearCart = {props.clearCart} cartProducts={props.Data.cart} />}
+        />
         <Route exact path="/profile" element={<ProfilePage />} />
       </Routes>
 

@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import s from './PagesFolder/MenPage/Components/Products/Products.module.css'
 export const ProductTemplate = (props) => {
-  let productPath = "/" + String(props.Id);
+  let productPath = "/" + props.id;
   let price = props.Price + "$"
   return (
     <div class={s.imageFrame}>

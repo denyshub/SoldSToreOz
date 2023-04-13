@@ -12,8 +12,8 @@ const Header = (props) => {
   const secondPath = "/" + props.SecondPage;
   const thirdPath = "/" + props.ThirdPage;
   const forthPath = "/" + props.ForthPage;
-  const firstPage = props.FirstPage;
 
+  const firstPage = props.FirstPage;
   const secondPage = props.SecondPage;
   const thirdPage = props.ThirdPage;
   const fortPage = props.ForthPage;

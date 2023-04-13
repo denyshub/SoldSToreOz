@@ -1,0 +1,55 @@
+.cartProductsDiv{
+
+
+width: 100%;
+display: flex;
+
+justify-content: center;
+}
+#productBox{
+  margin-top: 50px;
+  margin-bottom: 100px;
+  width: 1600px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  margin-left: 10%;
+  flex-wrap: wrap;
+  gap: 3em;
+}
+.cartTextDiv{
+margin-top: 100px;
+color: #111;
+display: grid;
+grid-template-columns: repeat(11, 1fr);
+
+text-align: center;
+font-family: 'Ubuntu';
+font-size: 55px;
+}
+
+h1{
+  grid-column: 6/7;
+}
+.pushFooter{
+  min-height: 100vh;
+  margin-bottom: 100px;
+  
+}
+
+.clearCartButton{
+  margin-top: 15px;
+  border: #111 3px solid;
+  border-radius: 50px;
+  padding: 5px;
+  font-size: 15px;
+  width: 150px;
+height: 60px;
+  grid-column: 10/11;
+  transition: 1.2s;
+}
+
+.clearCartButton:hover{
+  background-color: rgba(255, 0, 0, 0.626);
+  }

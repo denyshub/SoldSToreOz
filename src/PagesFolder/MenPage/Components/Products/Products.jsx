@@ -51,7 +51,7 @@ const Products = (props) => {
     if (mode == "desktop")
       return a.map((p) => (
         <ProductTemplate
-          Id={p.id}
+          id={p.id}
           ProductName={p.name}
           ImgLink={p.imgMain}
           Price={p.price}
@@ -60,7 +60,7 @@ const Products = (props) => {
     else if (mode == "mobile")
       return a.map((p) => (
         <MobileProducts
-          Id={p.id}
+          id={p.id}
           ProductName={p.name}
           ImgLink={p.imgMain}
           Price={p.price}

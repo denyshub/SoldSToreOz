@@ -3,7 +3,7 @@ import s from "./PagesFolder/MenPage/Components/Products/Products.module.css";
 import { NavLink } from "react-router-dom";
 
 export const MobileProducts = (props) => {
-  let productPath = "/" + String(props.Id);
+  let productPath = "/" + String(props.id);
   let price = props.Price + "$";
   return (
     <div className={s.productsMobile}>

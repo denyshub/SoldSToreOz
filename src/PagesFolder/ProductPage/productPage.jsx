@@ -13,14 +13,19 @@ import NikeBones from "../../images/shoes/nikeBones.jpg";
 import greenNike2 from "../../images/shoes/greenNike2.webp";
 
 const productPage = (props) => {
-  function addToCart(id) {
-    props.addCartItem(id);
-  }
+  const handleAddToCart = (productId) => {
+    props.addCartItem(productId);
+  };
 
   return (
     <>
-      <Header AddPage="HOME" Page="MEN" Link="men" AddLink="" />
-
+      <Header
+        FirstPage="home"
+        FirstPath="home"
+        SecondPage="men"
+        ThirdPage="women"
+        ForthPage="kids"
+      />
       <div className="pushFooterProducts">
         <div class="placer">
           <div class="bigConatinersDes">
@@ -32,20 +37,18 @@ const productPage = (props) => {
           </div>
           <div class="productInfo">
             <div class="nameCenter">
-              <h1 className="generalFont">
-                GRATEFUL DEAD X NIKE SB DUNK LOW GREEN BEAR
-              </h1>
+              <h1 className="generalFont">{props.nameProduct}</h1>
             </div>
             <h3 className="detailsFont" id="filter">
-              Filters:Casual/Nike/Green
+              {props.filtersProduct}
             </h3>
 
             <div class="iconsPriceSize">
               <div class="bordPriceSize">
-                <h4>1500$ </h4>
+                <h4> {props.priceProduct}$ </h4>
               </div>
               <div class="bordPriceSize">
-                <h4>UK 38</h4>
+                <h4>{props.sizeProduct}</h4>
               </div>
             </div>
 
@@ -70,14 +73,16 @@ const productPage = (props) => {
               </div>
             </div>
             <div class="flexboxButtons">
-              <div class="cartButton">
-                <h3 onClick={addToCart(5)} className="generalFont">
-                  {" "}
+              <div>
+                <button
+                  onClick={() => handleAddToCart(props.idProduct)}
+                  className="generalFont cartButton"
+                >
                   Add to your cart{" "}
-                </h3>
+                </button>
               </div>
-              <div class="cartButton">
-                <h3 className="generalFont">Like</h3>
+              <div>
+                <button className="generalFont cartButton"> Like </button>
               </div>
             </div>
           </div>
@@ -102,15 +107,7 @@ const productPage = (props) => {
                 </div>
               </div>
               <h4 className="fontLongText placeBetween" id="bigTextAbout">
-                The two-toned smooth leather uppers of the Nike Dunk provided
-                endless summer offerings for one of the most coveted lifestyle
-                silhouettes to date. As the model follows suit in the seasonal
-                transition, The Swoosh is electing fleece to coat the entirety
-                of its low-top construction with a lime green and white pairing
-                of the Nike Dunk Low. In line with the Beaverton-based brands
-                conversion to warmer fabrics and textiles as the autumnal months
-                close, the upcoming pair comes clad in the wooly material that
-                additionally fills the inner lining for a cozy fit.
+                {props.descriptionProduct}
               </h4>
             </div>
           </div>
@@ -205,3 +202,13 @@ const productPage = (props) => {
 };
 
 export default productPage;
+
+/* The two-toned smooth leather uppers of the Nike Dunk provided
+endless summer offerings for one of the most coveted lifestyle
+silhouettes to date. As the model follows suit in the seasonal
+transition, The Swoosh is electing fleece to coat the entirety
+of its low-top construction with a lime green and white pairing
+of the Nike Dunk Low. In line with the Beaverton-based brands
+conversion to warmer fabrics and textiles as the autumnal months
+close, the upcoming pair comes clad in the wooly material that
+additionally fills the inner lining for a cozy fit.*/
