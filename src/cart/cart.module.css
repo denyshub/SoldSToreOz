@@ -7,16 +7,17 @@ display: flex;
 justify-content: center;
 }
 #productBox{
+  flex-wrap: wrap;
   margin-top: 50px;
   margin-bottom: 100px;
-  width: 1600px;
+  width: 100%;
   height: auto;
   display: flex;
+  gap: 3rem;
   flex-direction: row;
-  justify-content: start;
-  margin-left: 10%;
-  flex-wrap: wrap;
-  gap: 3em;
+justify-content: center;
+
+
 }
 .cartTextDiv{
 margin-top: 100px;
@@ -52,4 +53,30 @@ height: 60px;
 
 .clearCartButton:hover{
   background-color: rgba(255, 0, 0, 0.626);
+  }
+
+  .totalDiv{
+    text-align: center;
+    margin-top: 25px;
+    font-size: 30px;
+    font-family: 'Fjalla one';
+    color: gray;
+  }
+
+
+  .mapButton{
+    margin-left: 15%;
+    margin-top: 5px;
+ display: flex;
+ width: 30%;
+ justify-content: center;
+ font-size: 25px;
+ color: white;
+ background-color: #111;
+ border-radius: 20px;
+ transition: 0.5s;
+  }
+
+  .mapButton:hover{
+    background-color: gray;
   }
