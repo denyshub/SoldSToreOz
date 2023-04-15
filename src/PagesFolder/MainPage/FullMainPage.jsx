@@ -1,8 +1,7 @@
 import React from "react";
 
-import Header from "../../Header/Header";
 import PeopleImgs from "./Components/PeopleImgs";
-import AboutUs from "./Components/AboutUs";
+import AboutUs from "./Components/newCollections";
 
 
 const FullMainPage = () => {
