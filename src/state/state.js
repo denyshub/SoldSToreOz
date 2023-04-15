@@ -140,7 +140,14 @@ export let addCartItem = (id) => {
   if (!Array.isArray(newCartItems)) {
     newCartItems = [];
   }
-  newCartItems.push(newCartItemInfo);
+  
+  let existingCartItem = newCartItems.find(item => item.id === id);
+  if (existingCartItem) {
+    existingCartItem.quantity += 1; 
+  } else {
+    newCartItems.push({...newCartItemInfo, quantity: 1});
+  }
+  
   localStorage.setItem("newCartItems", JSON.stringify(newCartItems));
 };
 

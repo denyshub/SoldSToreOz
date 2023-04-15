@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes, Outlet } from "react-router-dom";
+import { BrowserRouter, Route, Routes} from "react-router-dom";
 import "./Header/Header";
 import "./PagesFolder/ProductPage/productPage.css";
 import "./PagesFolder/MenPage/Components/FilterSort/FilterSort.css";
@@ -69,7 +69,7 @@ function App(props) {
         <Route
           exact
           path="/cart"
-          element={<Cart clearCart = {props.clearCart} cartProducts={props.Data.cart} />}
+          element={<Cart clearCart = {props.clearCart}  />}
         />
         <Route exact path="/profile" element={<ProfilePage />} />
       </Routes>

@@ -1,4 +1,5 @@
-import { React, useState, useEffect } from "react";
+import React, { useState } from "react";
+
 import Slider from "../../slider/slider";
 import Header from "../../Header/Header";
 import { ProductTemplate } from "../../ProductTemplate";
@@ -13,8 +14,16 @@ import NikeBones from "../../images/shoes/nikeBones.jpg";
 import greenNike2 from "../../images/shoes/greenNike2.webp";
 
 const productPage = (props) => {
+  // const [open, setOpen] = useState(0);
+
+  let clickedCartButton = React.createRef();
+
   const handleAddToCart = (productId) => {
     props.addCartItem(productId);
+    clickedCartButton.current.style.background = "#111";
+    clickedCartButton.current.style.color = "white";
+    clickedCartButton.current.innerText = "Added to cart";
+    // setOpen(1);
   };
 
   return (
@@ -26,6 +35,11 @@ const productPage = (props) => {
         ThirdPage="women"
         ForthPage="kids"
       />
+      <div>
+        {" "}
+          {/* /*className={`addedToCart ${open ? "activeCart" : "inactiveCart"}`}> */}{" "} */
+        Product added to the cart{" "}
+      </div>
       <div className="pushFooterProducts">
         <div class="placer">
           <div class="bigConatinersDes">
@@ -43,16 +57,16 @@ const productPage = (props) => {
               {props.filtersProduct}
             </h3>
 
-            <div class="iconsPriceSize">
-              <div class="bordPriceSize">
+            <div className="iconsPriceSize">
+              <div className="bordPriceSize">
                 <h4> {props.priceProduct}$ </h4>
               </div>
-              <div class="bordPriceSize">
+              <div className="bordPriceSize">
                 <h4>{props.sizeProduct}</h4>
               </div>
             </div>
 
-            <div class="sixItems">
+            <div className="sixItems">
               <div class="borderSix">
                 <h4>36</h4>
               </div>
@@ -75,10 +89,11 @@ const productPage = (props) => {
             <div class="flexboxButtons">
               <div>
                 <button
+                  ref={clickedCartButton}
                   onClick={() => handleAddToCart(props.idProduct)}
                   className="generalFont cartButton"
                 >
-                  Add to your cart{" "}
+                  Add to the cart{" "}
                 </button>
               </div>
               <div>

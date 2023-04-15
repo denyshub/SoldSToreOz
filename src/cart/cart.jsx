@@ -1,18 +1,36 @@
-import { React, useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { ProductTemplateCart } from "../ProductTemplateCart";
+import { NavLink } from "react-router-dom";
 import Header from "../Header/Header";
 import s from "./cart.module.css";
 const Cart = (props) => {
   const cartBoxRef = useRef(null);
   const [total, setTotal] = useState(0);
+  const [totalStyle, setTotalStyle] = useState(0);
   const [count, setCount] = useState(0);
+  const [buttonShop, setButtonShop] = useState(0);
+  const [empty, setEmpty] = useState(s.emptyCartDiv);
+  const [emptyText, setEmptyText] = useState(0);
   let cartItems = JSON.parse(localStorage.getItem("newCartItems")) || [];
   useEffect(() => {
     // Перераховуємо суму кожен раз, коли змінюється список товарів
     let sum = 0;
-    let counter = 0; 
-    cartItems.forEach((item) => (sum += item.price, counter += 1));
+    let counter = 0;
+    cartItems.forEach((item) => ((sum += item.price), (counter += 1)));
     setTotal(sum);
+
+    if (counter == 0) {
+      setEmpty(s.emptyCartDiv);
+      setTotalStyle(s.vanish);
+
+      setButtonShop(s.shoppingButton);
+      setEmptyText("The cart is empty...");
+    } else if (counter != 0) {
+      setEmpty(s.notEmptyCartDiv);
+      setEmptyText(" ");
+      setTotalStyle(s.appear);
+      setButtonShop(s.vanish);
+    }
     setCount(counter);
   }, [cartItems]);
 
@@ -62,11 +80,23 @@ const Cart = (props) => {
         </div>
         <div className={s.totalDiv}>
           {" "}
-          <h1>Total ({count}): {total} $</h1>{" "}
+          <h1 className={totalStyle}>
+            Total ({count}): {total} $
+          </h1>{" "}
+        </div>
+        <div className={s.alignerEmpty}>
+          <div className={empty}>
+            {" "}
+            {emptyText}
+            <div className={buttonShop}>
+              <NavLink to = '/'>
+                <button>Start shopping</button>
+              </NavLink>
+            </div>
+          </div>
         </div>
         <div ref={cartBoxRef} className={s.cartProductsDiv}>
           <div id={s.productBox}>{showCartItems()}</div>
-  
         </div>
       </div>
     </>
