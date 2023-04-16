@@ -1,7 +1,10 @@
-import React from "react";
+import React, {useEffect} from "react";
 import s from "./profile.module.css";
 import HeaderProfile from "../../Header/Header";
 const ProfilePage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <div className={s.pushFooter}>

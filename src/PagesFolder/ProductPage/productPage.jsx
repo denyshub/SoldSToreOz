@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Slider from "../../slider/slider";
 import Header from "../../Header/Header";
@@ -13,7 +13,10 @@ import DunkYellow from "../../images/shoes/dunkYellow.jpg";
 import NikeBones from "../../images/shoes/nikeBones.jpg";
 import greenNike2 from "../../images/shoes/greenNike2.webp";
 
-const productPage = (props) => {
+const ProductPage = (props) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   // const [open, setOpen] = useState(0);
 
   let clickedCartButton = React.createRef();
@@ -22,7 +25,7 @@ const productPage = (props) => {
     props.addCartItem(productId);
     clickedCartButton.current.style.background = "#111";
     clickedCartButton.current.style.color = "white";
-    clickedCartButton.current.innerText = "Added to cart";
+    clickedCartButton.current.innerText = "Added to the cart";
     // setOpen(1);
   };
 
@@ -216,7 +219,7 @@ const productPage = (props) => {
   );
 };
 
-export default productPage;
+export default ProductPage;
 
 /* The two-toned smooth leather uppers of the Nike Dunk provided
 endless summer offerings for one of the most coveted lifestyle

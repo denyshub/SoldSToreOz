@@ -56,12 +56,9 @@ padding: 100px;
   transition: 0.4s;
 }
 .hoverImgMain:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
-.hoverImgMain:hover + #capton{
- opacity: 0;
- visibility: hidden;
-}
+
 footer,
 .push {
   display: grid;

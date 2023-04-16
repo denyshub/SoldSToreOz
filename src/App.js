@@ -9,7 +9,6 @@ import ProductPage from "./PagesFolder/ProductPage/productPage";
 import ProfilePage from "./PagesFolder/ProfilePage/Profile";
 import Footer from "./Footer/Footer";
 import Cart from "../src/cart/cart";
-import { ShopContextProvider } from "./context/shop-context";
 import Header from "./Header/Header";
 import Products from "./PagesFolder/MenPage/Components/Products/Products";
 function App(props) {

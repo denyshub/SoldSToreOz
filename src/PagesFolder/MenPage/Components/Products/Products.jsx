@@ -26,28 +26,17 @@ const Products = (props) => {
   const [open1, setOpen1] = useState(false);
 
   function Sort(prodData, sortDirection, mode) {
-    if (sortDirection.toLowerCase() == "low" && mode == "desktop")
-      return MappingFunc(
-        [...prodData].sort((a, b) => a.price - b.price),
-        "desktop"
-      );
-    else if (sortDirection.toLowerCase() == "high" && mode == "desktop")
-      return MappingFunc(
-        [...prodData].sort((a, b) => b.price - a.price),
-        "desktop"
-      );
-    else if (sortDirection.toLowerCase() == "low" && mode == "mobile")
-      return MappingFunc(
-        [...prodData].sort((a, b) => a.price - b.price),
-        "mobile"
-      );
-    else if (sortDirection.toLowerCase() == "high" && mode == "mobile")
-      return MappingFunc(
-        [...prodData].sort((a, b) => b.price - a.price),
-        "mobile"
-      );
+    if (sortDirection.toLowerCase() == "low")
+      return MappingFunc([...prodData].sort((a, b) => a.price - b.price));
+    else if (sortDirection.toLowerCase() == "high")
+      return MappingFunc([...prodData].sort((a, b) => b.price - a.price));
+    else if (sortDirection.toLowerCase() == "low")
+      return MappingFunc([...prodData].sort((a, b) => a.price - b.price));
+    else if (sortDirection.toLowerCase() == "high")
+      return MappingFunc([...prodData].sort((a, b) => b.price - a.price));
   }
-  function MappingFunc(a, mode) {
+  function MappingFunc(a) {
+    let mode = window.innerWidth < 768 ? "mobile" : "desktop";
     if (mode == "desktop")
       return a.map((p) => (
         <ProductTemplate
@@ -57,7 +46,7 @@ const Products = (props) => {
           Price={p.price}
         />
       ));
-    else if (mode == "mobile")
+    else
       return a.map((p) => (
         <MobileProducts
           id={p.id}
@@ -194,46 +183,25 @@ const Products = (props) => {
       </div>
       <div className={s.colorDiv}>
         <div className={s.pushFooter}>
-          <div className={s.mobileProductsDiv}>
-            <div className={s.newProductsDiv}>
-            {sort == "low-high"
-                ? Sort(data, "low", "mobile")
-                : sort == "high-low"
-                ? Sort(data, "high", "mobile")
-                : sort == "shoes"
-                ? MappingFunc(shoes, "mobile")
-                : sort == "clothes"
-                ? MappingFunc(clothes, "mobile")
-                : sort == "ClothesLow-High"
-                ? Sort(clothes, "low", "mobile")
-                : sort == "ShoesLow-High"
-                ? Sort(shoes, "low", "mobile")
-                : sort == "ClothesHigh-Low"
-                ? Sort(clothes, "high", "mobile")
-                : sort == "ShoesHigh-Low"
-                ? Sort(shoes, "high", "mobile")
-                : MappingFunc(data, "mobile")}
-            </div>
-          </div>
           <div class={s.flexBoxProductsMen}>
             <div class={s.flexBox1}>
               {sort == "low-high"
-                ? Sort(data, "low", "desktop")
+                ? Sort(data, "low")
                 : sort == "high-low"
-                ? Sort(data, "high", "desktop")
+                ? Sort(data, "high")
                 : sort == "shoes"
-                ? MappingFunc(shoes, "desktop")
+                ? MappingFunc(shoes)
                 : sort == "clothes"
-                ? MappingFunc(clothes, "desktop")
+                ? MappingFunc(clothes)
                 : sort == "ClothesLow-High"
-                ? Sort(clothes, "low", "desktop")
+                ? Sort(clothes, "low")
                 : sort == "ShoesLow-High"
-                ? Sort(shoes, "low", "desktop")
+                ? Sort(shoes, "low")
                 : sort == "ClothesHigh-Low"
-                ? Sort(clothes, "high", "desktop")
+                ? Sort(clothes, "high")
                 : sort == "ShoesHigh-Low"
-                ? Sort(shoes, "high", "desktop")
-                : MappingFunc(data, "desktop")}
+                ? Sort(shoes, "high")
+                : MappingFunc(data)}
             </div>
           </div>
         </div>

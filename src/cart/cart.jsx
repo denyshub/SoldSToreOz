@@ -4,6 +4,10 @@ import { NavLink } from "react-router-dom";
 import Header from "../Header/Header";
 import s from "./cart.module.css";
 const Cart = (props) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const cartBoxRef = useRef(null);
   const [total, setTotal] = useState(0);
   const [totalStyle, setTotalStyle] = useState(0);
@@ -89,7 +93,7 @@ const Cart = (props) => {
             {" "}
             {emptyText}
             <div className={buttonShop}>
-              <NavLink to = '/'>
+              <NavLink to="/">
                 <button>Start shopping</button>
               </NavLink>
             </div>
