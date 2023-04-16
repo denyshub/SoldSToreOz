@@ -25,12 +25,8 @@ const Products = (props) => {
   const [open, setOpen] = useState(false);
   const [open1, setOpen1] = useState(false);
 
-  function Sort(prodData, sortDirection, mode) {
+  function Sort(prodData, sortDirection) {
     if (sortDirection.toLowerCase() == "low")
-      return MappingFunc([...prodData].sort((a, b) => a.price - b.price));
-    else if (sortDirection.toLowerCase() == "high")
-      return MappingFunc([...prodData].sort((a, b) => b.price - a.price));
-    else if (sortDirection.toLowerCase() == "low")
       return MappingFunc([...prodData].sort((a, b) => a.price - b.price));
     else if (sortDirection.toLowerCase() == "high")
       return MappingFunc([...prodData].sort((a, b) => b.price - a.price));
@@ -136,9 +132,9 @@ const Products = (props) => {
                     <button
                       onClick={() => {
                         setSort(
-                          sort == "clothes" || sort == "ClothesHigh-Low"
+                          sort == "clothes" || sort == "ClothesHigh-Low" || sort == "ClothesLow-High"
                             ? "ClothesLow-High"
-                            : sort == "shoes" || sort == "ShoesHigh-Low"
+                            : sort == "shoes" || sort == "ShoesHigh-Low"| sort == "ShoesLow-High"
                             ? "ShoesLow-High"
                             : "low-high"
                         );
@@ -154,9 +150,10 @@ const Products = (props) => {
                     <button
                       onClick={() =>
                         setSort(
-                          sort == "clothes" || sort == "ClothesLow-High"
-                            ? "ClothesHigh-Low"
-                            : sort == "shoes" || sort == "ShoesLow-High"
+                          sort == "clothes" || sort == "ClothesHigh-Low" || sort == "ClothesLow-High"
+                            ? "ClothesHigh-Low": 
+                       
+                            sort == "shoes" || sort == "ShoesLow-High"  || sort == "ShoesHigh-Low"
                             ? "ShoesHigh-Low"
                             : "high-low"
                         )

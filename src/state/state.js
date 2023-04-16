@@ -134,7 +134,7 @@ export let addCartItem = (id) => {
     price: state.productData[index].price,
     imgMain: state.productData[index].imgMain,
     type: state.productData[index].type,
-    liked: state.productData[index].liked,
+    quantity: 0
   };
   let newCartItems = JSON.parse(localStorage.getItem("newCartItems"));
   if (!Array.isArray(newCartItems)) {

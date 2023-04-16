@@ -1,4 +1,3 @@
-
 .flexBoxPeople {
   display: flex;
 
@@ -8,11 +7,10 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-flex-wrap:nowrap;
-width: 100%;
+  flex-wrap: nowrap;
+  width: 100%;
   z-index: 1000;
 }
-
 
 .captionsDiv {
   font-size: 2rem;
@@ -21,7 +19,6 @@ width: 100%;
   flex-direction: row;
   justify-content: space-around;
 }
-
 
 p {
   font-size: larger;
@@ -33,7 +30,6 @@ p {
   font-family: "Fjalla one";
   font-size: 30px;
   padding-bottom: 10px;
-  
 }
 .aboutUsText {
   font-size: 20px;
@@ -45,14 +41,14 @@ p {
 .container_aboutUs {
   display: flex;
   flex-direction: column;
-padding: 100px;
+  padding: 100px;
   font-size: larger;
-  
+
   color: rgb(0, 0, 0);
   background-color: white;
 }
 
-.hoverImgMain{
+.hoverImgMain {
   transition: 0.4s;
 }
 .hoverImgMain:hover {
@@ -62,12 +58,11 @@ padding: 100px;
 footer,
 .push {
   display: grid;
-z-index: 10000;
+  z-index: 10000;
   grid-template-columns: repeat(20, 1fr);
   grid-template-rows: repeat(44, 50px);
   height: 200px;
   background-color: #111;
-
 
   font-size: smaller;
   width: 100%;
@@ -98,18 +93,18 @@ z-index: 10000;
   color: gray;
 }
 
-.locateIcons{
-grid-column: 20/20;
+.locateIcons {
+  grid-column: 20/20;
   grid-row: 4/5;
   display: flex;
   gap: 1em;
   margin-bottom: 10px;
 }
 
-.aboutCompanyDiv{
+.aboutCompanyDiv {
   padding-left: 10px;
-width: 10rem;
-height: 200px;
+  width: 10rem;
+  height: 200px;
   grid-column: 2/4;
   grid-row: 1/5;
   display: flex;
@@ -117,117 +112,163 @@ height: 200px;
   align-items: start;
 }
 
-.supportDiv{
-height: 200px;
-display: flex;
-flex-direction: column;
-align-items: start;
+.supportDiv {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
   grid-column: 5/7;
   grid-row: 1/5;
 }
 
-.footerTitle{
+.footerTitle {
   text-transform: uppercase;
-  font-family: 'Ubuntu' sans-serif;
+  font-family: "Ubuntu" sans-serif;
   font-size: 20px;
   color: white;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-.footerPoints{
-  font-family: 'Ubuntu' sans-serif;
+.footerPoints {
+  font-family: "Ubuntu" sans-serif;
   color: rgb(200, 203, 206);
   font-weight: lighter;
   font-size: 19px;
-
 }
-.footerPoints:hover{
+.footerPoints:hover {
   color: gray;
 }
 
-
-
-
 @media screen and (max-width: 881px) {
-  .flexBoxPeople{
+  .flexBoxPeople {
     display: none;
   }
-  .captionsDiv{
+  .captionsDiv {
     display: none;
   }
-  .searchMobileDiv{
+  .searchMobileDiv {
     display: block;
   }
-  .container_aboutUs{
+  .container_aboutUs {
     display: none;
   }
-  .newProductsDiv{
+  .newProductsDiv {
     display: block;
   }
-  
+  .collectionsDiv {
+    display: none;
+  }
+
+  .collectionsText {
+    display: none;
+  }
+
+  .imageNewColls {
+    display: none;
+  }
+
+  .productsDivDesk {
+    display: none;
+  }
 }
 @media screen and (min-width: 881px) {
+  .searchMobile {
+    position: absolute;
+    display: none;
+  }
+  .someContentMobile {
+    position: absolute;
+    display: none;
+  }
+  .textTitle h3 {
+    position: absolute;
+    display: none;
+  }
+  .imageTitle {
+    position: absolute;
+    display: none;
+  }
 
-   .searchMobile {
-    position: absolute;
-    display: none;
-  }
-  .someContentMobile{
-    position: absolute;
-    display: none;
-  }
-  .textTitle h3{
-    position: absolute;
-    display: none;
-  }
-  .imageTitle{
-    position: absolute;
-    display: none;
-  }
-  
   .searchMobileDiv .searchMobileIcon {
     position: absolute;
     display: none;
   }
- 
-  .productsMobile{
+
+  .productsMobile {
     position: absolute;
     display: none;
   }
 
-.pushFooter.newProductsDiv{
-  position: absolute;
-display: none;
-  }
-  .seeMoreDiv{
+  .pushFooter.newProductsDiv {
     position: absolute;
     display: none;
   }
-  .seeAllBtn{
+  .seeMoreDiv {
+    position: absolute;
     display: none;
   }
+  .seeAllBtn {
+    display: none;
+  }
+  .collectionsDiv {
+    border-top: 1px rgba(190, 184, 184, 0.611) solid;
 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: 500px;
+    padding: 40px 0px;
+    margin-top: 150px;
+    margin-bottom: 50px;
+    background-color: white;
+  }
+
+  .collectionsText {
+    font-size: 40px;
+    font-family: "Fjalla one";
+    color: #111;
+    text-transform: uppercase;
+  }
+
+  .imageNewColls {
+    height: 100%;
+  }
+
+  .productsDivDesk {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+  }
+
+  .boxAligner {
+    width: 1600px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 9%;
+    gap: 3em;
+  }
 }
-.searchMobileDiv{
-
+.searchMobileDiv {
   display: flex;
-flex-direction: row;
+  flex-direction: row;
   width: 100%;
   justify-content: center;
 }
-.searchMobile{
+.searchMobile {
   text-align: center;
-  font-family: 'Ubuntu';
+  font-family: "Ubuntu";
 
   border-radius: 50px;
   width: 50%;
   height: 55px;
   margin-top: 150px;
-margin-bottom: 80px;
+  margin-bottom: 80px;
 }
 
-.someContentMobile{
+.someContentMobile {
   width: 100%;
   height: auto;
   display: grid;
@@ -236,8 +277,7 @@ margin-bottom: 80px;
   margin-bottom: 80px;
 }
 
-
-.textTitle{
+.textTitle {
   background-color: rgb(248, 246, 246);
   border: none;
   outline: none;
@@ -247,13 +287,13 @@ margin-bottom: 80px;
   justify-content: center;
   align-items: start;
   padding-left: 10px;
-  font-family:'Fjalla one';
+  font-family: "Fjalla one";
   font-size: 30px;
 }
-.searchMobileIcon{
+.searchMobileIcon {
   color: #111;
   font-size: 2rem;
-  padding-top:175px ;
+  padding-top: 175px;
   height: 55px;
   display: flex;
   align-items: center;
@@ -261,85 +301,42 @@ margin-bottom: 80px;
   margin-left: 40%;
 }
 
-.newProductsDiv{
+.newProductsDiv {
   width: 100%;
   height: auto;
   justify-content: center;
 
-display: flex;
-gap: 0.8em;
+  display: flex;
+  gap: 0.8em;
 
-margin-bottom: 10px;
-flex-wrap: wrap;
-
+  margin-bottom: 10px;
+  flex-wrap: wrap;
 }
 
-.productsMobile{
+.productsMobile {
   width: 48%;
-height: 10px;
+  height: 10px;
 }
 
-.pushFooter{
+.pushFooter {
   min-height: 100vh;
-
 }
 
-.seeMoreDiv{
+.seeMoreDiv {
   width: 100%;
-display: flex;
-justify-content: center;
-align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 95px;
   margin-top: 60px;
-
 }
 
-.seeAllBtn{
-color: #111;
-width: 40%;
-font-family: 'Ubuntu';
-transition: 0.3s ease;
-font-size: 40px;
+.seeAllBtn {
+  color: #111;
+  width: 40%;
+  font-family: "Ubuntu";
+  transition: 0.3s ease;
+  font-size: 40px;
   background-color: white;
 }
 /* desk */
-
-.collectionsDiv{
- border-top: 1px rgba(190, 184, 184, 0.611) solid;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 100%;
-  height: 500px;
-  padding: 40px 0px;
-  margin-top: 150px;
-  margin-bottom: 50px;
-  background-color: white;
-}
-
-.collectionsText{
-  font-size: 40px;
-  font-family: 'Fjalla one';
-  color: #111;
-  text-transform: uppercase;
-}
-
-.imageNewColls{
-  height: 100%;
-}
-
-.productsDivDesk{
-width: 100%;
-display: flex;
-justify-content: center;
-margin-bottom: 100px;
-}
-
-.boxAligner{
-  width: 1600px;
-  display: flex;
-  flex-wrap: wrap;
- margin-left: 9%;
-  gap: 3em;
-}

@@ -19,6 +19,7 @@ export const ProductTemplateCart = (props) => {
       <button className={s.mapButton} onClick={props.handleRemoveItem}>
         Remove
       </button>
+      {/* quantity: {props.quantity} */}
     </div>
   );
 };

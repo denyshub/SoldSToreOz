@@ -15,6 +15,7 @@ const Cart = (props) => {
   const [buttonShop, setButtonShop] = useState(0);
   const [empty, setEmpty] = useState(s.emptyCartDiv);
   const [emptyText, setEmptyText] = useState(0);
+
   let cartItems = JSON.parse(localStorage.getItem("newCartItems")) || [];
   useEffect(() => {
     // Перераховуємо суму кожен раз, коли змінюється список товарів
@@ -26,10 +27,10 @@ const Cart = (props) => {
     if (counter == 0) {
       setEmpty(s.emptyCartDiv);
       setTotalStyle(s.vanish);
-
       setButtonShop(s.shoppingButton);
       setEmptyText("The cart is empty...");
-    } else if (counter != 0) {
+    } 
+    else {
       setEmpty(s.notEmptyCartDiv);
       setEmptyText(" ");
       setTotalStyle(s.appear);
@@ -55,6 +56,7 @@ const Cart = (props) => {
         ProductName={p.name}
         ImgLink={p.imgMain}
         Price={p.price}
+        quantity= {p.quantity}
         handleRemoveItem={() => handleRemoveItem(p)}
       />
     ));
