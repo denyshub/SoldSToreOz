@@ -29,8 +29,7 @@ const Cart = (props) => {
       setTotalStyle(s.vanish);
       setButtonShop(s.shoppingButton);
       setEmptyText("The cart is empty...");
-    } 
-    else {
+    } else {
       setEmpty(s.notEmptyCartDiv);
       setEmptyText(" ");
       setTotalStyle(s.appear);
@@ -56,7 +55,7 @@ const Cart = (props) => {
         ProductName={p.name}
         ImgLink={p.imgMain}
         Price={p.price}
-        quantity= {p.quantity}
+        quantity={p.quantity}
         handleRemoveItem={() => handleRemoveItem(p)}
       />
     ));
@@ -80,10 +79,6 @@ const Cart = (props) => {
         ForthPage="kids"
       />
       <div className={s.pushFooter}>
-        <div className={s.cartTextDiv}>
-          {" "}
-          <h1>Cart</h1>
-        </div>
         <div className={s.totalDiv}>
           {" "}
           <h1 className={totalStyle}>

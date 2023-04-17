@@ -1,13 +1,13 @@
 import React from "react";
 import LogoHeader from "./logoHeader";
 import styles from "./Header.module.css";
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import "../syles/MOBILENAVTEMP.css";
 const Header = (props) => {
   let firstPath = "/" + props.FirstPage;
-  if (props.FirstPage=='home'){
-    firstPath = '/'
+  if (props.FirstPage == "home") {
+    firstPath = "/";
   }
   const secondPath = "/" + props.SecondPage;
   const thirdPath = "/" + props.ThirdPage;
@@ -28,7 +28,7 @@ const Header = (props) => {
             <ul className={styles.nav__links}>
               <li>
                 <Link to={firstPath} className={styles.navStyle}>
-                 {firstPage}
+                  {firstPage}
                 </Link>
               </li>
               <li>
@@ -58,7 +58,6 @@ const Header = (props) => {
                 placeholder="  Search..."
               ></input>
               <a
-
                 className={`${styles.search_btn} ${styles.iconMen} ${styles.search} ${styles.hoverIcons}`}
               >
                 <ion-icon name="search-outline"></ion-icon>
@@ -68,6 +67,7 @@ const Header = (props) => {
             <Link
               className={styles.cartIcon + " " + styles.hoverIcons}
               to="/cart"
+              activeStyle={styles.activeNavLink}
             >
               <ion-icon name="cart-outline"></ion-icon>
             </Link>
@@ -75,7 +75,7 @@ const Header = (props) => {
               to="/liked"
               id={styles.person}
               className={`${styles.iconMen} ${styles.heartIcon} ${styles.hoverIcons}`}
-              activeStyle={{ color: "grey" }}
+         
             >
               <ion-icon name="heart-outline"></ion-icon>
             </Link>
@@ -84,7 +84,7 @@ const Header = (props) => {
               to="/profile"
               id={styles.person}
               className={`${styles.iconMen} ${styles.person}  ${styles.hoverIcons}`}
-              activeStyle={{ color: "grey" }}
+              activeClassName={styles.activeNavLink}
             >
               <ion-icon name="person-outline"></ion-icon>
             </Link>
@@ -94,7 +94,7 @@ const Header = (props) => {
                 onClick={() => {
                   setDrop(!drop);
                 }}
-                className={styles.menuButton + " " + 'menuMobileIcon' }
+                className={styles.menuButton + " " + "menuMobileIcon"}
               >
                 {" "}
                 <ion-icon name="menu-outline"></ion-icon>
@@ -171,7 +171,9 @@ const Header = (props) => {
       </header>
       <div className={`dropNavbar ${drop ? "active" : "inactive"}`}>
         <div className="mobileNavRow">
-          <Link className="linksMobile" to = {firstPath} >{firstPage}</Link>
+          <Link className="linksMobile" to={firstPath}>
+            {firstPage}
+          </Link>
         </div>
         <div className="mobileNavRow">
           <Link className="linksMobile" to={secondPath}>

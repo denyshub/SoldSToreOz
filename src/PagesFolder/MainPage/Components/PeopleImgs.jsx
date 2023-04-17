@@ -78,9 +78,9 @@ const PeopleImgs = () => {
           
         </div>
         <div className={styles.captionsDiv}>
-            <div>For men</div>
-            <div>For women</div>
-            <div>For kids</div>
+            <div>   <NavLink to="/men">For men </NavLink></div>
+            <div> <NavLink to="/women">For women </NavLink></div>
+            <div> <NavLink to="/kids">For kids </NavLink></div>
           </div>
       </div>
     </div>

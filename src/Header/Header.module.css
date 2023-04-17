@@ -182,3 +182,6 @@ header {
 }
 
 
+.activeNavLink{
+  color: gray;
+}
