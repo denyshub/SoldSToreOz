@@ -9,6 +9,7 @@ import ProductPage from "./PagesFolder/ProductPage/productPage";
 import ProfilePage from "./PagesFolder/ProfilePage/Profile";
 import Footer from "./Footer/Footer";
 import Cart from "../src/cart/cart";
+import LikedPage from "./PagesFolder/LikedPage/LikedPage"
 import Header from "./Header/Header";
 import Products from "./PagesFolder/MenPage/Components/Products/Products";
 function App(props) {
@@ -54,21 +55,26 @@ function App(props) {
           <Route
             exact
             path="/men"
-            element={<Products productData={props.Data.productData} />}
+            element={<Products productData={props.Data.productData}   addLikedItem={props.addLikedItem}/>}
           ></Route>
         </Route>
         {props.Data.productData.map((productItem) => (
           <Route
             exact
             path={`/${productItem.id}`}
-            element={<ProductPage idProduct = {productItem.id} addCartItem={props.addCartItem} nameProduct = {productItem.name} priceProduct = {productItem.price} />}
+            element={<ProductPage idProduct = {productItem.id} addCartItem={props.addCartItem}   addLikedItem={props.addLikedItem} nameProduct = {productItem.name} priceProduct = {productItem.price} />}
           />
         ))}
 
         <Route
           exact
           path="/cart"
-          element={<Cart clearCart = {props.clearCart}  />}
+          element={<Cart  />}
+        />
+         <Route
+          exact
+          path="/liked"
+          element={<LikedPage />}
         />
         <Route exact path="/profile" element={<ProfilePage />} />
       </Routes>

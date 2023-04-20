@@ -17,16 +17,22 @@ const ProductPage = (props) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  // const [open, setOpen] = useState(0);
 
   let clickedCartButton = React.createRef();
+  let clickedLikedButton = React.createRef();
 
   const handleAddToCart = (productId) => {
     props.addCartItem(productId);
     clickedCartButton.current.style.background = "#111";
     clickedCartButton.current.style.color = "white";
     clickedCartButton.current.innerText = "Added to the cart";
-    // setOpen(1);
+  };
+
+  const handleLikedButton = (productId) => {
+    props.addLikedItem(productId);
+    clickedLikedButton.current.style.background = "#111";
+    clickedLikedButton.current.style.color = "white";
+    clickedLikedButton.current.innerText = "Liked";
   };
 
   return (
@@ -38,11 +44,6 @@ const ProductPage = (props) => {
         ThirdPage="women"
         ForthPage="kids"
       />
-      <div>
-        {" "}
-          {/* /*className={`addedToCart ${open ? "activeCart" : "inactiveCart"}`}> */}{" "} */
-        Product added to the cart{" "}
-      </div>
       <div className="pushFooterProducts">
         <div class="placer">
           <div class="bigConatinersDes">
@@ -100,7 +101,14 @@ const ProductPage = (props) => {
                 </button>
               </div>
               <div>
-                <button className="generalFont cartButton"> Like </button>
+                <button
+                ref={clickedLikedButton}
+                  className="generalFont cartButton"
+                  onClick={() => handleLikedButton(props.idProduct)}
+                >
+                  {" "}
+                  Like{" "}
+                </button>
               </div>
             </div>
           </div>

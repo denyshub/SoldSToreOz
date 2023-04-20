@@ -1,12 +1,18 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import s from "./profile.module.css";
-import HeaderProfile from "../../Header/Header";
+import Header from "../../Header/Header";
 const ProfilePage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
     <>
+      <Header
+        FirstPage="home"
+        SecondPage="men"
+        ThirdPage="women"
+        ForthPage="kids"
+      />
       <div className={s.pushFooter}>
         <div className={s.container1}>
           <div className={s.containerProfile}>

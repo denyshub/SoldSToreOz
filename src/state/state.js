@@ -151,7 +151,29 @@ export let addCartItem = (id) => {
   localStorage.setItem("newCartItems", JSON.stringify(newCartItems));
 };
 
-export const clearCart = (rerenderFunction) => {
-  localStorage.removeItem("newCartItems");
-  rerenderFunction(state);
+export let addLikedItem = (id) => {
+  let index = id - 1;
+  let newLikedItemInfo = {
+    key: `${id}-${new Date().getTime()}`,
+    id: id,
+    name: state.productData[index].name,
+    price: state.productData[index].price,
+    imgMain: state.productData[index].imgMain,
+    type: state.productData[index].type,
+    quantity: 0
+  };
+  let newLikedItems = JSON.parse(localStorage.getItem("newLikedItems"));
+  if (!Array.isArray(newLikedItems)) {
+    newLikedItems = [];
+  }
+  
+  let existingLikedItem = newLikedItems.find(item => item.id === id);
+  if (existingLikedItem) {
+    existingLikedItem.quantity += 1; 
+  } else {
+    newLikedItems.push({...newLikedItemInfo, quantity: 1});
+  }
+  
+  localStorage.setItem("newLikedItems", JSON.stringify(newLikedItems));
 };
+

@@ -131,3 +131,12 @@
 .mapButton:active{
   transform: scale(1);
 }
+
+.blackHeart{
+width: 60px;
+}
+
+.likeButton{
+  width: 60px;
+  height: 60px;
+}
