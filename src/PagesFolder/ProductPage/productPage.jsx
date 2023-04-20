@@ -21,7 +21,6 @@ const ProductPage = (props) => {
   let clickedCartButton = React.createRef();
   let clickedLikedButton = React.createRef();
 
-  isLiked?  clickedCartButton.current.style.background = "#111": 'white';
   const handleAddToCart = (productId) => {
     props.addCartItem(productId);
     clickedCartButton.current.style.background = "#111";
