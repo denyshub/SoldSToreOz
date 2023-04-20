@@ -12,6 +12,7 @@ import BlazerWhite from "../images/shoes/blazerWhite.jpg";
 import BlackNikeHoodie from "../images/Clothes/blackNikeHoodie.jpg";
 import BlackAdidasHoodie from "../images/Clothes/blackAdidasHoodie.jpeg";
 import BlackNikeHoodie2 from "../images/Clothes/blackNukeHoodie2.jpg";
+import { json } from "react-router-dom";
 export let state = {
   productData: [
     {
@@ -177,3 +178,7 @@ export let addLikedItem = (id) => {
   localStorage.setItem("newLikedItems", JSON.stringify(newLikedItems));
 };
 
+export function getLikedItems() {
+  const likedItems = localStorage.getItem("newLikedItems");
+  return likedItems ? JSON.parse(likedItems) : [];
+}
