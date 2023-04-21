@@ -83,8 +83,6 @@
   flex-flow: row wrap;
 }
 
-
-
 @media screen and (min-width: 881px) {
   .caption {
     font-size: 25px;
@@ -121,22 +119,22 @@
   color: white;
   width: 25%;
   transition: 0.5s;
-  border-radius:0 30px 0 10px;
+  border-radius: 0 30px 0 10px;
 }
 
-.mapButton:hover{
+.mapButton:hover {
   background-color: gray;
 }
 
-.mapButton:active{
+.mapButton:active {
   transform: scale(1);
 }
 
-.blackHeart{
-width: 60px;
+.blackHeart {
+  width: 60px;
 }
 
-.likeButton{
+.likeButton {
   width: 60px;
   height: 60px;
 }

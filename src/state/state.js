@@ -182,3 +182,8 @@ export function getLikedItems() {
   const likedItems = localStorage.getItem("newLikedItems");
   return likedItems ? JSON.parse(likedItems) : [];
 }
+
+export function getCartItems() {
+  const cartItems = localStorage.getItem("newCartItems");
+  return cartItems ? JSON.parse(cartItems) : [];
+}

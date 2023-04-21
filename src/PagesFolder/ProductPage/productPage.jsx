@@ -3,7 +3,7 @@ import Slider from "../../slider/slider";
 import Header from "../../Header/Header";
 import { ProductTemplate } from "../../ProductTemplate";
 import "../ProductPage/productPage.css";
-
+import { getLikedItems } from "../../state/state";
 import GreenNike from "../../images/shoes/greenNike.jpg";
 import BlackAdidas from "../../images/shoes/blackAdidas.jpg";
 import AirForce1White from "../../images/shoes/airForce1White.jpg";
@@ -13,13 +13,22 @@ import NikeBones from "../../images/shoes/nikeBones.jpg";
 import greenNike2 from "../../images/shoes/greenNike2.webp";
 
 const ProductPage = (props) => {
-  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  const [isLiked, setIsLiked] = useState(false);
+  
   let clickedCartButton = React.createRef();
   let clickedLikedButton = React.createRef();
+
+  useEffect(() => {
+    getLikedItems().some((item) => item.id === props.idProduct)
+    ? changeLikedButton()
+    : changeNotLikedButton();
+  
+  }, [props.idProduct]);
+
 
   const handleAddToCart = (productId) => {
     props.addCartItem(productId);
@@ -28,13 +37,24 @@ const ProductPage = (props) => {
     clickedCartButton.current.innerText = "Added to the cart";
   };
 
-  const handleLikedButton = (productId) => {
-    props.addLikedItem(productId);
+  const changeLikedButton = () => {
     clickedLikedButton.current.style.background = "#111";
     clickedLikedButton.current.style.color = "white";
     clickedLikedButton.current.innerText = "Liked";
   };
- 
+  const changeNotLikedButton = () => {
+    clickedLikedButton.current.style.background = "white";
+    clickedLikedButton.current.style.color = "#111";
+    clickedLikedButton.current.innerText = "Like";
+  };
+
+
+  const handleLikedButton = (productId) => {
+    props.addLikedItem(productId);
+    setIsLiked(true);
+    changeLikedButton();
+  };
+
   return (
     <>
       <Header
@@ -102,7 +122,7 @@ const ProductPage = (props) => {
               </div>
               <div>
                 <button
-                ref={clickedLikedButton}
+                  ref={clickedLikedButton}
                   className="generalFont cartButton"
                   onClick={() => handleLikedButton(props.idProduct)}
                 >

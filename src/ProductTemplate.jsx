@@ -8,21 +8,39 @@ export const ProductTemplate = (props) => {
   const initialHeartState = getLikedItems().some((item) => item.id === props.id)
     ? blackHeart
     : whiteHeart;
+
+  let likedItems = JSON.parse(localStorage.getItem("newLikedItems")) || [];
   const [heart, setHeart] = useState(initialHeartState);
-  function handleLikedButton(id) {
+
+  const handleRemoveItem = (id) => {
+    const updatedLikedItems = likedItems.filter((p) => p.id !== id);
+    localStorage.setItem("newLikedItems", JSON.stringify(updatedLikedItems));
+    setHeart(whiteHeart);
+    likedItems = updatedLikedItems; 
+  };
+
+  
+  function addItem(id) {
     addLikedItem(id);
     setHeart(blackHeart);
   }
-  console.log(getLikedItems()); // перевірка, чи дійсно є вподобані товари в localStorage
-  console.log(props.id); // перевірка, чи дійсно передається id компоненту ProductTemplate
-  console.log(getLikedItems().includes(props.id));
+
+  function handleLikedButton(id) {
+    if (heart === blackHeart) {
+      handleRemoveItem(id);
+    } else {
+      addItem(id);
+    }
+  }
+
   let productPath = "/" + props.id;
   let price = props.Price + "$";
   return (
+    
     <div className={s.imageFrame}>
       <div className={s.likeProduct + " " + "liked"}>
         <button onClick={() => handleLikedButton(props.id)}>
-          <img className={s.blackHeart} src={heart} ></img>
+          <img className={s.blackHeart} src={heart}></img>
         </button>
       </div>
       <NavLink to={productPath}>

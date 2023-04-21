@@ -84,7 +84,7 @@ const Header = (props) => {
               to="/profile"
               id={styles.person}
               className={`${styles.iconMen} ${styles.person}  ${styles.hoverIcons}`}
-              activeClassName={styles.activeNavLink}
+              
             >
               <ion-icon name="person-outline"></ion-icon>
             </Link>

@@ -5,7 +5,7 @@ export const ProductTemplateCart = (props) => {
   let productPath = "/" + props.id;
   let price = props.Price + "$";
   return (
-    <div class={s.imageFrame}>
+    <div className={s.imageFrame}>
       <div className={s.likeProduct + " " + "liked"}>
         <ion-icon name="heart-outline"></ion-icon>
       </div>

@@ -12,7 +12,10 @@ const SortButton = (props) => {
   );
 };
 
+
 const Products = (props) => {
+
+
   const [data, setData] = useState(props.productData);
   const [sort, setSort] = useState(0);
   const [clothes, setClothes] = useState(
@@ -33,7 +36,7 @@ const Products = (props) => {
   }
   function MappingFunc(a) {
     let mode = window.innerWidth < 768 ? "mobile" : "desktop";
-    if (mode == "desktop")
+    if (mode == "desktop" )
       return a.map((p) => (
         <ProductTemplate
           id={p.id}
