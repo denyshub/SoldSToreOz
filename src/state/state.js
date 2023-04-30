@@ -1,4 +1,3 @@
-import { rerenderFunction } from "../render";
 
 import GreenNike from "../images/shoes/greenNike.jpg";
 import BlackAdidas from "../images/shoes/blackAdidas.jpg";
@@ -12,7 +11,7 @@ import BlazerWhite from "../images/shoes/blazerWhite.jpg";
 import BlackNikeHoodie from "../images/Clothes/blackNikeHoodie.jpg";
 import BlackAdidasHoodie from "../images/Clothes/blackAdidasHoodie.jpeg";
 import BlackNikeHoodie2 from "../images/Clothes/blackNukeHoodie2.jpg";
-import { json } from "react-router-dom";
+
 export let state = {
   productData: [
     {
@@ -125,6 +124,13 @@ export let state = {
     },
   ],
 };
+
+let varFunc = () => {
+}
+
+export const subscriber = (observer) =>{
+  varFunc = observer;
+}
 
 export let addCartItem = (id) => {
   let index = id - 1;

@@ -21,6 +21,7 @@ export const MobileProducts = (props) => {
   };
 
   console.log(getLikedItems());
+  
   function addItem(id) {
     addLikedItem(id);
     setHeart(blackHeart);

@@ -83,6 +83,20 @@
   flex-flow: row wrap;
 }
 
+.searches {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  border: 4px solid black;
+  width: 20%;
+  height: 80px;
+  border-radius: 50px;
+  margin-top: 100px;
+  text-align: center;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 20px;
+}
+
+
 @media screen and (min-width: 881px) {
   .caption {
     font-size: 25px;
@@ -90,6 +104,8 @@
   .price {
     font-size: 27px;
   }
+
+  
 }
 
 @media screen and (max-width: 881px) {
@@ -104,7 +120,10 @@
     flex-wrap: wrap;
   }
   .caption {
-    font-size: 19px;
+    font-size: 16px;
+  }
+  .searches{
+    display: none;
   }
   .price {
     font-size: 23px;
@@ -132,6 +151,7 @@
 
 .blackHeart {
   width: 60px;
+  height: 60px;
 }
 
 .likeButton {

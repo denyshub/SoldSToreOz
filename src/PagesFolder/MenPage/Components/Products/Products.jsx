@@ -1,20 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate, Navigate } from "react-router-dom";
 import { ProductTemplate } from "../../../../ProductTemplate";
 import s from "./Products.module.css";
 import { MobileProducts } from "../../../../MobileProductTemplate";
-
-const SortButton = (props) => {
-  return (
-    <Link className="linkButton" to={"/" + props.Link}>
-      <button className="buttonsInDrop1">{props.ButtonText}</button>
-    </Link>
-  );
-};
-
+import { rerenderFunction } from "../../../..";
+import { isMobile } from "react-device-detect";
+import { createRef } from "react";
 
 const Products = (props) => {
+  const [isMobile, setIsMobile] = useState(false);
+  const sortText1 = createRef();
+  const sortText2 = createRef();
+  const sortText3 = createRef();
+  const sortText4 = createRef();
+  const [sortTextValue, setsortTextValue] = useState("Sort");
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 881);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const [data, setData] = useState(props.productData);
   const [sort, setSort] = useState(0);
@@ -35,10 +44,9 @@ const Products = (props) => {
       return MappingFunc([...prodData].sort((a, b) => b.price - a.price));
   }
   function MappingFunc(a) {
-    let mode = window.innerWidth < 768 ? "mobile" : "desktop";
-    if (mode == "desktop" )
+    if (isMobile)
       return a.map((p) => (
-        <ProductTemplate
+        <MobileProducts
           id={p.id}
           ProductName={p.name}
           ImgLink={p.imgMain}
@@ -47,7 +55,7 @@ const Products = (props) => {
       ));
     else
       return a.map((p) => (
-        <MobileProducts
+        <ProductTemplate
           id={p.id}
           ProductName={p.name}
           ImgLink={p.imgMain}
@@ -78,11 +86,6 @@ const Products = (props) => {
                     >
                       Remove filters
                     </button>
-                    <div className="hiddenOptions">
-                      <div className=" TESTICON" to="/men/shoes">
-                        <ion-icon name="game-controller-outline"></ion-icon>
-                      </div>
-                    </div>
                   </div>
                   <div className="buttonLine">
                     <button
@@ -91,11 +94,6 @@ const Products = (props) => {
                     >
                       Shoes
                     </button>
-                    <div className="hiddenOptions">
-                      <div className=" TESTICON" to="/men/shoes">
-                        <ion-icon name="game-controller-outline"></ion-icon>
-                      </div>
-                    </div>
                   </div>
                   <div className="buttonLine">
                     <button
@@ -104,11 +102,6 @@ const Products = (props) => {
                     >
                       Clothes
                     </button>
-                    <div className="hiddenOptions">
-                      <div className=" TESTICON" to="/men/clothes">
-                        <ion-icon name="game-controller-outline"></ion-icon>
-                      </div>
-                    </div>
                   </div>
                   <div className="buttonLine">
                     <button className="buttonsInDrop">Hats</button>
@@ -117,7 +110,7 @@ const Products = (props) => {
               </div>
             </div>
 
-            <input type="text" placeholder="Search..." className="searches" />
+            <input type="text" placeholder="Search..." className={s.searches} />
             <div className="menu-container">
               <div
                 className="menu-trigger1"
@@ -125,24 +118,31 @@ const Products = (props) => {
                   setOpen1(!open1);
                 }}
               >
-                <button className="filter dropdown-btn">Sort</button>
+                <button className="filter dropdown-btn">{sortTextValue}</button>
               </div>
               <div
                 className={`dropdown-menu1 ${open1 ? "active" : "inactive"}`}
               >
                 <div className="dropBox">
+                
                   <div className="buttonLine1">
                     <button
+                      ref={sortText1}
                       onClick={() => {
                         setSort(
-                          sort == "clothes" || sort == "ClothesHigh-Low" || sort == "ClothesLow-High"
+                          sort == "clothes" ||
+                            sort == "ClothesHigh-Low" ||
+                            sort == "ClothesLow-High"
                             ? "ClothesLow-High"
-                            : sort == "shoes" || sort == "ShoesHigh-Low"| sort == "ShoesLow-High"
+                            : sort == "shoes" ||
+                              (sort == "ShoesHigh-Low") |
+                                (sort == "ShoesLow-High")
                             ? "ShoesLow-High"
                             : "low-high"
                         );
+                        setsortTextValue(sortText1.current.textContent);
                       }}
-                      className="buttonsInDrop1"
+                      className="buttonsInDrop"
                     >
                       By price
                       <br />
@@ -151,17 +151,22 @@ const Products = (props) => {
                   </div>
                   <div className="buttonLine1">
                     <button
-                      onClick={() =>
+                      ref={sortText2}
+                      onClick={() => {
                         setSort(
-                          sort == "clothes" || sort == "ClothesHigh-Low" || sort == "ClothesLow-High"
-                            ? "ClothesHigh-Low": 
-                       
-                            sort == "shoes" || sort == "ShoesLow-High"  || sort == "ShoesHigh-Low"
+                          sort == "clothes" ||
+                            sort == "ClothesHigh-Low" ||
+                            sort == "ClothesLow-High"
+                            ? "ClothesHigh-Low"
+                            : sort == "shoes" ||
+                              sort == "ShoesLow-High" ||
+                              sort == "ShoesHigh-Low"
                             ? "ShoesHigh-Low"
                             : "high-low"
-                        )
-                      }
-                      className="buttonsInDrop1"
+                        );
+                        setsortTextValue(sortText2.current.textContent);
+                      }}
+                      className="buttonsInDrop"
                     >
                       By price
                       <br />
@@ -169,10 +174,40 @@ const Products = (props) => {
                     </button>
                   </div>
                   <div className="buttonLine1">
-                    <SortButton ButtonText="Popular" Link="men/popular" />
+                    <button
+                      ref={sortText3}
+                      // onClick={() => {
+                      //   setSort(
+                      //     sort == "clothes" || sort == "ClothesHigh-Low" || sort == "ClothesLow-High"
+                      //       ? "ClothesLow-High"
+                      //       : sort == "shoes" || sort == "ShoesHigh-Low"| sort == "ShoesLow-High"
+                      //       ? "ShoesLow-High"
+                      //       : "low-high"
+                      //   );
+                      // }}
+                      onClick={() => setsortTextValue(sortText3.current.textContent)}
+                      className="buttonsInDrop"
+                    >
+                      New
+                    </button>
                   </div>
                   <div className="buttonLine1">
-                    <SortButton ButtonText="New" Link="men/new" />
+                    <button
+                      ref={sortText4}
+                      // onClick={() => {
+                      //   setSort(
+                      //     sort == "clothes" || sort == "ClothesHigh-Low" || sort == "ClothesLow-High"
+                      //       ? "ClothesLow-High"
+                      //       : sort == "shoes" || sort == "ShoesHigh-Low"| sort == "ShoesLow-High"
+                      //       ? "ShoesLow-High"
+                      //       : "low-high"
+                      //   );
+                      // }}
+                      onClick={ () => setsortTextValue(sortText4.current.textContent)}
+                      className="buttonsInDrop"
+                    >
+                      Popular
+                    </button>
                   </div>
                 </div>
               </div>

@@ -1,10 +1,13 @@
 .filterRow {
   display: flex;
+  width: 100%;
   flex-direction: row;
   width: 100%;
   justify-content: space-evenly;
-
+height: 200px;
 }
+
+
 
 input {
   width: 70%;
@@ -97,7 +100,7 @@ a {
 display: flex;
 justify-content: center;
 }
-.buttonsInDrop1 {
+.buttonsInDrop {
   font-family: "Ubuntu", sans-serif;
 
   display: flex;
@@ -121,18 +124,6 @@ justify-content: center;
   padding-left: -10px;
 }
 
-.searches {
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-  border-radius: 20px;
-  border: 4px solid black;
-  width: 20%;
-  height: 80px;
-  border-radius: 50px;
-  margin-top: 100px;
-  text-align: center;
-  font-family: "Ubuntu", sans-serif;
-  font-size: 20px;
-}
 
 
 
@@ -277,10 +268,6 @@ background-color: rgba(255, 0, 0, 0.626);
   cursor: pointer;
 }
 
-.buttonLine:hover > .buttonsInDrop {
-  opacity: 0;
-  cursor: pointer;
-}
 
 .hiddenOptions {
   opacity: 0;
@@ -292,15 +279,8 @@ background-color: rgba(255, 0, 0, 0.626);
   transition: 0.7s ease;
 }
 
-.buttonLine:hover > .hiddenOptions {
-  opacity: 1;
-  visibility: 1;
-  cursor: pointer;
-}
 
-.TESTICON {
-  color: #fafafa;
-}
+
 
 .dropdown-menu1.active {
   opacity: 1;
@@ -315,9 +295,22 @@ background-color: rgba(255, 0, 0, 0.626);
   transition: 0.8s ease;
 }
 
-.hiddenOptions:hover > .buttonLine {
-  opacity: 0;
+
+
+
+@media screen and (max-width: 881px) {
+  .filterRow{
+    height: 160px;
+    padding-right: 15%;
+    justify-content: space-around;
+  }
+  .filter{
+    width: 950%;
+  }
+  .dropBox{
+    width: 200%;
+  }
+.buttonsInDrop{
+  font-size: 14px;
 }
-
-
-
+}

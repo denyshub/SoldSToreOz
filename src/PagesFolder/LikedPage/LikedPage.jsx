@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { ProductTemplateLiked } from "../../ProductTemplateLiked";
 import { NavLink } from "react-router-dom";
 import Header from "../../Header/Header";
+import { getLikedItems } from "../../state/state";
 import s from "../../cart/cart.module.css";
 const Liked = (props) => {
   useEffect(() => {
@@ -44,7 +45,7 @@ const Liked = (props) => {
       cartBoxRef.current.removeChild(childToRemove);
     }
   };
-
+  console.log(getLikedItems())
   function showLikedItems() {
     return likedItems.map((p) => (
       <ProductTemplateLiked
