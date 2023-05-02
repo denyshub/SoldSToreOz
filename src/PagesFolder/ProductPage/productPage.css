@@ -255,19 +255,19 @@ svg {
 }
  
 .flexBoxProducts{
-display: flex;
-width: 95%;
-margin-left: 2.5%;
-justify-content: center;
+  width: 100%;
+  display: flex;
+
+  justify-content: center;
 }
 .flexBox1 {
   display: flex;
   flex-direction: row;
+  justify-content: start;
   gap: 3em;
   width: 1600px;
-  justify-content: space-evenly;
+margin-left: 10rem;
   flex-flow: row wrap;
-  padding-bottom: 50px;
 }
 
 .pushFooterProducts{

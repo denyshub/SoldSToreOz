@@ -124,7 +124,6 @@ const Products = (props) => {
                 className={`dropdown-menu1 ${open1 ? "active" : "inactive"}`}
               >
                 <div className="dropBox">
-                
                   <div className="buttonLine1">
                     <button
                       ref={sortText1}
@@ -146,7 +145,7 @@ const Products = (props) => {
                     >
                       By price
                       <br />
-                      (LOWER_HIGHER)
+                      (LOWER-HIGHER)
                     </button>
                   </div>
                   <div className="buttonLine1">
@@ -185,7 +184,9 @@ const Products = (props) => {
                       //       : "low-high"
                       //   );
                       // }}
-                      onClick={() => setsortTextValue(sortText3.current.textContent)}
+                      onClick={() =>
+                        setsortTextValue(sortText3.current.textContent)
+                      }
                       className="buttonsInDrop"
                     >
                       New
@@ -203,7 +204,9 @@ const Products = (props) => {
                       //       : "low-high"
                       //   );
                       // }}
-                      onClick={ () => setsortTextValue(sortText4.current.textContent)}
+                      onClick={() =>
+                        setsortTextValue(sortText4.current.textContent)
+                      }
                       className="buttonsInDrop"
                     >
                       Popular
@@ -219,25 +222,27 @@ const Products = (props) => {
       <div className={s.colorDiv}>
         <div className={s.pushFooter}>
           <div class={s.flexBoxProductsMen}>
-            <div class={s.flexBox1}>
-              {sort == "low-high"
-                ? Sort(data, "low")
-                : sort == "high-low"
-                ? Sort(data, "high")
-                : sort == "shoes"
-                ? MappingFunc(shoes)
-                : sort == "clothes"
-                ? MappingFunc(clothes)
-                : sort == "ClothesLow-High"
-                ? Sort(clothes, "low")
-                : sort == "ShoesLow-High"
-                ? Sort(shoes, "low")
-                : sort == "ClothesHigh-Low"
-                ? Sort(clothes, "high")
-                : sort == "ShoesHigh-Low"
-                ? Sort(shoes, "high")
-                : MappingFunc(data)}
-            </div>
+  
+              <div class={s.flexBox1}>
+                {sort == "low-high"
+                  ? Sort(data, "low")
+                  : sort == "high-low"
+                  ? Sort(data, "high")
+                  : sort == "shoes"
+                  ? MappingFunc(shoes)
+                  : sort == "clothes"
+                  ? MappingFunc(clothes)
+                  : sort == "ClothesLow-High"
+                  ? Sort(clothes, "low")
+                  : sort == "ShoesLow-High"
+                  ? Sort(shoes, "low")
+                  : sort == "ClothesHigh-Low"
+                  ? Sort(clothes, "high")
+                  : sort == "ShoesHigh-Low"
+                  ? Sort(shoes, "high")
+                  : MappingFunc(data)}
+              </div>
+        
           </div>
         </div>
       </div>

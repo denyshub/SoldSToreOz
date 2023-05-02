@@ -62,7 +62,7 @@ function App(props) {
           <Route
             exact
             path={`/${productItem.id}`}
-            element={<ProductPage idProduct = {productItem.id} addCartItem={props.addCartItem}   addLikedItem={props.addLikedItem} nameProduct = {productItem.name} priceProduct = {productItem.price} />}
+            element={<ProductPage productData = {props.Data.productData} idProduct = {productItem.id} addCartItem={props.addCartItem}   addLikedItem={props.addLikedItem} nameProduct = {productItem.name} priceProduct = {productItem.price} />}
           />
         ))}
 

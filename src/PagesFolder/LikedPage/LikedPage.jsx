@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { ProductTemplateLiked } from "../../ProductTemplateLiked";
+import { MobileLikedProducts } from "../../MobileLikedTemplate";
 import { NavLink } from "react-router-dom";
 import Header from "../../Header/Header";
 import { getLikedItems } from "../../state/state";
@@ -8,6 +9,19 @@ const Liked = (props) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 881);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+ 
 
   const cartBoxRef = useRef(null);
   const [total, setTotal] = useState(0);
@@ -47,8 +61,19 @@ const Liked = (props) => {
   };
   console.log(getLikedItems())
   function showLikedItems() {
+    if (isMobile)
     return likedItems.map((p) => (
-      <ProductTemplateLiked
+      <MobileLikedProducts  
+        id={p.id}
+        ProductName={p.name}
+        ImgLink={p.imgMain}
+        Price={p.price}
+        quantity={p.quantity}
+        handleRemoveItem={() => handleRemoveItem(p)}
+      />
+    ));
+    else return likedItems.map((p) => (
+      <ProductTemplateLiked  
         id={p.id}
         ProductName={p.name}
         ImgLink={p.imgMain}

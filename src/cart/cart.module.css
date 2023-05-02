@@ -1,19 +1,31 @@
 .cartProductsDiv {
   width: 100%;
   display: flex;
-
   justify-content: center;
 }
 #productBox {
-  flex-wrap: wrap;
+flex-wrap: wrap;
   margin-top: 50px;
   margin-bottom: 100px;
   width: 100%;
-  height: auto;
   display: flex;
   gap: 3rem;
   flex-direction: row;
   justify-content: center;
+}
+
+@media screen and (max-width: 881px) {
+  #productBox{
+    flex-wrap: wrap;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  width: 100%;
+  display: flex;
+  gap: 0.8rem;
+  flex-direction: row;
+  justify-content: center;
+  }
+  
 }
 .cartTextDiv {
   margin-top: 100px;
@@ -35,7 +47,7 @@ h1 {
 .totalDiv {
   transition: 0.3s;
   text-align: center;
-  margin-top: 120px;
+  padding-top: 120px;
   font-size: 30px;
   font-family: "Fjalla one";
   color: gray;

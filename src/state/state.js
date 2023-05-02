@@ -113,15 +113,15 @@ export let state = {
       type: "clothes",
       liked: false,
     },
-    {
-      key: 12,
-      id: 12,
-      name: "Black Nike Hoodie2",
-      price: 55,
-      imgMain: BlackNikeHoodie2,
-      type: "clothes",
-      liked: false,
-    },
+    // {
+    //   key: 12,
+    //   id: 12,
+    //   name: "Black Nike Hoodie2",
+    //   price: 55,
+    //   imgMain: BlackNikeHoodie2,
+    //   type: "clothes",
+    //   liked: false,
+    // },
   ],
 };
 

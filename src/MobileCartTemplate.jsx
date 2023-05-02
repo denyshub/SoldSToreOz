@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { addLikedItem, getLikedItems } from "./state/state";
 import blackHeart from "./images/svj/likedItemHeart.svg";
 import whiteHeart from "./images/svj/whiteHeart.svg";
-export const MobileProducts = (props) => {
+export const MobileProductsCart = (props) => {
   const initialHeartState = getLikedItems().some((item) => item.id === props.id)
     ? blackHeart
     : whiteHeart;
@@ -33,6 +33,7 @@ export const MobileProducts = (props) => {
       addItem(id);
     }
   }
+
   let productPath = "/" + String(props.id);
   let price = props.Price + "$";
   return (
@@ -50,6 +51,9 @@ export const MobileProducts = (props) => {
           <p className={s.caption}>{props.ProductName}</p>
           <p className={s.price}>{price}</p>
         </div>
+        <button className={s.mapButton} onClick={props.handleRemoveItem}>
+        Remove
+      </button>
       </div>
     </div>
   );

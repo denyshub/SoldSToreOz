@@ -76,10 +76,9 @@
 .flexBox1 {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+justify-content: center;
   gap: 3em;
-  width: 1600px;
-
+  max-width: 1600px;
   flex-flow: row wrap;
 }
 
@@ -112,7 +111,7 @@
   .flexBox1 {
     width: 100%;
     height: auto;
-    padding-left: 6px;
+    padding-left: 3px;
     display: flex;
     gap: 0.8em;
     justify-content: start;

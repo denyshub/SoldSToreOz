@@ -3,7 +3,7 @@ import Slider from "../../slider/slider";
 import Header from "../../Header/Header";
 import { ProductTemplate } from "../../ProductTemplate";
 import "../ProductPage/productPage.css";
-import { getLikedItems } from "../../state/state";
+import { getLikedItems, getCartItems } from "../../state/state";
 import GreenNike from "../../images/shoes/greenNike.jpg";
 import BlackAdidas from "../../images/shoes/blackAdidas.jpg";
 import AirForce1White from "../../images/shoes/airForce1White.jpg";
@@ -16,26 +16,24 @@ const ProductPage = (props) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const [isLiked, setIsLiked] = useState(false);
   
-  let clickedCartButton = React.createRef();
+  //liked button changer
   let clickedLikedButton = React.createRef();
 
   useEffect(() => {
     getLikedItems().some((item) => item.id === props.idProduct)
-    ? changeLikedButton()
-    : changeNotLikedButton();
-  
+      ? changeLikedButton()
+      : changeNotLikedButton();
   }, [props.idProduct]);
 
-
-  const handleAddToCart = (productId) => {
-    props.addCartItem(productId);
-    clickedCartButton.current.style.background = "#111";
-    clickedCartButton.current.style.color = "white";
-    clickedCartButton.current.innerText = "Added to the cart";
-  };
+  const otherProdsArray = () => {
+    return props.productData.map(p => p.id != props.idProduct? <ProductTemplate
+      id={p.id}
+      ProductName={p.name}
+      ImgLink={p.imgMain}
+      Price={p.price}
+    /> : null)
+  }
 
   const changeLikedButton = () => {
     clickedLikedButton.current.style.background = "#111";
@@ -47,14 +45,36 @@ const ProductPage = (props) => {
     clickedLikedButton.current.style.color = "#111";
     clickedLikedButton.current.innerText = "Like";
   };
-
-
   const handleLikedButton = (productId) => {
     props.addLikedItem(productId);
-    setIsLiked(true);
     changeLikedButton();
   };
 
+  //cart button changer
+  let clickedCartButton = React.createRef();
+
+  useEffect(() => {
+    getCartItems().some((item) => item.id === props.idProduct)
+      ? changeCartButton()
+      : changeNotCartButton();
+  }, [props.idProduct]);
+
+
+  const changeCartButton = () => {
+    clickedCartButton.current.style.background = "#111";
+    clickedCartButton.current.style.color = "white";
+    clickedCartButton.current.innerText = "Added to the cart";
+  };
+  const changeNotCartButton = () => {
+    clickedCartButton.current.style.background = "white";
+    clickedCartButton.current.style.color = "#111";
+    clickedCartButton.current.innerText = "Add to the cart";
+  };
+  const handleAddToCart = (productId) => {
+    props.addCartItem(productId);
+    changeCartButton();
+  };
+console.log(props.productData)
   return (
     <>
       <Header
@@ -167,78 +187,7 @@ const ProductPage = (props) => {
         <div>
           <div className="flexBoxProducts">
             <div className="flexBox1">
-              <ProductTemplate
-                ProdPage="productPage"
-                ProductName="Nike green"
-                ImgLink={GreenNike}
-                Price="1500"
-              />
-              <ProductTemplate
-                ProdPage="productPage"
-                ProductName="Nike bones"
-                ImgLink={NikeBones}
-                Price="300"
-              />
-              <ProductTemplate
-                ProdPage="productPage"
-                ProductName="dunk yellow"
-                ImgLink={DunkYellow}
-                Price="400"
-              />
-              <ProductTemplate
-                ProdPage="productPage"
-                ProductName="Air force 1 white"
-                ImgLink={AirForce1White}
-                Price="200"
-              />
-              <ProductTemplate
-                ProdPage="productPage"
-                ProductName="jordan grey"
-                ImgLink={JordanGrey}
-                Price="300"
-              />
-              <ProductTemplate
-                ProdPage="productPage"
-                ProductName="Nike green"
-                ImgLink={GreenNike}
-                Price="1500"
-              />
-              <ProductTemplate
-                ProdPage="productPage"
-                ProductName="black adidas"
-                ImgLink={BlackAdidas}
-                Price="500"
-              />
-              <ProductTemplate
-                ProdPage="productPage"
-                ProductName="dunk yellow"
-                ImgLink={DunkYellow}
-                Price="300"
-              />
-              <ProductTemplate
-                ProdPage="productPage"
-                ProductName="Air force 1 white"
-                ImgLink={AirForce1White}
-                Price="200"
-              />
-              <ProductTemplate
-                ProdPage="productPage"
-                ProductName="Nike green"
-                ImgLink={GreenNike}
-                Price="1500"
-              />
-              <ProductTemplate
-                ProdPage="productPage"
-                ProductName="black adidas"
-                ImgLink={BlackAdidas}
-                Price="500"
-              />
-              <ProductTemplate
-                ProdPage="productPage"
-                ProductName="dunk yellow"
-                ImgLink={DunkYellow}
-                Price="300"
-              />
+            {otherProdsArray()}
             </div>
           </div>
         </div>

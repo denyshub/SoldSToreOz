@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { ProductTemplateCart } from "../ProductTemplateCart";
+import {MobileProductsCart} from "../MobileCartTemplate";
 import { NavLink } from "react-router-dom";
 import Header from "../Header/Header";
 import s from "./cart.module.css";
@@ -7,6 +8,18 @@ const Cart = (props) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 881);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+ 
 
   const cartBoxRef = useRef(null);
   const [total, setTotal] = useState(0);
@@ -49,8 +62,9 @@ const Cart = (props) => {
   };
 
   function showCartItems() {
+    if (isMobile)
     return cartItems.map((p) => (
-      <ProductTemplateCart
+      <MobileProductsCart
         id={p.id}
         ProductName={p.name}
         ImgLink={p.imgMain}
@@ -59,8 +73,17 @@ const Cart = (props) => {
         handleRemoveItem={() => handleRemoveItem(p)}
       />
     ));
+    else  return cartItems.map((p) => (
+    <ProductTemplateCart
+    id={p.id}
+        ProductName={p.name}
+        ImgLink={p.imgMain}
+        Price={p.price}
+        quantity={p.quantity}
+        handleRemoveItem={() => handleRemoveItem(p)}
+      />));
   }
-
+  
   function showButtons() {
     return cartItems.map((p) => (
       <button className={s.mapButton} onClick={() => handleRemoveItem(p)}>

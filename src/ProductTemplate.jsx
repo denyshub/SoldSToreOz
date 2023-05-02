@@ -6,44 +6,41 @@ import blackHeart from "./images/svj/likedItemHeart.svg";
 import whiteHeart from "./images/svj/whiteHeart.svg";
 
 export const ProductTemplate = (props) => {
-  const [likedItems, setLikedItems] = useState(getLikedItems());
-  const [isLiked, setIsLiked] = useState(
-    likedItems.some((item) => item.id === props.id)
-  );
+  const initialHeartState = getLikedItems().some((item) => item.id === props.id)
+  ? blackHeart
+  : whiteHeart;
 
-  useEffect(() => {
-    setLikedItems(getLikedItems());
-    setIsLiked(likedItems.some((item) => item.id === props.id));
-  }, []);
+let likedItems = JSON.parse(localStorage.getItem("newLikedItems")) || [];
+const [heart, setHeart] = useState(initialHeartState);
 
-  function addItem(id) {
-    addLikedItem(id);
-    setIsLiked(true);
-    setLikedItems(getLikedItems());
-  }
+const handleRemoveItem = (id) => {
+  const updatedLikedItems = likedItems.filter((p) => p.id !== id);
+  localStorage.setItem("newLikedItems", JSON.stringify(updatedLikedItems));
+  setHeart(whiteHeart);
+  likedItems = updatedLikedItems;
+};
 
-  function removeItem(id) {
-    const updatedLikedItems = likedItems.filter((item) => item.id !== id);
-    localStorage.setItem("newLikedItems", JSON.stringify(updatedLikedItems));
-    setIsLiked(false);
-    setLikedItems(updatedLikedItems);
-  }
-
-  function handleLikedButton(id) {
-    if (isLiked) {
-      removeItem(id);
-    } else {
-      addItem(id);
-    }
-  }
 console.log(getLikedItems());
-  let productPath = "/" + props.id;
-  let price = props.Price + "$";
+
+function addItem(id) {
+  addLikedItem(id);
+  setHeart(blackHeart);
+}
+
+function handleLikedButton(id) {
+  if (heart === blackHeart) {
+    handleRemoveItem(id);
+  } else {
+    addItem(id);
+  }
+}
+let productPath = "/" + String(props.id);
+let price = props.Price + "$";
   return (
     <div className={s.imageFrame}>
-      <div className={`${s.likeProduct} ${isLiked ? "liked" : ""}`}>
-        <button onClick={() => handleLikedButton(props.id)}>
-          <img className={s.blackHeart} src={isLiked ? blackHeart : whiteHeart}></img>
+      <div className={s.likeProduct + " " + "liked"}>
+      <button onClick={() => handleLikedButton(props.id)}>
+          <img className={s.blackHeart} src={heart}></img>
         </button>
       </div>
       <NavLink to={productPath}>
