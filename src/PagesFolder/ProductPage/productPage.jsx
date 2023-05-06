@@ -15,7 +15,7 @@ import greenNike2 from "../../images/shoes/greenNike2.webp";
 const ProductPage = (props) => {
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [props.idProduct]);
   
   //liked button changer
   let clickedLikedButton = React.createRef();
