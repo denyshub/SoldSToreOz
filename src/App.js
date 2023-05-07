@@ -13,6 +13,7 @@ import LikedPage from "./PagesFolder/LikedPage/LikedPage"
 import Header from "./Header/Header";
 import Products from "./PagesFolder/MenPage/Components/Products/Products";
 function App(props) {
+  debugger
   return (
     <BrowserRouter>
       <Routes>
@@ -58,11 +59,12 @@ function App(props) {
             element={<Products productData={props.Data.productData}   addLikedItem={props.addLikedItem}/>}
           ></Route>
         </Route>
+
         {props.Data.productData.map((productItem) => (
           <Route
             exact
             path={`/${productItem.id}`}
-            element={<ProductPage productData = {props.Data.productData} idProduct = {productItem.id} addCartItem={props.addCartItem}   addLikedItem={props.addLikedItem} nameProduct = {productItem.name} priceProduct = {productItem.price} />}
+            element={<ProductPage  idProduct = {productItem.id} addCartItem={props.addCartItem}   addLikedItem={props.addLikedItem} nameProduct = {productItem.name} priceProduct = {productItem.price} />}
           />
         ))}
 

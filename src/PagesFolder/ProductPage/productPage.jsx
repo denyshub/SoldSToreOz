@@ -3,7 +3,7 @@ import Slider from "../../slider/slider";
 import Header from "../../Header/Header";
 import { ProductTemplate } from "../../ProductTemplate";
 import "../ProductPage/productPage.css";
-import { getLikedItems, getCartItems } from "../../state/state";
+import { store } from "../../state/state";
 import GreenNike from "../../images/shoes/greenNike.jpg";
 import BlackAdidas from "../../images/shoes/blackAdidas.jpg";
 import AirForce1White from "../../images/shoes/airForce1White.jpg";
@@ -13,27 +13,32 @@ import NikeBones from "../../images/shoes/nikeBones.jpg";
 import greenNike2 from "../../images/shoes/greenNike2.webp";
 
 const ProductPage = (props) => {
+  debugger;
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [props.idProduct]);
-  
+
   //liked button changer
   let clickedLikedButton = React.createRef();
 
   useEffect(() => {
-    getLikedItems().some((item) => item.id === props.idProduct)
+    store.getLikedItems().some((item) => item.id === props.idProduct)
       ? changeLikedButton()
       : changeNotLikedButton();
   }, [props.idProduct]);
 
-  const otherProdsArray = () => {
-    return props.productData.map(p => p.id != props.idProduct? <ProductTemplate
-      id={p.id}
-      ProductName={p.name}
-      ImgLink={p.imgMain}
-      Price={p.price}
-    /> : null)
-  }
+  // const otherProdsArray = () => {
+  //   return props.productData.map((p) =>
+  //     p.id != props.idProduct ? (
+  //       <ProductTemplate
+  //         id={p.id}
+  //         ProductName={p.name}
+  //         ImgLink={p.imgMain}
+  //         Price={p.price}
+  //       />
+  //     ) : null
+  //   );
+  // };
 
   const changeLikedButton = () => {
     clickedLikedButton.current.style.background = "#111";
@@ -46,7 +51,7 @@ const ProductPage = (props) => {
     clickedLikedButton.current.innerText = "Like";
   };
   const handleLikedButton = (productId) => {
-    props.addLikedItem(productId);
+    store.addLikedItem(productId);
     changeLikedButton();
   };
 
@@ -54,11 +59,10 @@ const ProductPage = (props) => {
   let clickedCartButton = React.createRef();
 
   useEffect(() => {
-    getCartItems().some((item) => item.id === props.idProduct)
+    store.getCartItems().some((item) => item.id === props.idProduct)
       ? changeCartButton()
       : changeNotCartButton();
   }, [props.idProduct]);
-
 
   const changeCartButton = () => {
     clickedCartButton.current.style.background = "#111";
@@ -70,11 +74,12 @@ const ProductPage = (props) => {
     clickedCartButton.current.style.color = "#111";
     clickedCartButton.current.innerText = "Add to the cart";
   };
-  const handleAddToCart = (productId) => {
-    props.addCartItem(productId);
-    changeCartButton();
-  };
-console.log(props.productData)
+    const handleAddToCart = (productId) => {
+      debugger
+      store.addCartItem(productId);
+      changeCartButton();
+    };
+
   return (
     <>
       <Header
@@ -186,9 +191,7 @@ console.log(props.productData)
         </div>
         <div>
           <div className="flexBoxProducts">
-            <div className="flexBox1">
-            {otherProdsArray()}
-            </div>
+            <div className="flexBox1"></div>
           </div>
         </div>
       </div>

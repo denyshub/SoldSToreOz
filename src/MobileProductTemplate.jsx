@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import s from "./PagesFolder/MenPage/Components/Products/Products.module.css";
 import { NavLink } from "react-router-dom";
-import { addLikedItem, getLikedItems } from "./state/state";
+import { store } from "./state/state";
 import blackHeart from "./images/svj/likedItemHeart.svg";
 import whiteHeart from "./images/svj/whiteHeart.svg";
 export const MobileProducts = (props) => {
-  const initialHeartState = getLikedItems().some((item) => item.id === props.id)
+  const initialHeartState = store.getLikedItems().some((item) => item.id === props.id)
     ? blackHeart
     : whiteHeart;
 
@@ -19,10 +19,10 @@ export const MobileProducts = (props) => {
     likedItems = updatedLikedItems;
   };
 
-  console.log(getLikedItems());
+  console.log(store.getLikedItems());
 
   function addItem(id) {
-    addLikedItem(id);
+    store.addLikedItem(id);
     setHeart(blackHeart);
   }
 

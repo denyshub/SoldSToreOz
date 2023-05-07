@@ -1,45 +1,56 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import s from "./PagesFolder/MenPage/Components/Products/Products.module.css";
-import { addLikedItem, getLikedItems } from "./state/state";
+import { store } from "./state/state";
 import blackHeart from "./images/svj/likedItemHeart.svg";
 import whiteHeart from "./images/svj/whiteHeart.svg";
+import { rerenderFunction } from ".";
 
 export const ProductTemplate = (props) => {
-  const initialHeartState = getLikedItems().some((item) => item.id === props.id)
-  ? blackHeart
-  : whiteHeart;
+  const [likedItems, setLikedItems] = useState(store.getLikedItems());
 
-let likedItems = JSON.parse(localStorage.getItem("newLikedItems")) || [];
-const [heart, setHeart] = useState(initialHeartState);
+  const handleRemoveItem = (id) => {
+    const updatedLikedItems = likedItems.filter((p) => p.id !== id);
+    localStorage.setItem("newLikedItems", JSON.stringify(updatedLikedItems));
+    setLikedItems(updatedLikedItems);
+  };
 
-const handleRemoveItem = (id) => {
-  const updatedLikedItems = likedItems.filter((p) => p.id !== id);
-  localStorage.setItem("newLikedItems", JSON.stringify(updatedLikedItems));
-  setHeart(whiteHeart);
-  likedItems = updatedLikedItems;
-};
+  const initialHeartState = store
+    .getLikedItems()
+    .some((item) => item.id === props.id)
+    ? blackHeart
+    : whiteHeart;
 
-console.log(getLikedItems());
+  const [heart, setHeart] = useState(initialHeartState);
 
-function addItem(id) {
-  addLikedItem(id);
-  setHeart(blackHeart);
-}
-
-function handleLikedButton(id) {
-  if (heart === blackHeart) {
-    handleRemoveItem(id);
-  } else {
-    addItem(id);
+  function addItem(id) {
+    store.addLikedItem(id);
+    setHeart(blackHeart);
   }
-}
-let productPath = "/" + String(props.id);
-let price = props.Price + "$";
+
+  function handleLikedButton(id) {
+    const isLiked = likedItems.some((item) => item.id === id);
+    if (isLiked) {
+      handleRemoveItem(id);
+    } else {
+      addItem(id);
+    }
+    setHeart(isLiked ? whiteHeart : blackHeart);
+  }
+
+  let productPath = "/" + String(props.id);
+  let price = props.Price + "$";
+
+  useEffect(() => {
+    const updatedLikedItems = store.getLikedItems();
+    setLikedItems(updatedLikedItems);
+  }, []);
+
+  console.log(likedItems)
   return (
     <div className={s.imageFrame}>
       <div className={s.likeProduct + " " + "liked"}>
-      <button onClick={() => handleLikedButton(props.id)}>
+        <button onClick={() => handleLikedButton(props.id)}>
           <img className={s.blackHeart} src={heart}></img>
         </button>
       </div>

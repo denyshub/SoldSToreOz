@@ -3,7 +3,7 @@ import { ProductTemplateLiked } from "../../ProductTemplateLiked";
 import { MobileLikedProducts } from "../../MobileLikedTemplate";
 import { NavLink } from "react-router-dom";
 import Header from "../../Header/Header";
-import { getLikedItems } from "../../state/state";
+import { store } from "../../state/state";
 import s from "../../cart/cart.module.css";
 const Liked = (props) => {
   useEffect(() => {
@@ -59,7 +59,6 @@ const Liked = (props) => {
       cartBoxRef.current.removeChild(childToRemove);
     }
   };
-  console.log(getLikedItems())
   function showLikedItems() {
     if (isMobile)
     return likedItems.map((p) => (

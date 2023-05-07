@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import s from "./PagesFolder/MenPage/Components/Products/Products.module.css";
 import { NavLink } from "react-router-dom";
-import { addLikedItem, getLikedItems } from "./state/state";  
+import { store } from "./state/state";  
 import Heart from "./images/svj/likedItemHeart.svg";
 export const MobileLikedProducts = (props) => {
   let likedItems = JSON.parse(localStorage.getItem("newLikedItems")) || [];
  
 
-  console.log(getLikedItems());
+  console.log(store.getLikedItems());
 
 
 

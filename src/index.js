@@ -1,16 +1,20 @@
 import React from "react";
-import { state, subscriber, addCartItem, addLikedItem } from "./state/state";
+import { store } from "./state/state";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 
-
-
-export let rerenderFunction = (state) => {
+export let rerenderFunction = () => {
   const root = ReactDOM.createRoot(document.getElementById("root"));
   root.render(
-        <App Data = {state} addCartItem = {addCartItem} addLikedItem = {addLikedItem}/>
+    <App
+      Data={store.state}
+      addCartItem={store.addCartItem}
+      addLikedItem={store.addLikedItem}
+      getCartItems = {store.getCartItems}
+      getLikedItems = {store.addLikedItem}
+    />
   );
-}
+};
 
-rerenderFunction(state);
-subscriber(rerenderFunction);
+rerenderFunction(store.state);
+store.subscriber(rerenderFunction);
