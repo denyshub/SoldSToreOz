@@ -3,34 +3,33 @@
 @tailwind utilities;
 
 .containerSlide {
-
 }
 
-.paddingContent{
-padding: 10px;
+.paddingContent {
+  padding: 10px;
 }
 
-.generalFont{
-  font-family: 'Catamaran', sans-serif;
+.generalFont {
+  font-family: "Catamaran", sans-serif;
   font-size: 30px;
 }
 
-.detailsFont{
-  font-family: 'Catamaran', serif;
+.detailsFont {
+  font-family: "Catamaran", serif;
   font-size: 25px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
-.fontLongText{
-  font-family: 'Sarabun', sans-serif;
+.fontLongText {
+  font-family: "Sarabun", sans-serif;
   color: rgb(101, 101, 101);
 }
 
-.placeBetween{
+.placeBetween {
   margin-top: 100px;
 }
-.bigConatinersDes{
+.bigConatinersDes {
   width: 60%;
 
   border-radius: 20px;
@@ -39,7 +38,7 @@ padding: 10px;
 }
 
 .shoesProdPage {
-  width:30em;
+  width: 30em;
   height: 100%;
 }
 
@@ -60,7 +59,6 @@ padding: 10px;
   justify-content: center;
   align-items: center;
   overflow: hidden;
- 
 }
 
 .prodPhotoOwnPage {
@@ -83,7 +81,6 @@ padding: 10px;
   justify-content: center;
   flex-direction: row;
 }
-
 
 .all {
   display: flex;
@@ -116,8 +113,8 @@ padding: 10px;
   align-items: center;
   width: 30%;
   height: 45px;
-font-size: 30px;
-font-style:oblique;
+  font-size: 30px;
+  font-style: oblique;
   justify-content: center;
   border-radius: 50px;
   border: 4px solid black;
@@ -127,7 +124,7 @@ font-style:oblique;
   display: flex;
   flex-direction: row;
   padding-top: 30px;
-padding-bottom: 35px;
+  padding-bottom: 35px;
   gap: 0.7em;
 
   justify-content: space-evenly;
@@ -143,7 +140,7 @@ padding-bottom: 35px;
   width: 25%;
   height: 40px;
   border-radius: 50px;
-font-size: 24px;
+  font-size: 24px;
   border: 3px solid black;
   transition: transform 0.3s;
 }
@@ -190,12 +187,11 @@ svg {
   justify-content: space-between;
 }
 
-
 .cartButton {
   height: 50px;
   width: 25vw;
-  
- font-size:29px ;
+
+  font-size: 29px;
   border: 4px solid black;
   border-radius: 50px;
   transition: 0.5s;
@@ -216,7 +212,6 @@ svg {
   border-radius: 120px;
   transition: transform 0.3s;
   padding-top: 100px;
- 
 }
 
 .aboutProductProperties1 {
@@ -250,11 +245,11 @@ svg {
   flex-direction: row;
   font-size: 25px;
 }
-#bigTextAbout{
-  font-size: 24px
+#bigTextAbout {
+  font-size: 24px;
 }
- 
-.flexBoxProducts{
+
+.flexBoxProducts {
   width: 100%;
   display: flex;
 
@@ -266,31 +261,38 @@ svg {
   justify-content: start;
   gap: 3em;
   width: 1600px;
-margin-left: 10rem;
+  margin-left: 10rem;
   flex-flow: row wrap;
 }
 
-.pushFooterProducts{
+.pushFooterProducts {
   min-height: 100vh;
   margin-bottom: 100px;
 }
 
-.underInfo{
+.underInfo {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 100px;
-  font-family: 'Catamaran', sans-serif;
+  font-family: "Catamaran", sans-serif;
   font-size: 50px;
 }
 
-.addedToCart{
+.addedToCart {
   height: 200px;
   position: absolute;
-  margin-left:50%;
+  margin-left: 50%;
   z-index: 10000;
   width: 200px;
   background-color: black;
   margin-top: 200px;
+}
+
+.ProductImages {
+  height: 540px;
+  width: 85%;
+  padding-left: 150px;
+
 }

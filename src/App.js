@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes} from "react-router-dom";
 import "./Header/Header";
+import ProductSlider from "./SliderTest/SliderTest"
 import "./PagesFolder/ProductPage/productPage.css";
 import "./PagesFolder/MenPage/Components/FilterSort/FilterSort.css";
 import FullMainPage from "./PagesFolder/MainPage/FullMainPage";
@@ -12,6 +13,7 @@ import Cart from "../src/cart/cart";
 import LikedPage from "./PagesFolder/LikedPage/LikedPage"
 import Header from "./Header/Header";
 import Products from "./PagesFolder/MenPage/Components/Products/Products";
+import Slider from "react-slick";
 function App(props) {
   debugger
   return (
@@ -31,10 +33,16 @@ function App(props) {
             <Header FirstPage="home" SecondPage="men" ThirdPage="kids" />
           }
         />
-        <Route
+        {/* <Route
           path="/kids"
           element={
             <Header FirstPage="home" SecondPage="men" ThirdPage="women" />
+          }
+        /> */}
+         <Route
+          path="/kids"
+          element={
+            <ProductSlider/>
           }
         />
         <Route
@@ -64,7 +72,7 @@ function App(props) {
           <Route
             exact
             path={`/${productItem.id}`}
-            element={<ProductPage  idProduct = {productItem.id} addCartItem={props.addCartItem}   addLikedItem={props.addLikedItem} nameProduct = {productItem.name} priceProduct = {productItem.price} />}
+            element={<ProductPage  idProduct = {productItem.id} addCartItem={props.addCartItem}   addLikedItem={props.addLikedItem} nameProduct = {productItem.name} priceProduct = {productItem.price} imagesProduct = {productItem.allImages}/>}
           />
         ))}
 

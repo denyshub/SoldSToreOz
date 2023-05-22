@@ -12,8 +12,8 @@
 }
 
 .captionsDiv {
-   font-family: "Fjalla one";
-   color: rgb(74, 74, 74);
+  font-family: "Fjalla one";
+  color: rgb(74, 74, 74);
   font-size: 1.5rem;
   text-align: center;
   display: flex;
@@ -98,7 +98,7 @@ footer,
   grid-column: 20/20;
   grid-row: 4/5;
   display: flex;
-  gap: 1em;
+
   margin-bottom: 10px;
 }
 
@@ -120,15 +120,6 @@ footer,
   align-items: start;
   grid-column: 5/7;
   grid-row: 1/5;
-}
-
-.footerTitle {
-  text-transform: uppercase;
-  font-family: "Ubuntu" sans-serif;
-  font-size: 20px;
-  color: white;
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 
 .footerPoints {
@@ -172,6 +163,33 @@ footer,
   .productsDivDesk {
     display: none;
   }
+  .footerPoints {
+    font-family: "Ubuntu" sans-serif;
+    color: rgb(200, 203, 206);
+    font-weight: lighter;
+    font-size: 0.9rem;
+  }
+  #socials {
+    font-size: 1.5rem;
+  }
+  .footerTitle {
+    text-transform: uppercase;
+    font-family: "Ubuntu" sans-serif;
+    font-size: 1rem;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .aboutCompanyDiv {
+    padding-left: 10px;
+    width: 8.5rem;
+    height: 200px;
+    grid-column: 2/4;
+    grid-row: 1/5;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
 }
 @media screen and (min-width: 881px) {
   .searchMobile {
@@ -213,26 +231,31 @@ footer,
     display: none;
   }
   .collectionsDiv {
-    border-top: 1px rgba(190, 184, 184, 0.611) solid;
-
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     width: 100%;
-    height: 500px;
-    padding: 40px 0px;
-    margin-top: 150px;
-    margin-bottom: 50px;
+    height: 200px;
+    margin: 200px 0 50px 0;
     background-color: white;
   }
 
   .collectionsText {
-    font-size: 40px;
-    font-family: "Fjalla one";
+    margin-left: 9%;
+    width: 1600px;
+    padding-top: 100px;
     color: #111;
+    display: flex;
+    flex-direction: row;
+
     text-transform: uppercase;
   }
-
+  .collectionsText p {
+    height: 20px;
+    font-size: 50px;
+    font-family: "Fjalla one";
+    color: #111;
+  }
   .imageNewColls {
     height: 100%;
   }
@@ -250,6 +273,14 @@ footer,
     flex-wrap: wrap;
     margin-left: 9%;
     gap: 3em;
+  }
+  .footerTitle {
+    text-transform: uppercase;
+    font-family: "Ubuntu" sans-serif;
+    font-size: 20px;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 }
 .searchMobileDiv {
@@ -334,10 +365,11 @@ footer,
 
 .seeAllBtn {
   color: #111;
-  width: 40%;
-  font-family: "Ubuntu";
-  transition: 0.3s ease;
-  font-size: 40px;
+  width: 100%;
+  font-family: "Fjalla one";
+  transition: 0.1s ease;
+  font-size: 2rem;
+  padding-top: 15px;
   background-color: white;
 }
 /* desk */

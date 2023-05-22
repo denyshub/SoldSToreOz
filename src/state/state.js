@@ -1,5 +1,11 @@
 import GreenNike from "../images/shoes/greenNike.jpg";
+import GreenNike1 from "../images/shoes/greenNike1.jpg";
+import GreenNike2 from "../images/shoes/greenNike2.jpg";
+import GreenNike3 from "../images/shoes/greenNike4.jpg";
 import BlackAdidas from "../images/shoes/blackAdidas.jpg";
+import BlackAdidas1 from "../images/shoes/blackAdidas1.jpg";
+import BlackAdidas2 from "../images/shoes/blackAdidas2.jpg";
+import BlackAdidas3 from "../images/shoes/blackAdidas3.jpg";
 import AirForce1White from "../images/shoes/airForce1White.jpg";
 import JordanGrey from "../images/shoes/jordanGrey.jpg";
 import DunkYellow from "../images/shoes/dunkYellow.jpg";
@@ -18,6 +24,7 @@ export let store = {
         key: 1,
         id: 1,
         name: "Nike Green",
+        allImages:[GreenNike1,GreenNike2,GreenNike3],
         price: 1500,
         imgMain: GreenNike,
         type: "shoes",
@@ -27,6 +34,7 @@ export let store = {
         key: 2,
         id: 2,
         name: "Adidas Black",
+        allImages:[BlackAdidas1, BlackAdidas2,BlackAdidas3],
         price: 500,
         imgMain: BlackAdidas,
         type: "shoes",

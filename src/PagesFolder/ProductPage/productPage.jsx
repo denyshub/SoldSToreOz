@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Slider from "../../slider/slider";
+import ProductSlider from "../../SliderTest/SliderTest";
 import Header from "../../Header/Header";
 import { ProductTemplate } from "../../ProductTemplate";
 import "../ProductPage/productPage.css";
@@ -92,11 +93,9 @@ const ProductPage = (props) => {
       <div className="pushFooterProducts">
         <div class="placer">
           <div class="bigConatinersDes">
-            <div class="flexboxImgPrPag">
-              <div className="photoSize">
-                <Slider />
-              </div>
-            </div>
+          <ProductSlider productImages={props.imagesProduct} />
+
+            
           </div>
           <div class="productInfo">
             <div class="nameCenter">
